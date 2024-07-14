@@ -1,11 +1,11 @@
+import MyComponent from "components/MyComponent";
 
 function App() {
-
   return (
     <div>
-Hello
+      <MyComponent />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
