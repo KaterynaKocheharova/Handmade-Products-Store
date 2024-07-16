@@ -1,17 +1,16 @@
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
+import Container from "components/common/Container/Container";
 import NavList from "./NavList";
 import NavBarMenu from "./Menu";
-
+import css from "./NavBar.module.css"
 
 const NavBar = () => {
   return (
-    <AppBar>
-      <Toolbar>
+    <header className={css.header}>
+      <Container>
         <NavList />
-        <NavBarMenu/>
-      </Toolbar>
-    </AppBar>
+        <NavBarMenu />
+      </Container>
+    </header>
   );
 };
 

@@ -37,14 +37,6 @@ const theme = createTheme({
   },
 
   components: {
-    MuiAppBar: {
-      styleOverrides: {
-        root: {
-          backgroundColor: customPalette.mainBgColor,
-          color: customPalette.mainFontColor,
-        },
-      },
-    },
     MuiButton: {
       styleOverrides: {
         root: {
