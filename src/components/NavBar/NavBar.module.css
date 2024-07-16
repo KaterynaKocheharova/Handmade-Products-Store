@@ -2,7 +2,7 @@
   padding-top: 3rem;
   padding-bottom: 3rem;
   background-color: var(--secondary-bg-color);
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
 }
 
 .nav-list {
@@ -17,7 +17,6 @@
 }
 
 .nav-item {
-  position: relative;
   font-size: 19px;
   cursor: pointer;
   transition: transform 250ms linear;
@@ -37,4 +36,16 @@
   .menu-container {
     display: none;
   }
+}
+
+.icon {
+  color: var(--main-font-color);
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}
+
+.user-menu {
+  display: flex;
+  gap: 1rem;
 }

@@ -1,0 +1,8 @@
+.nav-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.active-link {
+  color: var(--heghlight-color);
+}
