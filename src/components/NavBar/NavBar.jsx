@@ -1,20 +1,17 @@
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import { styled } from "@mui/material/styles";
 import NavList from "./NavList";
+import NavBarMenu from "./Menu";
 
-const StyledAppBar = styled(AppBar)(({ theme }) => ({
-  backgroundColor: theme.palette.customColors.mainBgColor,
-  color: theme.palette.customColors.mainFontColor,
-}));
 
 const NavBar = () => {
   return (
-    <StyledAppBar>
+    <AppBar>
       <Toolbar>
         <NavList />
+        <NavBarMenu/>
       </Toolbar>
-    </StyledAppBar>
+    </AppBar>
   );
 };
 

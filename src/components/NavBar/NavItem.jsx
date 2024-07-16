@@ -1,9 +1,10 @@
 import css from "./NavBar.module.css";
+import { NavLink } from "react-router-dom";
 
 const NavItem = ({ children }) => {
   return (
     <li className={css["nav-item"]}>
-      <a>{children}</a>
+      <NavLink className={css["nav-link"]}>{children}</NavLink>
     </li>
   );
 };

@@ -1,40 +1,43 @@
-import { useState } from 'react';
-import Button from '@mui/material/Button';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
+import { useState } from "react";
+import Button from "@mui/material/Button";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import css from "./NavBar.module.css";
 
-export default function BasicMenu() {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
+export default function NavBarMenu() {
+  const [isOpen, setIsOpen] = useState(null); 
+  const open = Boolean(isOpen); 
+
   const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
+    setIsOpen(event.currentTarget);
   };
+
   const handleClose = () => {
-    setAnchorEl(null);
+    setIsOpen(null);
   };
 
   return (
-    <div>
+    <div className={css["menu-container"]}>
       <Button
-        id="basic-button"
-        aria-controls={open ? 'basic-menu' : undefined}
+        id="basic-button" 
+        aria-controls={open ? "basic-menu" : undefined} 
         aria-haspopup="true"
-        aria-expanded={open ? 'true' : undefined}
-        onClick={handleClick}
+        aria-expanded={open ? "true" : undefined} 
+        onClick={handleClick} 
       >
-        Dashboard
+        Menu
       </Button>
       <Menu
         id="basic-menu"
-        anchorEl={anchorEl}
+        anchorEl={isOpen}
         open={open}
         onClose={handleClose}
         MenuListProps={{
-          'aria-labelledby': 'basic-button',
+          "aria-labelledby": "basic-button",
         }}
       >
         <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
+        <MenuItem onClick={handleClose}>Settings</MenuItem>
         <MenuItem onClick={handleClose}>Logout</MenuItem>
       </Menu>
     </div>

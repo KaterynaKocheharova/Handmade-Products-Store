@@ -5,7 +5,6 @@
 @media screen and (min-width: 600px) {
   .nav-list {
     display: flex;
-    align-items: center;
     gap: 3rem;
   }
 }
@@ -20,4 +19,19 @@
 .nav-item:hover,
 .nav-item:focus {
   transform: scale(1.05);
+}
+
+.nav-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.menu-container {
+  display: block;
+}
+
+@media screen and (min-width: 600px) {
+  .menu-container {
+    display: none;
+  }
 }
