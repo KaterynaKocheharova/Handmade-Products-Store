@@ -1,8 +1,7 @@
 import Container from "components/common/Container/Container";
 import NavList from "./NavList";
 import NavBarMenu from "./Menu";
-import { CiShoppingCart } from "react-icons/ci";
-import { CiLogin } from "react-icons/ci";
+import AuthNav from "components/AuthNav/AuthNav";
 import Stack from "@mui/material/Stack";
 // import { CiLogout } from "react-icons/ci";
 
@@ -20,10 +19,7 @@ const NavBar = () => {
         >
           <NavList />
           <NavBarMenu />
-          <div className={css["user-menu"]}>
-            <CiShoppingCart className={css.icon} />
-            <CiLogin className={css.icon} />
-          </div>
+         <AuthNav/>
         </Stack>
 
         {/* <CiLogout /> */}

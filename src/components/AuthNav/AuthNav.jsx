@@ -1,11 +1,14 @@
-import CustomNavLink from "../NavLink/NavLink";
+import CustomNavLink from "components/common/CustomNavLink/CustomNavLink";
 import css from "./AuthNav.module.css";
+import { CiLogin } from "react-icons/ci";
 
 const AuthNav = () => {
   return (
     <div className={css["auth-bar"]}>
-      <CustomNavLink to="/register">Register</CustomNavLink>
-      <CustomNavLink to="/login">Login</CustomNavLink>
+      <CustomNavLink><p className={css["register-text"]}>Register</p></CustomNavLink>
+      <CustomNavLink>
+        <CiLogin className={css.icon} />
+      </CustomNavLink>
     </div>
   );
 };
