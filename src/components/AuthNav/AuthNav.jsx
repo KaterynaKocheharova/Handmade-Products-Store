@@ -5,7 +5,7 @@ import { CiLogin } from "react-icons/ci";
 const AuthNav = () => {
   return (
     <div className={css["auth-bar"]}>
-      <CustomNavLink><p className={css["register-text"]}>Register</p></CustomNavLink>
+      <CustomNavLink><p className={css["register-text"]}>REGISTER</p></CustomNavLink>
       <CustomNavLink>
         <CiLogin className={css.icon} />
       </CustomNavLink>

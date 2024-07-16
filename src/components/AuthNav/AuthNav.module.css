@@ -1,23 +1,27 @@
 .auth-bar {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
 
 .register-text {
-    padding: 1rem;
-    border-radius: 5px;
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
-    transition: transform 250ms linear;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 250ms linear, background-color 250ms linear,
+    color 250ms linear;
 }
 
+.register-text:hover,
 .register-text:hover {
-    transform: scale(1.2);
+  transform: scale(1.2);
+  background-color: var(--main-font-color);
+  color: var(--main-bg-color);
 }
 
 .icon {
-    color: var(--main-font-color);
-    width: 2rem;
-    height: 2rem;
-    cursor: pointer;
-  }
+  color: var(--main-font-color);
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}
