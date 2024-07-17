@@ -2,8 +2,8 @@ import Container from "components/common/Container/Container";
 import NavList from "./NavList";
 import NavBarMenu from "./Menu";
 import AuthNav from "components/AuthNav/AuthNav";
+// import UserMenu from "components/UserMenu/UserMenu";
 import Stack from "@mui/material/Stack";
-// import { CiLogout } from "react-icons/ci";
 
 import css from "./NavBar.module.css";
 
@@ -20,9 +20,8 @@ const NavBar = () => {
           <NavList />
           <NavBarMenu />
          <AuthNav/>
+         {/* <UserMenu/> */}
         </Stack>
-
-        {/* <CiLogout /> */}
       </Container>
     </header>
   );
