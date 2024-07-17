@@ -1,13 +1,15 @@
+import { useSelector } from "react-redux";
+import { selectIsLoggedIn } from "../../redux/auth/selectors";
 import Container from "components/common/Container/Container";
 import NavList from "./NavList";
 import NavBarMenu from "./Menu";
 import AuthNav from "components/AuthNav/AuthNav";
-// import UserMenu from "components/UserMenu/UserMenu";
+import UserMenu from "components/UserMenu/UserMenu";
 import Stack from "@mui/material/Stack";
-
 import css from "./NavBar.module.css";
 
 const NavBar = () => {
+  const isLoggedIn = useSelector(selectIsLoggedIn);
   return (
     <header className={css.header}>
       <Container>
@@ -19,8 +21,7 @@ const NavBar = () => {
         >
           <NavList />
           <NavBarMenu />
-         <AuthNav/>
-         {/* <UserMenu/> */}
+          {isLoggedIn ? <UserMenu /> : <AuthNav />}
         </Stack>
       </Container>
     </header>
