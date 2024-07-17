@@ -1,10 +1,10 @@
 import css from "./NavBar.module.css";
-import { NavLink } from "react-router-dom";
+import CustomNavLink from "components/common/CustomNavLink/CustomNavLink";
 
 const NavItem = ({ children }) => {
   return (
     <li className={css["nav-item"]}>
-      <NavLink className={css["nav-link"]}>{children}</NavLink>
+      <CustomNavLink className={css["nav-link"]}>{children}</CustomNavLink>
     </li>
   );
 };

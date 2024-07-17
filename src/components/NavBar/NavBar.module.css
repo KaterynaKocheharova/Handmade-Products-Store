@@ -1,9 +1,4 @@
-.header {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  background-color: var(--secondary-bg-color);
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
-}
+
 
 .nav-list {
   display: none;
@@ -24,11 +19,6 @@
 .nav-item:hover,
 .nav-item:focus {
   transform: scale(1.05);
-}
-
-.nav-link {
-  text-decoration: none;
-  color: inherit;
 }
 
 @media screen and (min-width: 700px) {

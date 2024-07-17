@@ -1,7 +1,12 @@
+
 .nav-link {
+  display: block;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
   text-decoration: none;
   color: inherit;
 }
+
 
 .active-link {
   color: var(--heghlight-color);
