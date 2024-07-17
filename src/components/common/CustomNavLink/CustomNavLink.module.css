@@ -1,13 +1,30 @@
-
 .nav-link {
   display: block;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
   text-decoration: none;
   color: inherit;
+  transition: transform 250ms linear;
 }
 
+.nav-link:hover {
+  transform: scale(1.2);
+}
 
 .active-link {
   color: var(--heghlight-color);
+}
+
+.register-nav-link {
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 250ms linear, background-color 250ms linear,
+    color 250ms linear;
+}
+
+.register-nav-link:hover {
+  /* transform: scale(1.2); */
+  background-color: var(--main-font-color);
+  color: var(--main-bg-color);
 }

@@ -1,5 +1,4 @@
 
-
 .nav-list {
   display: none;
 }
@@ -13,12 +12,6 @@
 
 .nav-item {
   cursor: pointer;
-  transition: transform 250ms linear;
-}
-
-.nav-item:hover,
-.nav-item:focus {
-  transform: scale(1.05);
 }
 
 @media screen and (min-width: 700px) {

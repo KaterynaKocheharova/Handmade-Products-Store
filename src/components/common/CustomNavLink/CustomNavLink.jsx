@@ -1,9 +1,12 @@
 import { NavLink } from "react-router-dom";
 import { buildActiveClass } from "./CustomNavLinkHelper";
 
-const CustomNavLink = ({ children, to="/" }) => {
+const CustomNavLink = ({ children, to = "/", type = "" }) => {
   return (
-    <NavLink className={buildActiveClass} to={to}>
+    <NavLink
+      className={({ isActive }) => buildActiveClass({ isActive, type })}
+      to={to}
+    >
       {children}
     </NavLink>
   );

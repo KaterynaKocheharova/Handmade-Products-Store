@@ -1,5 +1,4 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   --main-bg-color: #f0f0f0; /* Very Light Grey */
   --secondary-bg-color: #e1e2e6; /* Light Grey 1 */
   --main-font-color: #4a4a4a; /* Darker Grey */
@@ -11,7 +10,8 @@
 /* color palettes to explore https://paperheartdesign.com/blog/color-palette-peaceful-palettes#:~:text=Blue%20is%20calm%20and%20soothing,main%20source%20of%20inspiration%20here */
 
 
-body {
+body {  
+  font-family: "Poppins", sans-serif;
   background-color: var(--main-bg-color);
   color: var(--main-font-color);
   letter-spacing: 0.05em;

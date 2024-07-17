@@ -4,7 +4,7 @@ import CustomNavLink from "components/common/CustomNavLink/CustomNavLink";
 const NavItem = ({ children }) => {
   return (
     <li className={css["nav-item"]}>
-      <CustomNavLink className={css["nav-link"]}>{children}</CustomNavLink>
+      <CustomNavLink>{children}</CustomNavLink>
     </li>
   );
 };
