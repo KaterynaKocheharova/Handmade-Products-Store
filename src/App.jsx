@@ -1,15 +1,62 @@
+import { lazy, Suspense, useEffect } from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+// import { refreshUser } from "./redux/auth/operations";
+// import { selectIsAuthLoading } from "./redux/auth/selectors";
 import { ThemeProvider } from "@emotion/react";
 import theme from "./theme";
-import NavBar from "components/NavBar/NavBar";
-import Hero from "components/structural/Hero/Hero";
+import Layout from "components/structural/Layout/Layout";
+// import Loader from "./components/common/Loader/Loader";
+// import RestrictedRoute from "components/routes/RestrictedRoute";
+// import PrivateRoute from "components/routes/PrivateRoute";
 
-function App() {
+const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
+const LoginSignUpPage = lazy(() =>
+  import("./pages/LoginSignUpPage/LoginSignUpPage")
+);
+
+// const ProductCategoryPage = lazy(() =>
+//   import("pages/ProductCategoryPage/ProductCategoryPage")
+// );
+// const ProductDetailsPage = lazy(() =>
+//   import("pages/ProductDetailsPage/ProductDetailsPage")
+// );
+// const CartPage = lazy(() => import("pages/CartPage/CartPage"));
+
+export default function App() {
+  // const isLoading = useSelector(selectIsAuthLoading);
+  // const isRefreshing = isLoading === "refreshing";
+  // const isLoggingOut = isLoading === "logging-out";
+  // const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   dispatch(refreshUser());
+  // }, [dispatch]);
+
   return (
     <ThemeProvider theme={theme}>
-      <NavBar />
-      <Hero />
+      <div id="App">
+        {/* {isRefreshing ? (
+          <Loader>Refreshing your info. Please, wait.</Loader>
+        ) : isLoggingOut ? (
+          <Loader>Logging out. Please, wait.</Loader>
+        ) : ( */}
+        <Suspense fallback={null}>
+          <Layout>
+            <Routes>
+              {/* ADD RESTRICTED AND PRIVATE ROUTES LATER */}
+              <Route path="/" element={<HomePage />} />
+              <Route path="/login-signup" element={<LoginSignUpPage />} />
+              <Route path="*" element={<Navigate to="/" />} />
+              {/* <Route path="/category" element={<ProductCategoryPage />} />
+                <Route path="/product/:id" element={<ProductDetailsPage />} />
+                <Route path="/cart" element={<CartPage />} />
+                 */}
+            </Routes>
+          </Layout>
+        </Suspense>
+        {/* )} */}
+      </div>
     </ThemeProvider>
   );
 }
-
-export default App;

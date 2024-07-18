@@ -5,9 +5,8 @@
       "components/*": ["components/*"],
       "pages/*": ["pages/*"],
       "helpers/*": ["helpers/*"],
-      "styles/*": ["styles/*"],
       "service/*": ["service/*"],
-      "reduxCurrency/*": ["reduxCurrency/*"]
+      "redux/*": ["redux/*"]
     }
   },
   "include": ["src"]

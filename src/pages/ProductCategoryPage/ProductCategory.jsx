@@ -1,6 +1,6 @@
 import css from "./ProductCategory.module.css";
 
-const ProductCategory = () => {
+const ProductCategoryPage = () => {
   return (
     <div>
       PRODUCT CATEGORY
@@ -8,4 +8,4 @@ const ProductCategory = () => {
   )
 }
 
-export default ProductCategory;
+export default ProductCategoryPage;

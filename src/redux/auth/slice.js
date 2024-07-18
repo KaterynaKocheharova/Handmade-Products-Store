@@ -30,7 +30,7 @@ const auth = createSlice({
       })
       .addCase(register.rejected, handleError)
       .addCase(login.pending, (state) => {
-        state.loading = "logining";
+        state.loading = "logging-in";
       })
       .addCase(login.fulfilled, (state, action) => {
         state.isLoggedIn = true;
@@ -41,7 +41,7 @@ const auth = createSlice({
       })
       .addCase(login.rejected, handleError)
       .addCase(logOut.pending, (state) => {
-        state.loading = "logining-out";
+        state.loading = "logging-out";
       })
       .addCase(logOut.fulfilled, (state) => {
         state.isLoggedIn = false;
