@@ -1,24 +1,4 @@
 
-.nav-list {
-  display: none;
-}
-
-@media screen and (min-width: 700px) {
-  .nav-list {
-    display: flex;
-    gap: 3rem;
-  }
-}
-
-.nav-item {
-  cursor: pointer;
-}
-
-@media screen and (min-width: 700px) {
-  .menu-container {
-    display: none;
-  }
-}
 
 .icon {
   color: var(--main-font-color);

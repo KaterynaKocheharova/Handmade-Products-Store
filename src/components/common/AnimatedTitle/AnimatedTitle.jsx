@@ -12,7 +12,7 @@ const titleVariants = {
     opacity: [0.3, 0.5, 1],
     transition: {
       type: "spring",
-      bounce: 0.4,
+      bounce: 1,
       duration: 2,
     },
   },

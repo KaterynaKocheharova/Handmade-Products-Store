@@ -1,10 +1,16 @@
 .nav-link {
+  text-decoration: none;
   display: block;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
   text-decoration: none;
   color: inherit;
   transition: transform 250ms linear;
+}
+
+.mobile-menu-nav-link {
+  text-decoration: none;
+  color: inherit;
 }
 
 .nav-link:hover {
@@ -27,4 +33,9 @@
   /* transform: scale(1.2); */
   background-color: var(--main-font-color);
   color: var(--main-bg-color);
+}
+
+.active-link {
+  transform: scale(1.2);
+  color: var(--contrast-color);
 }

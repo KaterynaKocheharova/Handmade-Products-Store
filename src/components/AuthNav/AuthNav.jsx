@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 const AuthNav = () => {
   return (
     <Stack direction="row" spacing={2} alignItems="center">
-      <CustomNavLink type="register">
+      <CustomNavLink to="/login-signup" type="register-nav-link">
         <motion.p
           animate={{
             x: 0,
@@ -24,7 +24,7 @@ const AuthNav = () => {
           REGISTER
         </motion.p>
       </CustomNavLink>
-      <CustomNavLink>
+      <CustomNavLink to="/login-signup" type="login-nav-link">
         <CiLogin className={css.icon} />
       </CustomNavLink>
     </Stack>

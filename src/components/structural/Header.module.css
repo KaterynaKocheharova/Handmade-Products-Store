@@ -1,4 +1,13 @@
 .header {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
   background-color: var(--secondary-bg-color);
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (min-width: 700px) {
+  .header {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 }

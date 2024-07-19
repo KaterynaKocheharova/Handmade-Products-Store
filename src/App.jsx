@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { ThemeProvider } from "@emotion/react";
 import theme from "./theme";
 import Layout from "components/structural/Layout/Layout";
+
 // import Loader from "./components/common/Loader/Loader";
 // import RestrictedRoute from "components/routes/RestrictedRoute";
 // import PrivateRoute from "components/routes/PrivateRoute";
@@ -15,13 +16,14 @@ const LoginSignUpPage = lazy(() =>
   import("./pages/LoginSignUpPage/LoginSignUpPage")
 );
 
-// const ProductCategoryPage = lazy(() =>
-//   import("pages/ProductCategoryPage/ProductCategoryPage")
-// );
-// const ProductDetailsPage = lazy(() =>
-//   import("pages/ProductDetailsPage/ProductDetailsPage")
-// );
-// const CartPage = lazy(() => import("pages/CartPage/CartPage"));
+const ProductCategoryPage = lazy(() =>
+  import("./pages/ProductCategoryPage/ProductCategoryPage")
+);
+
+const ProductDetailsPage = lazy(() =>
+  import("./pages/ProductDetailsPage/ProductDetailsPage")
+);
+const CartPage = lazy(() => import("./pages/CartPage/CartPage"));
 
 export default function App() {
   // const isLoading = useSelector(selectIsAuthLoading);
@@ -48,10 +50,11 @@ export default function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/login-signup" element={<LoginSignUpPage />} />
               <Route path="*" element={<Navigate to="/" />} />
-              {/* <Route path="/category" element={<ProductCategoryPage />} />
-                <Route path="/product/:id" element={<ProductDetailsPage />} />
-                <Route path="/cart" element={<CartPage />} />
-                 */}
+               <Route path="/bags" element={<ProductCategoryPage />} />
+              <Route path="/wallets" element={<ProductCategoryPage />} />
+              <Route path="/belts" element={<ProductCategoryPage />} />
+              <Route path="/product/:id" element={<ProductDetailsPage />} />
+              <Route path="/cart" element={<CartPage />} /> 
             </Routes>
           </Layout>
         </Suspense>
