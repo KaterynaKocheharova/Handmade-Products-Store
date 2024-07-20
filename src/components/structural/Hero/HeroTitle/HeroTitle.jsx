@@ -41,7 +41,6 @@
 
 // export default HeroTitle;
 
-
 import { Typography } from "@mui/material";
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
@@ -64,7 +63,6 @@ const titleVariants = {
     transition: {
       duration: 0.6,
       ease: "easeInOut",
-    //   repeat: Infinity,
       repeatType: "loop",
     },
   },
@@ -72,21 +70,19 @@ const titleVariants = {
 
 const HeroTitle = () => {
   const { ref, inView } = useInView({
-    triggerOnce: false, // This ensures the animation triggers every time the component is in view
-    threshold: 0.1, // Adjust this value to control when the animation starts
+    triggerOnce: false, 
+    threshold: 0.1, 
   });
 
   return (
-    <motion.div
+    <StyledHeroTitle
+      component={motion.h1}
       ref={ref}
-      initial="initial"
       animate={inView ? "animate" : "initial"}
       variants={titleVariants}
     >
-      <StyledHeroTitle component={motion.h1}>
-        Вироби ручної роботи на кожен смак
-      </StyledHeroTitle>
-    </motion.div>
+      Вироби ручної роботи на кожен смак
+    </StyledHeroTitle>
   );
 };
 
