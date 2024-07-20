@@ -1,13 +1,16 @@
 import css from "./HomePage.module.css";
 import Section from "components/common/Section/Section";
 import Container from "components/common/Container/Container";
+import Hero from "components/structural/Hero/Hero";
 import AnimatedTitle from "components/common/AnimatedTitle/AnimatedTitle";
+
 
 const HomePage = () => {
   return (
-    <Section>
+    <Section type="hero">
       <Container>
-        <AnimatedTitle>HELLO</AnimatedTitle>
+        <Hero/>
+        {/* <AnimatedTitle>HELLO</AnimatedTitle> */}
       </Container>
     </Section>
   );

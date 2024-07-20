@@ -1,6 +1,5 @@
-
-
-import { motion} from "framer-motion";
+import { motion } from "framer-motion";
+import css from "./AnimatedTitle.module.css";
 
 const titleVariants = {
   offscreen: {
@@ -12,7 +11,7 @@ const titleVariants = {
     opacity: [0.3, 0.5, 1],
     transition: {
       type: "spring",
-      bounce: 1,
+      bounce: 0.5,
       duration: 2,
     },
   },
@@ -20,14 +19,15 @@ const titleVariants = {
 
 const AnimatedTitle = ({ children }) => {
   return (
-    <motion.div
-      initial="offscreen"
-      whileInView="onscreen"
-      viewport={{ once: false, amount: 0.8 }}
-
-    >
-      <motion.h2 variants={titleVariants}>{children}</motion.h2>
-    </motion.div>
+    <>
+      <motion.div
+        initial="offscreen"
+        whileInView="onscreen"
+        viewport={{ once: false, amount: 0.8 }}
+      >
+        <motion.h2 variants={titleVariants}>{children}</motion.h2>
+      </motion.div>
+    </>
   );
 };
 
