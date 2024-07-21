@@ -10,7 +10,6 @@ const HomePage = () => {
     <Section type="hero">
       <Container>
         <Hero/>
-        {/* <AnimatedTitle>HELLO</AnimatedTitle> */}
       </Container>
     </Section>
   );

@@ -1,29 +1,18 @@
+import { motion } from "framer-motion";
 import { Stack } from "@mui/material";
 import CustomNavLink from "components/common/CustomNavLink/CustomNavLink";
 import css from "./AuthNav.module.css";
 import { CiLogin } from "react-icons/ci";
-import { motion } from "framer-motion";
+import { scaleAnimation } from "../../animationConfig";
+
+const MotionLink = motion(CustomNavLink);
 
 const AuthNav = () => {
   return (
     <Stack direction="row" spacing={2} alignItems="center">
-      <CustomNavLink to="/login-signup" type="register-nav-link">
-        <motion.p
-          animate={{
-            x: 0,
-            y: 0,
-            scale: 1.2,
-            rotate: 0,
-          }}
-          transition={{
-            duration: 5,
-            repeat: Infinity,
-            repeatType: "loop",
-          }}
-        >
+      <MotionLink animate={scaleAnimation.scale} transition={scaleAnimation.transition} to="/login-signup" type="register-nav-link">
           REGISTER
-        </motion.p>
-      </CustomNavLink>
+      </MotionLink>
       <CustomNavLink to="/login-signup" type="login-nav-link">
         <CiLogin className={css.icon} />
       </CustomNavLink>
