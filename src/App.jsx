@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 // import { selectIsAuthLoading } from "./redux/auth/selectors";
 import { ThemeProvider } from "@emotion/react";
 import theme from "./theme";
-import Layout from "components/structural/Layout/Layout";
+import Layout from "components/Layout/Layout";
 
 // import Loader from "./components/common/Loader/Loader";
 // import RestrictedRoute from "components/routes/RestrictedRoute";

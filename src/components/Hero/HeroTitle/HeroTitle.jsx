@@ -2,7 +2,7 @@ import { Typography } from "@mui/material";
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { titleVariants } from "../../../../animationConfig";
+import { titleVariants } from "../../../animationConfig";
 
 const StyledHeroTitle = styled(Typography)(({ theme }) => ({
   fontSize: "40px",
