@@ -9,6 +9,7 @@ const MotionLink = motion(Link);
 const HeroButton = () => {
   return (
     <MotionLink
+      to="/catalog"
       className={css["hero-catalog-button"]}
       animate={{
         scale: [1, 1.2, 1],
@@ -17,7 +18,7 @@ const HeroButton = () => {
         duration: 5,
         repeat: Infinity,
         repeatType: "loop",
-        ease: "linear" 
+        ease: "linear",
       }}
     >
       КАТАЛОГ

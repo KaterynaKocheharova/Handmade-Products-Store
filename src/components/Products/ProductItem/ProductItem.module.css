@@ -1,0 +1,41 @@
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+}
+
+.product-item {
+  width: 350px;
+  overflow: hidden;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+  box-shadow: var(--card-smaller-box-shadow);
+  border-radius: var(--card-border-radius);
+  transition: box-shadow 250ms linear, transform 250ms linear;
+}
+
+.product-item:hover,
+.product-item:focus {
+  border: 1px solid var(--primary-border-color);
+  box-shadow: var(--card-box-shadow);
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--card-border-radius);
+
+  overflow: hidden;
+  height: 200px;
+}
+
+.item-image {
+  object-fit: cover;
+  border-radius: var(--card-border-radius);
+}

@@ -12,6 +12,7 @@ import Layout from "components/structural/Layout/Layout";
 // import PrivateRoute from "components/routes/PrivateRoute";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
+const CatalogPage = lazy(() => import("./pages/CatalogPage/CatalogPage"));
 const LoginSignUpPage = lazy(() =>
   import("./pages/LoginSignUpPage/LoginSignUpPage")
 );
@@ -48,6 +49,7 @@ export default function App() {
             <Routes>
               {/* ADD RESTRICTED AND PRIVATE ROUTES LATER */}
               <Route path="/" element={<HomePage />} />
+              <Route path="/catalog" element={<CatalogPage />} />
               <Route path="/login-signup" element={<LoginSignUpPage />} />
               <Route path="*" element={<Navigate to="/" />} />
                <Route path="/bags" element={<ProductCategoryPage />} />
