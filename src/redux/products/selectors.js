@@ -1,4 +1,15 @@
-export const allProducts = state => state.products.items;
+import { productFilters } from "../filters/constants";
+import { createSelector } from "@reduxjs/toolkit";
+import { selectFilter } from "../filters/selectors";
 
-// select only walltes, belts, or bags
-// separate filter slice
+export const selectAllProducts = (state) => state.products.items;
+
+export const selectFilteredProducts = createSelector(
+  [selectFilter, selectAllProducts],
+  (filter, products) => {
+    if (filter === productFilters.ALL) {
+      return products;
+    }
+    return products.filter((product) => product.category === filter);
+  }
+);

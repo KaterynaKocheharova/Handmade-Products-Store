@@ -1,6 +1,6 @@
 import { createTheme } from "@mui/material/styles";
 
-const customPalette = {
+export const customPalette = {
   mainBgColor: "#f0f0f0", // Very light grey
   secondaryBgColor: "#e1e2e6", // Light grey 1
   mainFontColor: "#4a4a4a", // Darker grey

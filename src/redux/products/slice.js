@@ -30,7 +30,7 @@ const productsInitialState = {
     {
       id: 1,
       name: "Гаманець 1",
-      category: "wallet",
+      category: "wallets",
       image: p1_img,
       new_price: 50.0,
       old_price: 80.5,
@@ -38,7 +38,7 @@ const productsInitialState = {
     {
       id: 2,
       name: "Сумка 1",
-      category: "bag",
+      category: "bags",
       image: p2_img,
       new_price: 85.0,
       old_price: 120.5,
@@ -46,7 +46,7 @@ const productsInitialState = {
     {
       id: 3,
       name: "Сумка 2",
-      category: "bag",
+      category: "bags",
       image: p3_img,
       new_price: 60.0,
       old_price: 100.5,
@@ -54,7 +54,7 @@ const productsInitialState = {
     {
       id: 4,
       name: "Сумка 3",
-      category: "bag",
+      category: "bags",
       image: p4_img,
       new_price: 100.0,
       old_price: 150.0,
@@ -70,7 +70,7 @@ const productsInitialState = {
     {
       id: 6,
       name: "Гаманець 2",
-      category: "wallet",
+      category: "wallets",
       image: p6_img,
       new_price: 85.0,
       old_price: 120.5,
@@ -78,7 +78,7 @@ const productsInitialState = {
     {
       id: 7,
       name: "Сумка 4",
-      category: "bag",
+      category: "bags",
       image: p7_img,
       new_price: 85.0,
       old_price: 120.5,
@@ -86,7 +86,7 @@ const productsInitialState = {
     {
       id: 8,
       name: "Гаманець 3",
-      category: "wallet",
+      category: "wallets",
       image: p8_img,
       new_price: 85.0,
       old_price: 120.5,
@@ -94,7 +94,7 @@ const productsInitialState = {
     {
       id: 9,
       name: "Ремінь 1",
-      category: "belt",
+      category: "belts",
       image: p9_img,
       new_price: 85.0,
       old_price: 120.5,
@@ -102,7 +102,7 @@ const productsInitialState = {
     {
       id: 10,
       name: "Гаманець 4",
-      category: "wallet",
+      category: "wallets",
       image: p10_img,
       new_price: 85.0,
       old_price: 120.5,
@@ -110,7 +110,7 @@ const productsInitialState = {
     {
       id: 11,
       name: "Гаманець 5",
-      category: "wallet",
+      category: "wallets",
       image: p11_img,
       new_price: 85.0,
       old_price: 120.5,
@@ -118,7 +118,7 @@ const productsInitialState = {
     {
       id: 12,
       name: "Гаманець 6",
-      category: "wallet",
+      category: "wallets",
       image: p12_img,
       new_price: 85.0,
       old_price: 120.5,
@@ -126,7 +126,7 @@ const productsInitialState = {
     {
       id: 13,
       name: "Рюкзак 1",
-      category: "bagpack",
+      category: "backpacks",
       image: p13_img,
       new_price: 85.0,
       old_price: 120.5,
@@ -134,7 +134,7 @@ const productsInitialState = {
     {
       id: 14,
       name: "Гаманець 7",
-      category: "wallet",
+      category: "wallets",
       image: p14_img,
       new_price: 85.0,
       old_price: 120.5,
@@ -150,7 +150,7 @@ const productsInitialState = {
     {
       id: 16,
       name: "Сумка 5",
-      category: "bag",
+      category: "bags",
       image: p16_img,
       new_price: 85.0,
       old_price: 120.5,
@@ -158,7 +158,7 @@ const productsInitialState = {
     {
       id: 17,
       name: "Гаманець 8",
-      category: "wallet",
+      category: "wallets",
       image: p17_img,
       new_price: 85.0,
       old_price: 120.5,
@@ -166,7 +166,7 @@ const productsInitialState = {
     {
       id: 18,
       name: "Сумка 6",
-      category: "bag",
+      category: "bags",
       image: p18_img,
       new_price: 85.0,
       old_price: 120.5,
@@ -174,7 +174,7 @@ const productsInitialState = {
     {
       id: 19,
       name: "Сумка 7",
-      category: "bag",
+      category: "bags",
       image: p19_img,
       new_price: 85.0,
       old_price: 120.5,
@@ -182,7 +182,7 @@ const productsInitialState = {
     {
       id: 20,
       name: "Ремінь 2",
-      category: "belt",
+      category: "belts",
       image: p20_img,
       new_price: 85.0,
       old_price: 120.5,
@@ -190,7 +190,7 @@ const productsInitialState = {
     {
       id: 21,
       name: "Гаманець 9",
-      category: "wallet",
+      category: "wallets",
       image: p21_img,
       new_price: 85.0,
       old_price: 120.5,
@@ -198,7 +198,7 @@ const productsInitialState = {
     {
       id: 22,
       name: "Сумка 8",
-      category: "bag",
+      category: "bags",
       image: p22_img,
       new_price: 85.0,
       old_price: 120.5,
@@ -206,7 +206,7 @@ const productsInitialState = {
     {
       id: 23,
       name: "Сумка 9",
-      category: "bag",
+      category: "bags",
       image: p23_img,
       new_price: 85.0,
       old_price: 120.5,
@@ -214,7 +214,7 @@ const productsInitialState = {
     {
       id: 24,
       name: "Сумка 10",
-      category: "bag",
+      category: "bags",
       image: p24_img,
       new_price: 85.0,
       old_price: 120.5,
@@ -223,6 +223,7 @@ const productsInitialState = {
   loading: false,
   error: null,
 };
+
 
 const productsSlice = createSlice({
   name: "products",

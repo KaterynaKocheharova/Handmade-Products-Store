@@ -7,11 +7,11 @@ const filtersSlice = createSlice({
     filter: productFilters.ALL,
   },
   reducers: {
-    changeFilter(state, {payload}) {
+    setFilter(state, { payload }) {
       state.filter = payload;
     },
   },
 });
 
 export const filtersReducer = filtersSlice.reducer;
-export const {changeFilter} = filtersSlice.actions;
+export const { setFilter } = filtersSlice.actions;

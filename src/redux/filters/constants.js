@@ -3,4 +3,5 @@ export const productFilters = {
   BAGS: "bags",
   WALLETS: "wallets",
   BELTS: "belts",
+  BACKPACKS: "backpacks"
 };
