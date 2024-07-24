@@ -8,7 +8,7 @@ const authInitialState = {
     email: null,
   },
   token: null,
-  isLoggedIn: false,
+  isLoggedIn: true,
   loading: null,
   error: null,
 };

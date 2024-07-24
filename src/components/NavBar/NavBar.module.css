@@ -11,3 +11,8 @@
   display: flex;
   gap: 1rem;
 }
+
+.text {
+  font-weight: 600;
+color: var(--secondary-bg-color)
+}
