@@ -36,26 +36,26 @@ const theme = createTheme({
     },
   },
 
-  components: {
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          padding: "10px 30px",
-          backgroundColor: customPalette.mainBgColor,
-          color: customPalette.mainFontColor,
-          borderColor: "none",
-          boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)", // Add box-shadow here
+  // components: {
+  //   MuiButton: {
+  //     styleOverrides: {
+  //       root: {
+  //         padding: "10px 30px",
+  //         backgroundColor: customPalette.mainBgColor,
+  //         color: customPalette.mainFontColor,
+  //         borderColor: "none",
+  //         boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)", // Add box-shadow here
 
-          "&:hover": {
-            backgroundColor: customPalette.mainFontColor,
-            color: customPalette.mainBgColor,
-            borderColor: "none",
-            boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)", // Adjusted box-shadow on hover
-          },
-        },
-      },
-    },
-  },
+  //         "&:hover": {
+  //           backgroundColor: customPalette.mainFontColor,
+  //           color: customPalette.mainBgColor,
+  //           borderColor: "none",
+  //           boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)", // Adjusted box-shadow on hover
+  //         },
+  //       },
+  //     },
+  //   },
+  // },
 });
 
 export default theme;

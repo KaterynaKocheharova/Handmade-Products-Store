@@ -1,7 +1,5 @@
 import p1_img from "../../assets/My_Assets/product_1.jpg";
 import p2_img from "../../assets/My_Assets/product_2.jpg";
-import p3_img from "../../assets/My_Assets/product_3.jpg";
-import p4_img from "../../assets/My_Assets/product_4.jpg";
 import p5_img from "../../assets/My_Assets/product_5.jpg";
 import p6_img from "../../assets/My_Assets/product_6.jpg";
 import p7_img from "../../assets/My_Assets/product_7.jpg";
@@ -13,15 +11,11 @@ import p12_img from "../../assets/My_Assets/product_12.jpg";
 import p13_img from "../../assets/My_Assets/product_13.jpg";
 import p14_img from "../../assets/My_Assets/product_14.jpg";
 import p15_img from "../../assets/My_Assets/product_15.jpg";
-import p16_img from "../../assets/My_Assets/product_16.jpg";
 import p17_img from "../../assets/My_Assets/product_17.jpg";
 import p18_img from "../../assets/My_Assets/product_18.jpg";
 import p19_img from "../../assets/My_Assets/product_19.jpg";
 import p20_img from "../../assets/My_Assets/product_20.jpg";
 import p21_img from "../../assets/My_Assets/product_21.jpg";
-import p22_img from "../../assets/My_Assets/product_22.jpg";
-import p23_img from "../../assets/My_Assets/product_23.jpg";
-import p24_img from "../../assets/My_Assets/product_24.jpg";
 
 import { createSlice } from "@reduxjs/toolkit";
 
@@ -42,22 +36,6 @@ const productsInitialState = {
       image: p2_img,
       new_price: 85.0,
       old_price: 120.5,
-    },
-    {
-      id: 3,
-      name: "Сумка 2",
-      category: "bags",
-      image: p3_img,
-      new_price: 60.0,
-      old_price: 100.5,
-    },
-    {
-      id: 4,
-      name: "Сумка 3",
-      category: "bags",
-      image: p4_img,
-      new_price: 100.0,
-      old_price: 150.0,
     },
     {
       id: 5,
@@ -148,14 +126,6 @@ const productsInitialState = {
       old_price: 120.5,
     },
     {
-      id: 16,
-      name: "Сумка 5",
-      category: "bags",
-      image: p16_img,
-      new_price: 85.0,
-      old_price: 120.5,
-    },
-    {
       id: 17,
       name: "Гаманець 8",
       category: "wallets",
@@ -194,31 +164,7 @@ const productsInitialState = {
       image: p21_img,
       new_price: 85.0,
       old_price: 120.5,
-    },
-    {
-      id: 22,
-      name: "Сумка 8",
-      category: "bags",
-      image: p22_img,
-      new_price: 85.0,
-      old_price: 120.5,
-    },
-    {
-      id: 23,
-      name: "Сумка 9",
-      category: "bags",
-      image: p23_img,
-      new_price: 85.0,
-      old_price: 120.5,
-    },
-    {
-      id: 24,
-      name: "Сумка 10",
-      category: "bags",
-      image: p24_img,
-      new_price: 85.0,
-      old_price: 120.5,
-    },
+    }
   ],
   loading: false,
   error: null,

@@ -13,3 +13,4 @@ export const selectFilteredProducts = createSelector(
     return products.filter((product) => product.category === filter);
   }
 );
+

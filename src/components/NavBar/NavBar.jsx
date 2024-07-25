@@ -20,7 +20,7 @@ const NavBar = () => {
         alignItems="center"
         sx={{
           padding: "10px",
-          backgroundColor: "var(--accent-color)}",
+          backgroundColor: "var(--main-font-color)}",
         }}
       >
         <p className={css.text}>Вітаємо у нашому магазині!</p>
@@ -45,7 +45,7 @@ const NavBar = () => {
           spacing={2}
           sx={{
             padding: "10px",
-            backgroundColor: "var(--accent-color)}",
+            backgroundColor: "var(--main-font-color)}",
           }}
         >
 
