@@ -2,7 +2,7 @@
   --main-bg-color: #f0f0f0; /* Very Light Grey */
   --secondary-bg-color: #e1e2e6; /* Light Grey 1 */
   --main-font-color: #4a4a4a; /* Darker Grey */
-  --main-font-color-transparent: rgba(74, 74, 74, 0.8); /* Darker Grey with transparency */
+  --main-font-color-transparent: rgba(74, 74, 74, 0.5); /* Darker Grey with transparency */
   --secondary-font-color: #787775; /* Dark Grey */
   --accent-color: #c4b3a9; /* Warm Beige */
   --highlight-color: #b0a296; /* Slightly darker beige for accents */

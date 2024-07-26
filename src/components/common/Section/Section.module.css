@@ -1,17 +1,18 @@
 .section {
   padding-top: 50px;
   padding-bottom: 50px;
+  position: relative;
 }
 
 .hero-section {
-  padding-top: 25%;
-  padding-bottom: 20%;
+  /* padding-top: 25%;
+  padding-bottom: 20%; */
   /* background-image: url("../../../assets/My_Assets/hero_image.jpg");
   background-position: left;
   background-repeat: no-repeat;
   background-size: cover;  */
-  min-height: 600px;
-  color: var(--primary-font-color);
+  /* min-height: 600px; */
+  /* color: var(--primary-font-color); */
   overflow: hidden;
 }
 

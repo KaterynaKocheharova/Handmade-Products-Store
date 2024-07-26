@@ -7,6 +7,10 @@
   color: var(--main-bg-color);
 }
 
+.product-swiper-image-container {
+  position: relative;
+}
+
 .text-container {
     width: 400px;
     padding: 30px;

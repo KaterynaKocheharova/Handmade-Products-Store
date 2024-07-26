@@ -1,5 +1,5 @@
-import HeroTitle from "./HeroTitle/HeroTitle";
-import HeroButton from "./HeroButton/HeroButton";
+import HeroTitle from "../HomePageComponents/HeroTitle/HeroTitle";
+import HeroButton from "../HomePageComponents/HeroButton/HeroButton";
 import css from "./Hero.module.css";
 
 const Hero = () => {

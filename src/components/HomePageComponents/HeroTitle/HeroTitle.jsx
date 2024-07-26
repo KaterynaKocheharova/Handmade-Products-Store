@@ -5,7 +5,7 @@ import { titleVariants } from "../../../animationConfig";
 
 const StyledHeroTitle = styled(Typography)(({ theme }) => ({
   fontSize: "40px",
-  color: theme.palette.customColors.accentColor,
+  color: "var(--main-bg-color)",
   "@media screen and (min-width: 760px)": {
     textAlign: "right",
     fontSize: "50px",
