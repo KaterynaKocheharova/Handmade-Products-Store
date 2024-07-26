@@ -1,4 +1,6 @@
-import { Navigation, EffectCreative, EffectFade, EffectCube } from "swiper/modules";
+
+import { useState } from "react";
+import { Navigation, Autoplay, EffectFade } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useSelector } from "react-redux";
 import { selectAllProducts } from "../../../redux/products/selectors";
@@ -15,50 +17,46 @@ import "swiper/css/effect-cube";
 
 const ImagesSwiper = () => {
   const slides = useSelector(selectAllProducts);
+  const [disabledRight, setDisabledRight] = useState(false);
+  const [disabledLeft, setDisabledLeft] = useState(false);
+
+  const handleSlideChange = (swiper) => {
+    setDisabledLeft(swiper.activeIndex === 0);
+    setDisabledRight(swiper.activeIndex === slides.length - 1);
+  };
 
   return (
     <div className={css["product-swiper"]}>
       <Swiper
-        // effect={"cube"}
-        // cubeEffect={{
-        //   shadow: true,
-        //   slideShadows: true,
-        //   shadowOffset: 20,
-        //   shadowScale: 0.94,
-        // }}
-        effect={"creative"}
-        creativeEffect={{
-          prev: {
-            shadow: true,
-            translate: [0, 0, -400],
-          },
-          next: {
-            translate: ['100%', 0, 0],
-          },
+        effect={"fade"}
+        modules={[Autoplay, EffectFade, Navigation]}
+        autoplay={{
+          delay: 1000,
+          disableOnInteraction: false,
         }}
-        // effect={'fade'}
-        modules={[EffectCreative, EffectFade, EffectCube, Navigation]}
         spaceBetween={50}
         slidesPerView={1}
         scrollbar={{ draggable: true }}
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log("slide change")}
+        // onSwiper={(swiper) => handleSlideChange(swiper)}
+        // onSlideChange={(swiper) => handleSlideChange(swiper)}
+        // loop={false} 
       >
-        {slides.map(({ id, image }) => {
-          return (
-            <SwiperSlide className={css["product-swiper-slide"]} key={id}>
-              <div className={css["product-swiper-image-container"]}>
-                <img
-                  className={css["product-swiper-image"]}
-                  src={image}
-                  alt="product"
-                />
-                <SwiperTextBox />
-              </div>
-            </SwiperSlide>
-          );
-        })}
-        <SwiperCustomNavBtns/>
+        {slides.map(({ id, image }) => (
+          <SwiperSlide className={css["product-swiper-slide"]} key={id}>
+            <div className={css["product-swiper-image-container"]}>
+              <img
+                className={css["product-swiper-image"]}
+                src={image}
+                alt="product"
+              />
+              <SwiperTextBox />
+              <SwiperCustomNavBtns
+                disabledRight={disabledRight}
+                disabledLeft={disabledLeft}
+              />
+            </div>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );

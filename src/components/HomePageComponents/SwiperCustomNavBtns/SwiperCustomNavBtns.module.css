@@ -1,0 +1,25 @@
+.nav-btn-container {
+    position: absolute;
+    width: 100%;
+    right: 0;
+    top: 30%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.button {
+    padding: 10px;
+    cursor: pointer;
+    background-color: var(--main-bg-color);
+    border: none;
+}
+
+.button-disabled {
+    background-color:gray;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+    color: var(--main-font-color);
+}

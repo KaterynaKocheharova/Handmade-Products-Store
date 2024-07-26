@@ -11,6 +11,10 @@
   position: relative;
 }
 
+.product-swiper-image {
+border-radius: var(--card-border-radius);
+}
+
 .text-container {
   width: 400px;
   padding: 30px;
@@ -22,8 +26,3 @@
   border-radius: var(--card-border-radius);
 }
 
-.hero-swiper-next-btn,
-.hero-swiper-prev-btn {
-  position: absolute;
-  color: black;
-}
