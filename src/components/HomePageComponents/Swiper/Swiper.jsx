@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { useSelector } from "react-redux";
 import { selectAllProducts } from "../../../redux/products/selectors";
 import SwiperTextBox from "../SwiperTextBox/SwiperTextBox";
-
+import SwiperCustomNavBtns from "../SwiperCustomNavBtns/SwiperCustomNavBtns";
 import css from "./Swiper.module.css";
 
 // Import Swiper styles
@@ -19,29 +19,27 @@ const ImagesSwiper = () => {
   return (
     <div className={css["product-swiper"]}>
       <Swiper
-        effect={"cube"}
-        cubeEffect={{
-          shadow: true,
-          slideShadows: true,
-          shadowOffset: 20,
-          shadowScale: 0.94,
-        }}
-        // effect={"creative"}
-        // creativeEffect={{
-        //   prev: {
-        //     shadow: true,
-        //     translate: [0, 0, -400],
-        //   },
-        //   next: {
-        //     translate: ['100%', 0, 0],
-        //   },
+        // effect={"cube"}
+        // cubeEffect={{
+        //   shadow: true,
+        //   slideShadows: true,
+        //   shadowOffset: 20,
+        //   shadowScale: 0.94,
         // }}
-        grabCursor={true}
+        effect={"creative"}
+        creativeEffect={{
+          prev: {
+            shadow: true,
+            translate: [0, 0, -400],
+          },
+          next: {
+            translate: ['100%', 0, 0],
+          },
+        }}
         // effect={'fade'}
         modules={[EffectCreative, EffectFade, EffectCube, Navigation]}
         spaceBetween={50}
         slidesPerView={1}
-        navigation
         scrollbar={{ draggable: true }}
         onSwiper={(swiper) => console.log(swiper)}
         onSlideChange={() => console.log("slide change")}
@@ -60,6 +58,7 @@ const ImagesSwiper = () => {
             </SwiperSlide>
           );
         })}
+        <SwiperCustomNavBtns/>
       </Swiper>
     </div>
   );
