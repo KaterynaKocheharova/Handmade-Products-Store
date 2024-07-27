@@ -15,13 +15,13 @@ import "swiper/css/effect-fade";
 
 const ImagesSwiper = () => {
   const slides = useSelector(selectAllProducts);
-  const [disabledRight, setDisabledRight] = useState(false);
-  const [disabledLeft, setDisabledLeft] = useState(false);
+  // const [disabledRight, setDisabledRight] = useState(false);
+  // const [disabledLeft, setDisabledLeft] = useState(false);
 
-  const handleSlideChange = (swiper) => {
-    setDisabledLeft(swiper.activeIndex === 0);
-    setDisabledRight(swiper.activeIndex === slides.length - 1);
-  };
+  // const handleSlideChange = (swiper) => {
+  //   setDisabledLeft(swiper.activeIndex === 0);
+  //   setDisabledRight(swiper.activeIndex === slides.length - 1);
+  // };
 
   return (
     <div className={css["product-swiper"]}>
@@ -38,9 +38,10 @@ const ImagesSwiper = () => {
         spaceBetween={50}
         slidesPerView={1}
         scrollbar={{ draggable: true }}
-        onSwiper={(swiper) => handleSlideChange(swiper)}
-        onSlideChange={(swiper) => handleSlideChange(swiper)}
-        loop={false}
+        speed={1500}
+        // onSwiper={(swiper) => handleSlideChange(swiper)}
+        // onSlideChange={(swiper) => handleSlideChange(swiper)}
+        loop={true}
       >
         {slides.map(({ id, image }) => (
           <SwiperSlide className={css["product-swiper-slide"]} key={id}>
@@ -51,10 +52,10 @@ const ImagesSwiper = () => {
                 alt="product"
               />
               <SwiperTextBox />
-              <SwiperCustomNavBtns
+              {/* <SwiperCustomNavBtns
                 disabledRight={disabledRight}
                 disabledLeft={disabledLeft}
-              />
+              /> */}
             </div>
           </SwiperSlide>
         ))}
