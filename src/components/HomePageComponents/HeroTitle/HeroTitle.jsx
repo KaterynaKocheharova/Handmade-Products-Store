@@ -18,7 +18,7 @@ const HeroTitle = () => {
       component={motion.h1}
       whileInView={titleVariants.animate}
     >
-      Вироби ручної роботи на кожен смак
+      Вироби ручної роботи
     </StyledHeroTitle>
   );
 };

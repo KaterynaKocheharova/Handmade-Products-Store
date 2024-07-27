@@ -9,8 +9,7 @@ const SwiperTextBox = () => {
       <Stack
         direction="column"
         justifyContent="center"
-        alignItems="flex-end"
-        spacing={3}
+        spacing={1}
       >
         <HeroTitle />
         <HeroButton />

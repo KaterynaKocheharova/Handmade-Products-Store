@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Navigation, Autoplay, EffectFade } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -29,17 +28,20 @@ const ImagesSwiper = () => {
     <div className={css["product-swiper"]}>
       <Swiper
         effect={"fade"}
+        fadeEffect={{
+          crossFade: true,
+        }}
         modules={[Autoplay, EffectFade, Navigation]}
         autoplay={{
-          delay: 1000,
-          disableOnInteraction: false,
+          delay: 3000,
+          disableOnInteraction: true,
         }}
         spaceBetween={50}
         slidesPerView={1}
         scrollbar={{ draggable: true }}
-        // onSwiper={(swiper) => handleSlideChange(swiper)}
-        // onSlideChange={(swiper) => handleSlideChange(swiper)}
-        // loop={false} 
+        onSwiper={(swiper) => handleSlideChange(swiper)}
+        onSlideChange={(swiper) => handleSlideChange(swiper)}
+        loop={false}
       >
         {slides.map(({ id, image }) => (
           <SwiperSlide className={css["product-swiper-slide"]} key={id}>
