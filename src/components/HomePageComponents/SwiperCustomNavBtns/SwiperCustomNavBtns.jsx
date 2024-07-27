@@ -3,7 +3,7 @@ import { GrPrevious, GrNext } from 'react-icons/gr';
 import clsx from 'clsx';
 import css from './SwiperCustomNavBtns.module.css'; // Adjust the import according to your setup
 
-const SwiperCustomNavBtns = ({ disabledRight, disabledLeft }) => {
+const SwiperCustomNavBtns = ({ disabledRight = false, disabledLeft = false }) => {
   const swiper = useSwiper();
   return (
     <div className={css["nav-btn-container"]}>

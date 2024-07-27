@@ -1,10 +1,6 @@
-import { useState } from "react";
 import { Navigation, Autoplay, EffectFade } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useSelector } from "react-redux";
-import { selectAllProducts } from "../../../redux/products/selectors";
-import SwiperTextBox from "../SwiperTextBox/SwiperTextBox";
-import SwiperCustomNavBtns from "../SwiperCustomNavBtns/SwiperCustomNavBtns";
 import css from "./Swiper.module.css";
 
 // Import Swiper styles
@@ -13,15 +9,8 @@ import "swiper/css/navigation";
 import "swiper/css/effect-fade";
 
 
-const ImagesSwiper = () => {
-  const slides = useSelector(selectAllProducts);
-  // const [disabledRight, setDisabledRight] = useState(false);
-  // const [disabledLeft, setDisabledLeft] = useState(false);
-
-  // const handleSlideChange = (swiper) => {
-  //   setDisabledLeft(swiper.activeIndex === 0);
-  //   setDisabledRight(swiper.activeIndex === slides.length - 1);
-  // };
+const CustomSwiper = ({slidesSelector, }) => {
+  const slides = useSelector(slidesSelector);
 
   return (
     <div className={css["product-swiper"]}>
@@ -64,4 +53,4 @@ const ImagesSwiper = () => {
   );
 };
 
-export default ImagesSwiper;
+export default CustomSwiper;
