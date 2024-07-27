@@ -39,20 +39,28 @@ const NavBar = () => {
         </Stack>
       </Container>
       <Stack
-          direction="row"
-          justifyContent="space-around"
-          alignItems="center"
-          spacing={2}
-          sx={{
-            padding: "10px",
-            backgroundColor: "var(--main-font-color)}",
-          }}
+        direction="row"
+        justifyContent="space-around"
+        alignItems="center"
+        spacing={2}
+        sx={{
+          padding: "10px",
+          backgroundColor: "var(--main-font-color)}",
+        }}
+      >
+        <a className={css["contact-link"]} href="tel:+380123456789">
+          +380123456789
+        </a>
+        <a className={css["contact-link"]} href="mailto:example@gmail.com">
+        example@gmail.com
+        </a>
+        <a
+          className={css["contact-link"]}
+          href="https://www.instagram.com/yourprofile"
         >
-
-          <p  className={css.text}>Індивідуальний підхід</p>
-          <p  className={css.text}>Ретельна робота</p>
-          <p  className={css.text}>Різноманіття</p>
-        </Stack>
+          Instagram
+        </a>
+      </Stack>
     </Header>
   );
 };

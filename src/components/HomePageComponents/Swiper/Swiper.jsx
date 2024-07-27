@@ -10,9 +10,8 @@ import css from "./Swiper.module.css";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/effect-creative";
 import "swiper/css/effect-fade";
-import "swiper/css/effect-cube";
+
 
 const ImagesSwiper = () => {
   const slides = useSelector(selectAllProducts);

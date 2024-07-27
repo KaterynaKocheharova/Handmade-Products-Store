@@ -21,5 +21,4 @@
 .hero-catalog-button:focus {
   background-color: var(--main-bg-color);
   color: var(--main-font-color);
-  border: var(--main-font-color);
 }
