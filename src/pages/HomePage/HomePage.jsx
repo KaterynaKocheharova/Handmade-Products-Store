@@ -1,10 +1,10 @@
 import Section from "components/common/Section/Section";
-import ImagesSwiper from "components/HomePageComponents/Swiper/Swiper";
+import HomePageSwiper from "components/HomePageComponents/HomePageSwiper/HomePageSwiper";
 
 const HomePage = () => {
   return (
     <Section type="hero">
-      <ImagesSwiper />
+      <HomePageSwiper />
     </Section>
   );
 };

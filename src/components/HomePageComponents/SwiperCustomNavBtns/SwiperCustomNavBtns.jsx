@@ -1,7 +1,7 @@
 import { useSwiper } from 'swiper/react';
 import { GrPrevious, GrNext } from 'react-icons/gr';
 import clsx from 'clsx';
-import css from './SwiperCustomNavBtns.module.css'; // Adjust the import according to your setup
+import css from './SwiperCustomNavBtns.module.css'; 
 
 const SwiperCustomNavBtns = ({ disabledRight = false, disabledLeft = false }) => {
   const swiper = useSwiper();

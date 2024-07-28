@@ -1,5 +1,4 @@
 import { Typography } from "@mui/material";
-import styled from "@emotion/styled";
 import { motion } from "framer-motion";
 import { titleVariants } from "../../../animationConfig";
 

@@ -1,10 +1,9 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import css from "./CustomSwiper.module.css";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";
+
+import css from "./CustomSwiper.module.css";
 
 const CustomSwiper = ({
   slides,
@@ -16,17 +15,7 @@ const CustomSwiper = ({
   return (
     <div className={css["product-swiper"]}>
       <Swiper
-        effect={configs.effect} // Apply the effect here
-        fadeEffect={configs.fadeEffect}
-        modules={configs.modules}
-        autoplay={configs.autoplay}
-        spaceBetween={configs.spaceBetween}
-        slidesPerView={configs.slidesPerView}
-        scrollbar={{
-          draggable: configs.scrollbar.draggable, // Corrected spelling
-        }}
-        speed={configs.speed}
-        loop={configs.loop} // Make sure loop is configurable if needed
+      {...configs}
         onSwiper={handleOnSwiper}
         onSlideChange={handleSlideChange}
       >
