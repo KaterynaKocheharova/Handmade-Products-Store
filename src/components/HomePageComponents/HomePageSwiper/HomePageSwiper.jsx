@@ -4,6 +4,7 @@ import { selectAllProducts } from "../../../redux/products/selectors";
 import CustomSwiper from "components/common/CustomSwiper/CustomSwiper";
 import SwiperTextBox from "../SwiperTextBox/SwiperTextBox";
 import SwiperCustomNavBtns from "../SwiperCustomNavBtns/SwiperCustomNavBtns";
+import { useState } from "react";
 
 const HomePageSwiperConfigs = {
   effect: "fade",
@@ -25,9 +26,12 @@ const HomePageSwiperConfigs = {
 
 const HomePageSwiper = () => {
   const slides = useSelector(selectAllProducts);
+  const [sliderMode, setSliderMode] = useState("clicking"); // autoplay / clicking
+
+  const filetredConfigs = sliderMode === "autoplay" ? {...HomePageSwiperConfigs} : {...HomePageSwiperConfigs, autoplay: false, speed: 300}
 
   return (
-    <CustomSwiper slides={slides} configs={HomePageSwiperConfigs}>
+    <CustomSwiper slides={slides} configs={filetredConfigs}>
       <SwiperTextBox />
       <SwiperCustomNavBtns />
     </CustomSwiper>

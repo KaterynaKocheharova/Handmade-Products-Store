@@ -10,8 +10,7 @@ const CustomSwiper = ({
   handleOnSwiper,
   handleSlideChange,
   configs,
-  children,
-}) => {
+  children}) => {
   return (
     <div className={css["product-swiper"]}>
       <Swiper
