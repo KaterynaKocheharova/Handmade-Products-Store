@@ -14,7 +14,7 @@ const HomePageSwiperConfigs = {
   modules: [Autoplay, EffectFade, Navigation],
   autoplay: {
     delay: 3000,
-    disableOnInteraction: false,
+    disableOnInteraction: true,
   },
   spaceBetween: 50,
   slidesPerView: 1,
@@ -26,14 +26,21 @@ const HomePageSwiperConfigs = {
 
 const HomePageSwiper = () => {
   const slides = useSelector(selectAllProducts);
-  const [sliderMode, setSliderMode] = useState("clicking"); // autoplay / clicking
+  const [sliderMode, setSliderMode] = useState("autoplay"); 
 
-  const filetredConfigs = sliderMode === "autoplay" ? {...HomePageSwiperConfigs} : {...HomePageSwiperConfigs, autoplay: false, speed: 300}
+  const handleNavButtonClick = () => {
+    if (sliderMode !== "clicking") setSliderMode("clicking");
+  };
+
+  const filetredConfigs =
+    sliderMode === "autoplay"
+      ? { ...HomePageSwiperConfigs }
+      : { ...HomePageSwiperConfigs, autoplay: false, speed: 300 };
 
   return (
     <CustomSwiper slides={slides} configs={filetredConfigs}>
       <SwiperTextBox />
-      <SwiperCustomNavBtns />
+      <SwiperCustomNavBtns onClick={handleNavButtonClick} />
     </CustomSwiper>
   );
 };
