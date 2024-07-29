@@ -1,5 +1,3 @@
-
-
 .icon {
   color: var(--main-font-color);
   width: 2rem;
@@ -13,11 +11,22 @@
 }
 
 .text {
-   font-weight: 600;
-color: var(--secondary-bg-color)
+  font-weight: 600;
+  color: var(--secondary-bg-color);
 }
 
 .contact-link {
   font-weight: 600;
-color: var(--secondary-bg-color)
+  color: var(--secondary-bg-color);
+  display: none;
+}
+
+.tel-link {
+  display: block;
+}
+
+@media screen and (min-width: 530px) {
+  .contact-link {
+    display: block;
+  }
 }
