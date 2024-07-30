@@ -21,8 +21,8 @@
   }
 }
 
-.button-disabled {
-  background-color: gray;
+.disabled {
+  cursor: not-allowed;
 }
 
 .icon {
