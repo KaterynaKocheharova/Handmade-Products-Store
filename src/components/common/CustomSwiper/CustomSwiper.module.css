@@ -11,10 +11,6 @@
     position: relative;
   }
   
-  .product-swiper-image {
-  border-radius: var(--card-border-radius);
-  }
-  
   .text-container {
     width: 400px;
     padding: 30px;

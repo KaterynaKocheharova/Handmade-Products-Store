@@ -1,25 +1,39 @@
 .nav-btn-container {
-    position: absolute;
-    width: 100%;
-    right: 0;
-    top: 30%;
-    display: flex;
-    justify-content: space-between;
+  position: absolute;
+  width: 100%;
+  right: 0;
+  top: 30%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .button {
-    padding: 10px;
-    cursor: pointer;
-    background-color: var(--main-bg-color);
-    border: none;
+  padding: 5px;
+  cursor: pointer;
+  background-color: var(--main-font-color-transparent);
+  border: 1px solid var(--main-bg-color);
+  border: none;
+}
+
+@media screen and (min-width: 550px) {
+  .button {
+    padding: 15px;
+  }
 }
 
 .button-disabled {
-    background-color:gray;
+  background-color: gray;
 }
 
 .icon {
-    width: 30px;
-    height: 30px;
-    color: var(--main-font-color);
+  width: 10px;
+  height: 10px;
+  color: var(--main-bg-color);
+}
+
+@media screen and (min-width: 550px) {
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
 }
