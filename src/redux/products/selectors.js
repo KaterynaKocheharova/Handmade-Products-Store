@@ -14,3 +14,7 @@ export const selectFilteredProducts = createSelector(
   }
 );
 
+export const selectWallets = (state) => state.products.items.filter(item => item.category === "wallets");
+export const selectBags = (state) => state.products.items.filter(item => item.category === "bags");
+export const selectBelts = (state) => state.products.items.filter(item => item.category === "belts");
+export const selectBackpacks = (state) => state.products.items.filter(item => item.category === "backpacks");

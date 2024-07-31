@@ -1,13 +1,10 @@
-import { useSelector } from "react-redux";
-import { selectFilteredProducts } from "../../../redux/products/selectors";
 import ProductItem from "../ProductItem/ProductItem";
 import css from "./ProductList.module.css";
 
-const ProductList = () => {
-  const filteredProducts = useSelector(selectFilteredProducts);
+const ProductList = ({products}) => {
   return (
     <ul className={css["product-list"]}>
-      {filteredProducts.map((product) => (
+      {products.map((product) => (
         <ProductItem key={product.id} product={product} />
       ))}
     </ul>

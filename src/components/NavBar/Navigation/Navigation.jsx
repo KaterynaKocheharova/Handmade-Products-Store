@@ -19,6 +19,11 @@ const Navigation = () => {
           РЕМЕНІ
         </CustomNavLink>
       </li>
+      <li className={css["nav-item"]}>
+        <CustomNavLink to="/backpacks" type="desktop-category-nav-link">
+          РЕМЕНІ
+        </CustomNavLink>
+      </li>
     </ul>
   );
 };

@@ -12,7 +12,7 @@ import Layout from "components/Layout/Layout";
 // import PrivateRoute from "components/routes/PrivateRoute";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
-const CatalogPage = lazy(() => import("./pages/CatalogPage/CatalogPage"));
+// const CatalogPage = lazy(() => import("./pages/CatalogPage/CatalogPage"));
 const LoginSignUpPage = lazy(() =>
   import("./pages/LoginSignUpPage/LoginSignUpPage")
 );
@@ -49,14 +49,15 @@ export default function App() {
             <Routes>
               {/* ADD RESTRICTED AND PRIVATE ROUTES LATER */}
               <Route path="/" element={<HomePage />} />
-              <Route path="/catalog" element={<CatalogPage />} />
+              {/* <Route path="/catalog" element={<CatalogPage />} /> */}
               <Route path="/login-signup" element={<LoginSignUpPage />} />
               <Route path="*" element={<Navigate to="/" />} />
-               <Route path="/bags" element={<ProductCategoryPage />} />
-              <Route path="/wallets" element={<ProductCategoryPage />} />
-              <Route path="/belts" element={<ProductCategoryPage />} />
+              <Route path="/bags" element={<ProductCategoryPage category="bags" />} />
+              <Route path="/wallets" element={<ProductCategoryPage category="wallets" />} />
+              <Route path="/belts" element={<ProductCategoryPage category="belts" />} />
+              <Route path="/backpacks" element={<ProductCategoryPage category="backpacks" />} />
               <Route path="/product/:id" element={<ProductDetailsPage />} />
-              <Route path="/cart" element={<CartPage />} /> 
+              <Route path="/cart" element={<CartPage />} />
             </Routes>
           </Layout>
         </Suspense>
