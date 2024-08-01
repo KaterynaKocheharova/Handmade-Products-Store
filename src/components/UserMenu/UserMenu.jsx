@@ -8,7 +8,7 @@ import css from "./UserMenu.module.css";
 const UserMenu = () => {
   return (
     <Stack direction="row" spacing={2} alignItems="center">
-      <CustomNavLink>
+      <CustomNavLink to="/favoriteProductsPage">
         <CiHeart className={css.icon} />
       </CustomNavLink>
       <CustomNavLink>

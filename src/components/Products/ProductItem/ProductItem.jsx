@@ -1,12 +1,40 @@
 import clsx from "clsx";
-import { Stack } from "@mui/material";
-import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import {
+  addToWishList,
+  removeFromWishlist,
+} from "../../../redux/products/slice";
+import {
+  selectFavoriteProducts,
+  selectFavoriteProductsIds,
+} from "../../../redux/products/selectors";
+import { useSelector } from "react-redux";
+import { Stack, IconButton } from "@mui/material";
 import { Typography } from "@mui/material";
 import { CiShoppingCart } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
 import css from "./ProductItem.module.css";
 
-const ProductItem = ({ product: { name, image, description, new_price } }) => {
+const ProductItem = ({
+  product: { id, name, image, description, new_price },
+}) => {
+  const dispatch = useDispatch();
+  const favoriteProductsIds = useSelector(selectFavoriteProductsIds);
+
+  const addFavClass = () => {
+    if (favoriteProductsIds.includes(id)) {
+      return "favorite";
+    }
+  };
+
+  const handleFavButtonClick = () => {
+    if (favoriteProductsIds.includes(id)) {
+      dispatch(removeFromWishlist(id));
+    } else {
+      dispatch(addToWishList(id));
+    }
+  };
+
   return (
     <li className={css["product-item"]}>
       <div className={css["image-container"]}>
@@ -19,12 +47,12 @@ const ProductItem = ({ product: { name, image, description, new_price } }) => {
         <p>{description}</p>
         <p>{new_price} гривень</p>
         <Stack direction="row" justifyContent="space-between">
-          <Link to="/cart">
+          <IconButton>
             <CiShoppingCart className={css.icon} />
-          </Link>
-          <Link>
-            <CiHeart className={css.icon} />
-          </Link>
+          </IconButton>
+          <IconButton onClick={handleFavButtonClick}>
+            <CiHeart className={clsx(css.icon, css[addFavClass()])} />
+          </IconButton>
         </Stack>
       </div>
     </li>

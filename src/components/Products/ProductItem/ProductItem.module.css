@@ -38,3 +38,7 @@
   height: 30px;
   color: var(--main-font-color);
 }
+
+.icon.favorite {
+  color: red;
+}

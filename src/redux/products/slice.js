@@ -166,10 +166,11 @@ const productsInitialState = {
       old_price: 120.5,
     }
   ],
+  wishlist: [],
   loading: false,
   error: null,
-};
 
+};
 
 const productsSlice = createSlice({
   name: "products",
@@ -181,7 +182,17 @@ const productsSlice = createSlice({
     deleteProduct(state, action) {
       state.items = state.items.filter((item) => item.id !== action.payload.id);
     },
+    addToWishList(state, action) {
+      state.wishlist.push(action.payload)
+    },
+    removeFromWishlist(state, action) {
+      state.wishlist = state.wishlist.filter(wishlistId => wishlistId !== action.payload)
+    }
   },
 });
 
 export const productsReducer = productsSlice.reducer;
+export const {addToWishList, removeFromWishlist} = productsSlice.actions;
+
+
+

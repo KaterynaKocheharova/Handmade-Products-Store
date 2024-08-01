@@ -14,7 +14,15 @@ export const selectFilteredProducts = createSelector(
   }
 );
 
-export const selectProductsByCategory = (category) => createSelector(
-  [selectAllProducts],
-  (products) => products.filter((product) => product.category === category)
+export const selectProductsByCategory = (category) =>
+  createSelector([selectAllProducts], (products) =>
+    products.filter((product) => product.category === category)
+  );
+
+export const selectFavoriteProductsIds = (state) => state.products.wishlist;
+
+export const selectFavoriteProducts = createSelector(
+  [selectFavoriteProductsIds, selectAllProducts],
+  (ids, allProducts) =>
+    allProducts.filter((product) => ids.includes(product.id))
 );

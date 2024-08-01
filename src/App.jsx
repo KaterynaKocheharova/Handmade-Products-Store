@@ -7,6 +7,7 @@ import { ThemeProvider } from "@emotion/react";
 import theme from "./theme";
 import Layout from "components/Layout/Layout";
 
+
 // import Loader from "./components/common/Loader/Loader";
 // import RestrictedRoute from "components/routes/RestrictedRoute";
 // import PrivateRoute from "components/routes/PrivateRoute";
@@ -25,6 +26,8 @@ const ProductDetailsPage = lazy(() =>
   import("./pages/ProductDetailsPage/ProductDetailsPage")
 );
 const CartPage = lazy(() => import("./pages/CartPage/CartPage"));
+
+const FavoriteProductsPage = lazy(() => import("./pages/FavoriteProductsPage/FavoriteProductsPage"));
 
 export default function App() {
   // const isLoading = useSelector(selectIsAuthLoading);
@@ -55,6 +58,7 @@ export default function App() {
               <Route path="/bags" element={<ProductCategoryPage category="bags" />} />
               <Route path="/wallets" element={<ProductCategoryPage category="wallets" />} />
               <Route path="/belts" element={<ProductCategoryPage category="belts" />} />
+              <Route path="/favoriteProductsPage" element={<FavoriteProductsPage />} />
               <Route path="/backpacks" element={<ProductCategoryPage category="backpacks" />} />
               <Route path="/product/:id" element={<ProductDetailsPage />} />
               <Route path="/cart" element={<CartPage />} />
