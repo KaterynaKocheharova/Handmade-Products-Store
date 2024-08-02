@@ -1,4 +1,5 @@
 import { Stack, IconButton } from "@mui/material";
+// import Badge from "@mui/material/Badge";
 import { Badge } from "@mui/base/Badge";
 import { NavLink } from "react-router-dom";
 import { CiLogout } from "react-icons/ci";
@@ -13,7 +14,6 @@ import css from "./UserMenu.module.css";
 const UserMenu = () => {
   const favIds = useSelector(selectFavoriteProductsIds);
   const favNumber = favIds.length;
-  console.log(favNumber);
 
   return (
     <Stack direction="row" spacing={2} alignItems="center">
@@ -25,6 +25,7 @@ const UserMenu = () => {
           <Badge
             badgeContent={favNumber}
             slotProps={{ badge: { className: css.badge } }}
+            showZero
           >
             <CiHeart className={css.icon} />
           </Badge>
