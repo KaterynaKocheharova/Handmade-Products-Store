@@ -3,15 +3,15 @@ import { selectFavoriteProducts } from "../../redux/products/selectors";
 import Section from "components/common/Section/Section";
 import Container from "components/common/Container/Container";
 import ProductList from "components/Products/ProductList/ProductList";
+import { Typography } from "@mui/material";
 
 const FavoriteProductsPage = () => {
   const favoriteProducts = useSelector(selectFavoriteProducts);
-  console.log(favoriteProducts);
 
   return (
     <Section>
       <Container>
-        FAV LIST
+        <Typography variant="h4" component="h2" sx={{textAlign: "center", marginBottom: "5rem"}}>ОБРАНІ ТОВАРИ</Typography>
         {favoriteProducts.length > 0 && (
           <ProductList products={favoriteProducts} />
         )}

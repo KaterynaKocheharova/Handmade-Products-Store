@@ -5,6 +5,7 @@
   --main-font-color-transparent: rgba(74, 74, 74, 0.5); /* Darker Grey with transparency */
   --secondary-font-color: #787775; /* Dark Grey */
   --accent-color: #c4b3a9; /* Warm Beige */
+  --accent-color-2: red;
   --highlight-color: #b0a296; /* Slightly darker beige for accents */
   --contrast-color: #1a2a3a; /* Dark Blue */
 

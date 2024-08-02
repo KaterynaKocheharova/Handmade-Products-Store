@@ -1,7 +1,10 @@
 .icon {
-    color: var(--main-font-color);
-    width: 2rem;
-    height: 2rem;
-    cursor: pointer;
-  }
-  
+  color: var(--main-font-color);
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}
+
+.active .icon {
+  color: var(--accent-color-2);
+}

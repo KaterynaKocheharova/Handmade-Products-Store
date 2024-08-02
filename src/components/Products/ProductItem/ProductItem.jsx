@@ -5,7 +5,6 @@ import {
   removeFromWishlist,
 } from "../../../redux/products/slice";
 import {
-  selectFavoriteProducts,
   selectFavoriteProductsIds,
 } from "../../../redux/products/selectors";
 import { useSelector } from "react-redux";
@@ -13,6 +12,7 @@ import { Stack, IconButton } from "@mui/material";
 import { Typography } from "@mui/material";
 import { CiShoppingCart } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
+import { addFavClass } from "./buildClasses";
 import css from "./ProductItem.module.css";
 
 const ProductItem = ({
@@ -21,11 +21,7 @@ const ProductItem = ({
   const dispatch = useDispatch();
   const favoriteProductsIds = useSelector(selectFavoriteProductsIds);
 
-  const addFavClass = () => {
-    if (favoriteProductsIds.includes(id)) {
-      return "favorite";
-    }
-  };
+  
 
   const handleFavButtonClick = () => {
     if (favoriteProductsIds.includes(id)) {
@@ -51,7 +47,7 @@ const ProductItem = ({
             <CiShoppingCart className={css.icon} />
           </IconButton>
           <IconButton onClick={handleFavButtonClick}>
-            <CiHeart className={clsx(css.icon, css[addFavClass()])} />
+            <CiHeart className={clsx(css.icon, css[addFavClass(favoriteProductsIds, id)])} />
           </IconButton>
         </Stack>
       </div>
