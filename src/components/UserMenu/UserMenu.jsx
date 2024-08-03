@@ -7,13 +7,12 @@ import { CiShoppingCart } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
 import { buildActiveIconLinkClassname } from "./buildClasses";
 import { useSelector } from "react-redux";
-import { selectFavoriteProductsIds } from "../../redux/products/selectors";
+import { selectFavoriteProducts} from "../../redux/products/selectors";
 
 import css from "./UserMenu.module.css";
 
 const UserMenu = () => {
-  const favIds = useSelector(selectFavoriteProductsIds);
-  const favNumber = favIds.length;
+  const favProducts = useSelector(selectFavoriteProducts);
 
   return (
     <Stack direction="row" spacing={2} alignItems="center">
@@ -23,7 +22,7 @@ const UserMenu = () => {
           to="/favoriteProductsPage"
         >
           <Badge
-            badgeContent={favNumber}
+            badgeContent={favProducts.length}
             slotProps={{ badge: { className: css.badge } }}
             showZero
           >

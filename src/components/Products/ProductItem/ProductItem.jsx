@@ -5,6 +5,7 @@ import {
   addToWishList,
   removeFromCartlist,
   removeFromWishlist,
+  deleteProduct
 } from "../../../redux/products/slice";
 import {
   selectCartProductsIds,
@@ -42,6 +43,10 @@ const ProductItem = ({
     }
   };
 
+  const handleDeleteProduct = () => {
+    dispatch(deleteProduct(id));
+  };
+
   return (
     <li className={css["product-item"]}>
       <div className={css["image-container"]}>
@@ -65,6 +70,7 @@ const ProductItem = ({
               )}
             />
           </IconButton>
+          <button onClick={handleDeleteProduct}>Delete</button>
         </Stack>
       </div>
     </li>
