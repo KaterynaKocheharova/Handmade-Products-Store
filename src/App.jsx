@@ -61,7 +61,7 @@ export default function App() {
               <Route path="/favoriteProductsPage" element={<FavoriteProductsPage />} />
               <Route path="/backpacks" element={<ProductCategoryPage category="backpacks" />} />
               <Route path="/product/:id" element={<ProductDetailsPage />} />
-              <Route path="/cart" element={<CartPage />} />
+              <Route path="/CartPage" element={<CartPage />} />
             </Routes>
           </Layout>
         </Suspense>

@@ -1,10 +1,13 @@
 import clsx from "clsx";
 import { useDispatch } from "react-redux";
 import {
+  addToCartlist,
   addToWishList,
+  removeFromCartlist,
   removeFromWishlist,
 } from "../../../redux/products/slice";
 import {
+  selectCartProductsIds,
   selectFavoriteProductsIds,
 } from "../../../redux/products/selectors";
 import { useSelector } from "react-redux";
@@ -20,14 +23,22 @@ const ProductItem = ({
 }) => {
   const dispatch = useDispatch();
   const favoriteProductsIds = useSelector(selectFavoriteProductsIds);
-
-  
+  const cartProductsIds = useSelector(selectCartProductsIds);
+  console.log(cartProductsIds);
 
   const handleFavButtonClick = () => {
     if (favoriteProductsIds.includes(id)) {
       dispatch(removeFromWishlist(id));
     } else {
       dispatch(addToWishList(id));
+    }
+  };
+
+  const handleCartButtonClick = () => {
+    if (cartProductsIds.includes(id)) {
+      dispatch(removeFromCartlist(id));
+    } else {
+      dispatch(addToCartlist(id));
     }
   };
 
@@ -43,11 +54,16 @@ const ProductItem = ({
         <p>{description}</p>
         <p>{new_price} гривень</p>
         <Stack direction="row" justifyContent="space-between">
-          <IconButton>
+          <IconButton onClick={handleCartButtonClick}>
             <CiShoppingCart className={css.icon} />
           </IconButton>
           <IconButton onClick={handleFavButtonClick}>
-            <CiHeart className={clsx(css.icon, css[addFavClass(favoriteProductsIds, id)])} />
+            <CiHeart
+              className={clsx(
+                css.icon,
+                css[addFavClass(favoriteProductsIds, id)]
+              )}
+            />
           </IconButton>
         </Stack>
       </div>

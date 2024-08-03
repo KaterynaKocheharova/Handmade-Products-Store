@@ -26,3 +26,11 @@ export const selectFavoriteProducts = createSelector(
   (ids, allProducts) =>
     allProducts.filter((product) => ids.includes(product.id))
 );
+
+export const selectCartProductsIds = (state) => state.products.cartlist;
+
+export const selectCartProducts = createSelector(
+  [selectCartProductsIds, selectAllProducts],
+  (ids, allProducts) =>
+    allProducts.filter((product) => ids.includes(product.id))
+);

@@ -23,8 +23,8 @@ const authPersistConfiguration = {
 const productsPersistConfiguration = {
   key: "items",
   storage,
-  whitelist: ["wishlist"],
-}
+  whitelist: ["wishlist", "cartlist"],
+};
 
 export const store = configureStore({
   reducer: {

@@ -31,7 +31,10 @@ const UserMenu = () => {
           </Badge>
         </NavLink>
       </IconButton>
-      <NavLink>
+      <NavLink
+        className={({ isActive }) => buildActiveIconLinkClassname(isActive)}
+        to="/CartPage"
+      >
         <CiShoppingCart className={css.icon} />
       </NavLink>
       <NavLink>
