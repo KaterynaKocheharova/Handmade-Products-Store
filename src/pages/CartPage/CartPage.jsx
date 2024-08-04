@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { selectCartProducts } from "../../redux/products/selectors";
+import { selectFinalCartProducts } from "../../redux/cart/cartSelectors";
 import Section from "components/common/Section/Section";
 import Container from "components/common/Container/Container";
 import { Typography } from "@mui/material";
@@ -8,7 +8,7 @@ import { buildCartPageText } from "./buildText";
 import css from "./CartPage.module.css";
 
 const CartPage = () => {
-  const cartProducts = useSelector(selectCartProducts);
+  const cartProducts = useSelector(selectFinalCartProducts);
   return (
     <Section>
       <Container>

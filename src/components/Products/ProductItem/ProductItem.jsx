@@ -1,16 +1,10 @@
 import clsx from "clsx";
 import { useDispatch } from "react-redux";
 import {
-  addToCartlist,
   addToWishList,
-  removeFromCartlist,
   removeFromWishlist,
-  deleteProduct,
 } from "../../../redux/products/slice";
-import {
-  selectCartProductsIds,
-  selectFavoriteProductsIds,
-} from "../../../redux/products/selectors";
+import { selectFavoriteProductsIds } from "../../../redux/products/selectors";
 import { useSelector } from "react-redux";
 import { Stack, IconButton } from "@mui/material";
 import { Typography } from "@mui/material";
@@ -25,8 +19,6 @@ const ProductItem = ({
 }) => {
   const dispatch = useDispatch();
   const favoriteProductsIds = useSelector(selectFavoriteProductsIds);
-  const cartProductsIds = useSelector(selectCartProductsIds);
-  console.log(cartProductsIds);
 
   const handleFavButtonClick = () => {
     if (favoriteProductsIds.includes(id)) {
@@ -37,17 +29,8 @@ const ProductItem = ({
   };
 
   const handleCartButtonClick = () => {
-    // if (cartProductsIds.includes(id)) {
-    //   dispatch(removeFromCartlist(id));
-    // } else {
-    //   dispatch(addToCartlist(id));
-    // }
     dispatch(addToCart({ productId: id, quantity: 1 }));
   };
-
-  // const handleDeleteProduct = () => {
-  //   dispatch(deleteProduct(id));
-  // };
 
   return (
     <li className={css["product-item"]}>
@@ -72,7 +55,6 @@ const ProductItem = ({
               )}
             />
           </IconButton>
-          {/* <button onClick={handleDeleteProduct}>Delete</button> */}
         </Stack>
       </div>
     </li>
