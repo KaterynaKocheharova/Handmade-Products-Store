@@ -70,7 +70,7 @@ const ProductItem = ({
               )}
             />
           </IconButton>
-          <button onClick={handleDeleteProduct}>Delete</button>
+          {/* <button onClick={handleDeleteProduct}>Delete</button> */}
         </Stack>
       </div>
     </li>

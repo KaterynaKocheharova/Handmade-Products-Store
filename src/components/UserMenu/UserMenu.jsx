@@ -7,12 +7,16 @@ import { CiShoppingCart } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
 import { buildActiveIconLinkClassname } from "./buildClasses";
 import { useSelector } from "react-redux";
-import { selectFavoriteProducts} from "../../redux/products/selectors";
+import {
+  selectFavoriteProducts,
+  selectCartProducts,
+} from "../../redux/products/selectors";
 
 import css from "./UserMenu.module.css";
 
 const UserMenu = () => {
   const favProducts = useSelector(selectFavoriteProducts);
+  const cartProducts = useSelector(selectCartProducts);
 
   return (
     <Stack direction="row" spacing={2} alignItems="center">
@@ -34,7 +38,13 @@ const UserMenu = () => {
         className={({ isActive }) => buildActiveIconLinkClassname(isActive)}
         to="/CartPage"
       >
-        <CiShoppingCart className={css.icon} />
+        <Badge
+          badgeContent={cartProducts.length}
+          slotProps={{ badge: { className: css.badge } }}
+          showZero
+        >
+          <CiShoppingCart className={css.icon} />
+        </Badge>
       </NavLink>
       <NavLink>
         <CiLogout className={css.icon} />

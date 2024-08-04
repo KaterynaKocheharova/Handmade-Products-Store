@@ -181,9 +181,8 @@ const productsSlice = createSlice({
     },
     deleteProduct(state, action) {
       state.items = state.items.filter((item) => item.id !== action.payload);
-      state.wishlist = state.wishlist.filter(
-        (id) => id !== action.payload
-      );
+      state.wishlist = state.wishlist.filter((id) => id !== action.payload);
+      state.cartlist = state.cartlist.filter((id) => id !== action.payload);
     },
     addToWishList(state, action) {
       state.wishlist.push(action.payload);
