@@ -46,6 +46,7 @@ const UserMenu = () => {
           <CiShoppingCart className={css.icon} />
         </Badge>
       </NavLink>
+      <button>Experiment cart</button>
       <NavLink>
         <CiLogout className={css.icon} />
       </NavLink>

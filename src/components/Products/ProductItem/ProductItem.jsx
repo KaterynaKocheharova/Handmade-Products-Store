@@ -5,7 +5,7 @@ import {
   addToWishList,
   removeFromCartlist,
   removeFromWishlist,
-  deleteProduct
+  deleteProduct,
 } from "../../../redux/products/slice";
 import {
   selectCartProductsIds,
@@ -18,6 +18,7 @@ import { CiShoppingCart } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
 import { addFavClass } from "./buildClasses";
 import css from "./ProductItem.module.css";
+import { addToCart } from "../../../redux/cart/cartSlice";
 
 const ProductItem = ({
   product: { id, name, image, description, new_price },
@@ -36,16 +37,17 @@ const ProductItem = ({
   };
 
   const handleCartButtonClick = () => {
-    if (cartProductsIds.includes(id)) {
-      dispatch(removeFromCartlist(id));
-    } else {
-      dispatch(addToCartlist(id));
-    }
+    // if (cartProductsIds.includes(id)) {
+    //   dispatch(removeFromCartlist(id));
+    // } else {
+    //   dispatch(addToCartlist(id));
+    // }
+    dispatch(addToCart({ productId: id, quantity: 1 }));
   };
 
-  const handleDeleteProduct = () => {
-    dispatch(deleteProduct(id));
-  };
+  // const handleDeleteProduct = () => {
+  //   dispatch(deleteProduct(id));
+  // };
 
   return (
     <li className={css["product-item"]}>
