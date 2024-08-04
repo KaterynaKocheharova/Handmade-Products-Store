@@ -13,6 +13,12 @@ import { selectCartProductsQuantity } from "../../redux/cart/cartSelectors";
 import css from "./UserMenu.module.css";
 
 const UserMenu = () => {
+  // const [open, setOpen] = useState(false);
+
+  // const toggleDrawer = (newOpen) => () => {
+  //   setOpen(newOpen);
+  // };
+
   const favProducts = useSelector(selectFavoriteProducts);
   const cartProductsQuantity = useSelector(selectCartProductsQuantity);
 

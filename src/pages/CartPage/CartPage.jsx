@@ -2,6 +2,7 @@ import Section from "components/common/Section/Section";
 import Container from "components/common/Container/Container";
 import ProductList from "components/Products/ProductList/ProductList";
 import { Typography } from "@mui/material";
+import QuantityControl from "components/common/QuantityControl/QuantityControl";
 import { selectFinalCartProducts } from "../../redux/cart/cartSelectors";
 import { useSelector } from "react-redux";
 
@@ -18,6 +19,7 @@ const CartPage = () => {
           PRODUCT CART
         </Typography>
         <ProductList products={products} />
+        <QuantityControl />
       </Container>
     </Section>
   );
