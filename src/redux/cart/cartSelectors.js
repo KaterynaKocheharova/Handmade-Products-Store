@@ -6,17 +6,14 @@ const selectCartProducts = (state) => state.cart.items;
 export const selectFinalCartProducts = createSelector(
   [selectAllProducts, selectCartProducts],
   (allProducts, cartProducts) => {
-    return allProducts.filter((product) => {
-      const cartProductIndex = cartProducts.findIndex(
-        (cartProduct) => cartProduct.productId === product.id
-      );
-      if (cartProductIndex >= 0) {
-        return true;
-      } else {
-        return false;
-      }
-    });
+    const cartProductIds = cartProducts.map(
+      (cartProduct) => cartProduct.productId
+    );
+    return allProducts.filter((product) => cartProductIds.includes(product.id));
   }
 );
 
-export const selectCartProductsQuantity = createSelector([selectCartProducts], (cartProducts) => cartProducts.length)
+export const selectCartProductsQuantity = createSelector(
+  [selectCartProducts],
+  (cartProducts) => cartProducts.length
+);

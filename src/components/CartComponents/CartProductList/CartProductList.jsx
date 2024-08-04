@@ -7,10 +7,16 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { Stack, Typography } from "@mui/material";
 import QuantityControl from "../QuantityControl/QuantityControl";
+import FlexColumn from "components/common/FlexColumn/FlexColumn";
+import FlexRow from "components/common/FlexRow/FlexRow";
+import { useSelector } from "react-redux";
+import { selectFinalCartProducts } from "../../../redux/cart/cartSelectors";
 
-const CartProductList = ({ products }) => {
+const CartProductList = () => {
+  const cartProducts = useSelector(selectFinalCartProducts);
+  console.log(cartProducts);
   return (
-    <TableContainer component={Paper} sx={{maxWidth: "700px"}}>
+    <TableContainer component={Paper} sx={{ maxWidth: "700px" }}>
       <Table aria-label="table cart">
         <TableHead>
           <TableRow>
@@ -20,7 +26,7 @@ const CartProductList = ({ products }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {products.map(({ id, name, image, new_price }) => (
+          {cartProducts.map(({ id, name, image, new_price }) => (
             <TableRow key={id}>
               <TableCell component="th" align="left">
                 <Stack
@@ -30,10 +36,13 @@ const CartProductList = ({ products }) => {
                   spacing={2}
                 >
                   <img src={image} alt="cart product picture" width={300} />
-                  <Typography>{name}</Typography>
+                  <FlexColumn>
+                    <Typography>{name}</Typography>
+                    <Typography>{new_price}</Typography>
+                  </FlexColumn>
                 </Stack>
               </TableCell>
-              <TableCell align="left" scope="column" >
+              <TableCell align="left" scope="column">
                 <QuantityControl />
               </TableCell>
               <TableCell align="left">THIRD CELL</TableCell>
