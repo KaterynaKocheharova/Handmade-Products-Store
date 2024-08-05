@@ -11,33 +11,33 @@ import Stack from "@mui/material/Stack";
 import css from "./NavBar.module.css";
 import clsx from "clsx";
 
-const NavBar = () => {
+const NavBar = ({ openDrawer }) => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   return (
     <Header>
-        <Stack
-          justifyContent="center"
-          alignItems="center"
-          sx={{
-            padding: "10px",
-            backgroundColor: "var(--main-font-color)}",
-            width: "100%",
-          }}
-        >
-          <p className={css.text}>Вітаємо у нашому магазині!</p>
-        </Stack>
+      <Stack
+        justifyContent="center"
+        alignItems="center"
+        sx={{
+          padding: "10px",
+          backgroundColor: "var(--main-font-color)}",
+          width: "100%",
+        }}
+      >
+        <p className={css.text}>Вітаємо у нашому магазині!</p>
+      </Stack>
       <Container>
         <Stack
           direction="row"
           justifyContent="space-between"
           alignItems="center"
           spacing={2}
-          paddingTop= "10px"
+          paddingTop="10px"
           paddingBottom="10px"
         >
-          <MobileMenu/>
-          <Navigation/>
-          {isLoggedIn ? <UserMenu /> : <AuthNav />}
+          <MobileMenu />
+          <Navigation />
+          {isLoggedIn ? <UserMenu openDrawer={openDrawer} /> : <AuthNav />}
         </Stack>
       </Container>
       <Stack
@@ -50,7 +50,10 @@ const NavBar = () => {
           backgroundColor: "var(--main-font-color)}",
         }}
       >
-        <a className={clsx(css["contact-link"], css["tel-link"])} href="tel:+380123456789">
+        <a
+          className={clsx(css["contact-link"], css["tel-link"])}
+          href="tel:+380123456789"
+        >
           +380123456789
         </a>
         <a className={css["contact-link"]} href="mailto:example@gmail.com">

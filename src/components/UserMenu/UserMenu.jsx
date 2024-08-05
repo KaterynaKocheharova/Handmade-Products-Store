@@ -1,5 +1,4 @@
 import { Stack, IconButton } from "@mui/material";
-// import Badge from "@mui/material/Badge";
 import { Badge } from "@mui/base/Badge";
 import { NavLink } from "react-router-dom";
 import { CiLogout } from "react-icons/ci";
@@ -12,13 +11,7 @@ import { selectCartProductsQuantity } from "../../redux/cart/cartSelectors";
 
 import css from "./UserMenu.module.css";
 
-const UserMenu = () => {
-  // const [open, setOpen] = useState(false);
-
-  // const toggleDrawer = (newOpen) => () => {
-  //   setOpen(newOpen);
-  // };
-
+const UserMenu = ({ openDrawer }) => {
   const favProducts = useSelector(selectFavoriteProducts);
   const cartProductsQuantity = useSelector(selectCartProductsQuantity);
 
@@ -38,10 +31,7 @@ const UserMenu = () => {
           </Badge>
         </NavLink>
       </IconButton>
-      <NavLink
-        className={({ isActive }) => buildActiveIconLinkClassname(isActive)}
-        to="/CartPage"
-      >
+      <IconButton onClick={openDrawer}>
         <Badge
           badgeContent={cartProductsQuantity}
           slotProps={{ badge: { className: css.badge } }}
@@ -49,7 +39,7 @@ const UserMenu = () => {
         >
           <CiShoppingCart className={css.icon} />
         </Badge>
-      </NavLink>
+      </IconButton>
       <NavLink>
         <CiLogout className={css.icon} />
       </NavLink>

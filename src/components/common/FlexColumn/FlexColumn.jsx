@@ -1,13 +1,14 @@
+import { Stack } from "@mui/material";
+
 const FlexColumn = ({ children }) => {
   return (
-    <FlexColumn
+    <Stack
       direction="column"
-      justifyContent="flex-between"
+      justifyContent="center"
       alignItems="center"
-      spacing={2}
     >
       {children}
-    </FlexColumn>
+    </Stack>
   );
 };
 

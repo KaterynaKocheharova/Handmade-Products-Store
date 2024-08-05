@@ -2,17 +2,17 @@ import { useState } from "react";
 
 export const useOpen = () => {
   const [open, setOpen] = useState(false);
-  const toggleOpen = () => {
-    if (!open) {
-      setOpen(true);
-    } else {
-      setOpen(false);
-    }
+  const openElement = () => {
+    setOpen(true);
+  };
+
+  const closeElement = () => {
+    setOpen(false);
   };
 
   return {
     open,
-    setOpen,
-    toggleOpen,
+    openElement,
+    closeElement,
   };
 };

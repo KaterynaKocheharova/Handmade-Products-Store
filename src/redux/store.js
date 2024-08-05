@@ -27,11 +27,16 @@ const productsPersistConfiguration = {
   whitelist: ["wishlist", "cartlist"],
 };
 
+const cartPersistConfiguration = {
+  key: "cart",
+  storage,
+}
+
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfiguration, authReducer),
     products: persistReducer(productsPersistConfiguration, productsReducer),
-    cart: cartReducer,
+    cart: persistReducer(cartPersistConfiguration, cartReducer),
     filters: filtersReducer,
   },
   middleware: (getDefaultMiddleware) =>

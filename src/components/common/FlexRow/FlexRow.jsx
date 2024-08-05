@@ -1,15 +1,19 @@
+import { Stack } from "@mui/material";
 
-
-const FlexRow = ({ children }) => {
+const FlexRow = ({ children, type }) => {
   return (
-    <FlexRow
+    <Stack
       direction="row"
       justifyContent="flex-between"
       alignItems="center"
       spacing={2}
+      sx={{
+        borderBottom: type === "cart" ? "1px solid var(--second-color)" : "none",
+      }}
+      flexWrap="wrap"
     >
       {children}
-    </FlexRow>
+    </Stack>
   );
 };
 

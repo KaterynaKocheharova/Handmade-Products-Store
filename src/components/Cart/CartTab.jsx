@@ -1,14 +1,15 @@
-import { useSelector } from "react-redux"
-import { selectFinalCartProducts } from "../../redux/cart/cartSelectors";
+import Section from "components/common/Section/Section";
+import Container from "components/common/Container/Container";
+import CartTable from "./CartTable/CartTable";
 
 const CartTab = () => {
-    const cartProducts = useSelector(selectFinalCartProducts);
-
   return (
-    <div>
-      
-    </div>
-  )
-}
+    <Section>
+      <Container>
+        <CartTable />
+      </Container>
+    </Section>
+  );
+};
 
-export default CartTab
+export default CartTab;
