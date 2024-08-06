@@ -17,3 +17,6 @@ export const selectCartProductsQuantity = createSelector(
   [selectCartProducts],
   (cartProducts) => cartProducts.length
 );
+
+export const selectQuantity = (productId) => (state) =>
+  state.cart.items.find((item) => item.productId === productId).quantity;

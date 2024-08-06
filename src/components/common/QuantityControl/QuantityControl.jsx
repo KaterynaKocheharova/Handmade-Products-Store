@@ -1,13 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { editQuantity } from "../../../redux/cart/cartSlice";
+import { selectQuantity } from "../../../redux/cart/cartSelectors";
+
+import FlexRow from "../FlexRow/FlexRow";
 import { IconButton, Typography } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import css from "./QuantityControl.module.css";
-import FlexRow from "../FlexRow/FlexRow";
 
-const QuantityControl = () => {
-  // add it later while dispatching adding to cart action
-  const [quantity, setQuantity] = useState(1);
+
+const QuantityControl = ({ itemId }) => {
+  const currentStateQuantity = useSelector(selectQuantity(itemId));
+  const [quantity, setQuantity] = useState(currentStateQuantity);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(editQuantity({ quantity, productId: itemId }));
+  }, [quantity, dispatch, itemId]);
 
   const handleIncrease = () => {
     setQuantity((prevQuantity) => prevQuantity + 1);

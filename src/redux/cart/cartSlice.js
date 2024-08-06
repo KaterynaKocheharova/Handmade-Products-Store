@@ -19,8 +19,17 @@ const cartSlice = createSlice({
         state.items.push({ productId, quantity });
       }
     },
+    editQuantity(state, action) {
+      const { productId, quantity } = action.payload;
+      const index = state.items.findIndex(
+        (item) => item.productId === productId
+      );
+      if (index >= 0) {
+        state.items[index].quantity = quantity;
+      }
+    },
   },
 });
 
 export default cartSlice.reducer;
-export const { addToCart } = cartSlice.actions;
+export const { addToCart, editQuantity } = cartSlice.actions;
