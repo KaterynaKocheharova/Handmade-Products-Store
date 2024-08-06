@@ -2,9 +2,11 @@ import { useState } from "react";
 import { IconButton, Typography } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
+import css from "./QuantityControl.module.css";
+import FlexRow from "../FlexRow/FlexRow";
 
 const QuantityControl = () => {
-    // add it later while dispatching adding to cart action 
+  // add it later while dispatching adding to cart action
   const [quantity, setQuantity] = useState(1);
 
   const handleIncrease = () => {
@@ -16,17 +18,15 @@ const QuantityControl = () => {
   };
 
   return (
-    <div style={{ display: "flex", alignItems: "center" }}>
-      <IconButton onClick={handleDecrease} color="primary">
-        <RemoveIcon />
+    <FlexRow spacing={0.5}>
+      <IconButton onClick={handleDecrease}>
+        <RemoveIcon className={css["control-icon"]} />
       </IconButton>
-      <Typography variant="h6" style={{ margin: "0 10px" }}>
-        {quantity}
-      </Typography>
-      <IconButton onClick={handleIncrease} color="primary">
-        <AddIcon />
+      <Typography sx={{ fontSize: "14px" }}>{quantity}</Typography>
+      <IconButton onClick={handleIncrease}>
+        <AddIcon className={css["control-icon"]} />
       </IconButton>
-    </div>
+    </FlexRow>
   );
 };
 
