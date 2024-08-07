@@ -3,6 +3,12 @@ import { selectAllProducts } from "../products/selectors";
 
 export const selectCartProducts = (state) => state.cart.items;
 
+export const selectQuantity = (productId) =>
+  createSelector([selectCartProducts], (cartProducts) => {
+    const product = cartProducts.find((item) => item.productId === productId);
+    return product ? product.quantity : 0;
+  });
+
 export const selectFinalCartProducts = createSelector(
   [selectAllProducts, selectCartProducts],
   (allProducts, cartProducts) => {
@@ -18,5 +24,3 @@ export const selectCartProductsQuantity = createSelector(
   (cartProducts) => cartProducts.length
 );
 
-export const selectQuantity = (productId) => (state) =>
-  state.cart.items.find((item) => item.productId === productId).quantity;

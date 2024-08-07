@@ -11,18 +11,23 @@ import Paper from "@mui/material/Paper";
 
 export default function CartProductList() {
   const products = useSelector(selectFinalCartProducts);
+  const quantity = products.length;
 
   return (
     <TableContainer component={Paper}>
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell align="left">Кошик ваших товарів</TableCell>
+            <TableCell align="left">
+              {quantity > 0
+                ? "Кошик ваших товарів"
+                : "У вас немає товарів у кошику"}
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {products.map((product) => (
-            <CartItem key={product.id} product={product} />
+            <CartItem key={product.id} product={product} quantity={quantity} />
           ))}
         </TableBody>
       </Table>

@@ -28,7 +28,7 @@ const QuantityControl = ({ itemId }) => {
   };
 
   return (
-    <FlexRow spacing={0.5}>
+    <FlexRow spacing={0}>
       <IconButton onClick={handleDecrease}>
         <RemoveIcon className={css["control-icon"]} />
       </IconButton>
