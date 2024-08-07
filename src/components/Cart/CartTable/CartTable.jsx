@@ -7,28 +7,33 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
+import { Button } from "@mui/material";
 import Paper from "@mui/material/Paper";
 
 export default function CartProductList() {
   const products = useSelector(selectFinalCartProducts);
-  const quantity = products.length;
 
   return (
     <TableContainer component={Paper}>
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell align="left">
-              {quantity > 0
-                ? "Кошик ваших товарів"
-                : "У вас немає товарів у кошику"}
+            <TableCell align="center">
+              {products.length > 0
+                ? "КОШИК"
+                : "ВИ ЩЕ НЕ ДОДАВАЛИ ТОВАРИ"}
             </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {products.map((product) => (
-            <CartItem key={product.id} product={product} quantity={quantity} />
+            <CartItem key={product.id} product={product} />
           ))}
+          <TableRow>
+            <TableCell align="center">
+              {products.length > 0 && <Button>ЗРОБИТИ ЗАМОВЛЕННЯ</Button>}
+            </TableCell>
+          </TableRow>
         </TableBody>
       </Table>
     </TableContainer>
