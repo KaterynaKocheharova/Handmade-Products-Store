@@ -6,6 +6,7 @@
       "pages/*": ["pages/*"],
       "helpers/*": ["helpers/*"],
       "service/*": ["service/*"],
+      "redux/*": ["redux/*"]
     }
   },
   "include": ["src"]

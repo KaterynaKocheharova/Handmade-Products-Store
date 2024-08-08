@@ -19,7 +19,10 @@
   --card-border-radius: 5px;
   --input-border-radius: 30px;
   --card-image-border-radius: 15px;
+
+  --z-index-header: 99999999;
 }
+
 
 /* color palettes to explore https://paperheartdesign.com/blog/color-palette-peaceful-palettes#:~:text=Blue%20is%20calm%20and%20soothing,main%20source%20of%20inspiration%20here */
 
