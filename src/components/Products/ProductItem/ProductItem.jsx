@@ -6,10 +6,13 @@ import {
 } from "../../../redux/products/slice";
 import { selectFavoriteProductsIds } from "../../../redux/products/selectors";
 import { useSelector } from "react-redux";
-import { Stack, IconButton } from "@mui/material";
+import { Stack, IconButton, Button } from "@mui/material";
 import { Typography } from "@mui/material";
+import FlexRow from "../../common/FlexRow/FlexRow";
 import { CiShoppingCart } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
+import { GoPlus } from "react-icons/go";
+
 import { addFavClass } from "./buildClasses";
 import css from "./ProductItem.module.css";
 import { addToCart } from "../../../redux/cart/cartSlice";
@@ -44,13 +47,22 @@ const ProductItem = ({
         <p>{description}</p>
         <p>{new_price} гривень</p>
         <Stack direction="row" justifyContent="space-between">
-          <IconButton onClick={handleCartButtonClick}>
-            <CiShoppingCart className={css.icon} />
-          </IconButton>
+          <Button
+            variant="contained"
+            size="small"
+            onClick={handleCartButtonClick}
+            sx={{paddingRight: "5px", paddingLeft: "5px"}}
+          >
+            <FlexRow spacing={2}>
+              <GoPlus className={css.icon} />
+              <CiShoppingCart className={css.icon} />
+            </FlexRow>
+          </Button>
           <IconButton onClick={handleFavButtonClick}>
             <CiHeart
               className={clsx(
                 css.icon,
+                css["heart-icon"],
                 css[addFavClass(favoriteProductsIds, id)]
               )}
             />

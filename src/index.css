@@ -9,8 +9,14 @@
   --highlight-color: #b0a296; /* Slightly darker beige for accents */
   --contrast-color: #1a2a3a; /* Dark Blue */
 
+  /* CURRENT USED PALETTE */
   --first-color:  #f0f0f0;
   --second-color:  #4a4a4a;
+  --third-color: #f5e8d0;
+  --accent-color: red;
+/*  */
+
+
   --second-color-transparent:  rgba(74, 74, 74, 0.5);
 
   --card-box-shadow: -5px 5px 18px 0 rgba(64, 50, 52, 0.5);

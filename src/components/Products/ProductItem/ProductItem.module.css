@@ -9,7 +9,7 @@
 .product-item:focus {
   border: 1px solid var(--primary-border-color);
   box-shadow: var(--card-box-shadow);
-  transform: scale(1.05);
+  /* transform: scale(1.05); */
   cursor: pointer;
 }
 
@@ -36,9 +36,17 @@
 .product-item .icon {
   width: 30px;
   height: 30px;
-  color: var(--main-font-color);
+  color: var(--first-color);
 }
 
 .icon.favorite {
   color: red;
+}
+
+.product-item .heart-icon {
+  color: var(--second-color);
+}
+
+.product-item .favorite {
+  color: var(--accent-color);
 }

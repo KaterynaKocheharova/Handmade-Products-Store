@@ -4,7 +4,7 @@ const FlexRow = ({ children, type, spacing }) => {
   return (
     <Stack
       direction="row"
-      justifyContent="flex-between"
+      justifyContent="space-between"
       alignItems="center"
       spacing={spacing}
       sx={{
