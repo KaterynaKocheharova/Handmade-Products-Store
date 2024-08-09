@@ -38,12 +38,12 @@ const theme = createTheme({
           backgroundColor: "#4a4a4a",
           boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
 
-          // "&:hover": {
-          //   backgroundColor: "#f5e8d0",
-          //   color: " #4a4a4a",
-          //   borderColor: "none",
-          //   boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)",
-          // },
+          "&:hover": {
+            backgroundColor: "#4a4a4a",
+            color: "#f0f0f0",
+            borderColor: "none",
+            boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)",
+          },
         },
       },
     },
