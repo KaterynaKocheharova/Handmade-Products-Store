@@ -5,7 +5,7 @@ import {
   addToWishList,
   removeFromWishlist,
 } from "../../../redux/products/slice";
-import FlexRow from "../../common/FlexRow/FlexRow";
+import FlexRow from "../../common/FlexRow/FlexRow.tsx";
 import ToggleCartProductButton from "../../Cart/ToggleCartProductButton/ToggleCartProductButton";
 import { Typography, IconButton } from "@mui/material";
 import { CiHeart } from "react-icons/ci";

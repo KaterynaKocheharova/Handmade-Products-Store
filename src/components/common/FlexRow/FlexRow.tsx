@@ -1,6 +1,12 @@
 import { Stack } from "@mui/material";
 
-const FlexRow = ({ children, type, spacing }) => {
+type FlexRow = {
+  type?: string;
+  children: React.ReactNode;
+  spacing?: number;
+}
+
+const FlexRow = ({ children, type, spacing } : FlexRow) => {
   return (
     <Stack
       direction="row"

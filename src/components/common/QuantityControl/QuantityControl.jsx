@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { editQuantity } from "../../../redux/cart/cartSlice";
 import { selectQuantity } from "../../../redux/cart/cartSelectors";
 
-import FlexRow from "../FlexRow/FlexRow";
+import FlexRow from "../FlexRow/FlexRow.tsx";
 import { IconButton, Typography } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";

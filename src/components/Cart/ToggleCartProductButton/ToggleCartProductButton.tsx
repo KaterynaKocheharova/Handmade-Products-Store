@@ -1,17 +1,21 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { selectCartProductsIds } from "../../../redux/cart/cartSelectors";
 import { addToCart, removeFromCart } from "../../../redux/cart/cartSlice";
 import { Button } from "@mui/material";
-import FlexRow from "../../common/FlexRow/FlexRow";
+import FlexRow from "../../common/FlexRow/FlexRow.tsx";
 import { CiShoppingCart } from "react-icons/ci";
 import { GoPlus } from "react-icons/go";
 import { IoIosRemove } from "react-icons/io";
 import css from "./ToggleCartProductButton.module.css";
 
-const ToggleCartProductButton = ({ productId }) => {
-  const cartProductsIds = useSelector(selectCartProductsIds);
+type ToggleCartProductButton = {
+  productId: string;
+}
 
-  const dispatch = useDispatch();
+const ToggleCartProductButton = ({ productId }: ToggleCartProductButton) => {
+  const cartProductsIds = useAppSelector(selectCartProductsIds);
+
+  const dispatch = useAppDispatch();
 
   const handleCartButtonClick = () => {
     if (cartProductsIds.includes(productId)) {

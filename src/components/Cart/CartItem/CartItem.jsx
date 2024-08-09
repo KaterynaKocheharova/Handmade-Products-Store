@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectQuantity } from "../../../redux/cart/cartSelectors";
 import { removeFromCart } from "../../../redux/cart/cartSlice";
 import { TableCell, TableRow, IconButton } from "@mui/material";
-import FlexRow from "components/common/FlexRow/FlexRow";
+import FlexRow from "../../common/FlexRow/FlexRow.tsx";
 import QuantityControl from "components/common/QuantityControl/QuantityControl";
 import { AiOutlineDelete } from "react-icons/ai";
 import styled from "@emotion/styled";
