@@ -1,4 +1,3 @@
-
 .nav-list {
     display: none;
   }
@@ -12,5 +11,23 @@
   
   .nav-item {
     cursor: pointer;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    display: block;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 250ms linear;
+  }
+  
+  .nav-link:hover {
+    transform: scale(1.2);
+  }
+
+  .active-link {
+    color: var(--first-color);
+    background-color: var(--second-color);
   }
   

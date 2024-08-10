@@ -1,28 +1,44 @@
-import CustomNavLink from "components/common/CustomNavLink/CustomNavLink";
+import clsx from "clsx";
+import { NavLink } from "react-router-dom";
 import css from "./Navigation.module.css";
+
+const buildActiveClass = ({ isActive }) => 
+  clsx(css["nav-link"], { [css["active-link"]]: isActive });
 
 const Navigation = () => {
   return (
     <ul className={css["nav-list"]}>
       <li className={css["nav-item"]}>
-        <CustomNavLink to="/wallets" type="desktop-category-nav-link">
+        <NavLink
+          className={buildActiveClass}
+          to="/wallets"
+        >
           ГАМАНЦІ
-        </CustomNavLink>
+        </NavLink>
       </li>
       <li className={css["nav-item"]}>
-        <CustomNavLink to="/bags" type="desktop-category-nav-link">
+        <NavLink
+          className={buildActiveClass}
+          to="/bags"
+        >
           СУМКИ
-        </CustomNavLink>
+        </NavLink>
       </li>
       <li className={css["nav-item"]}>
-        <CustomNavLink to="/belts" type="desktop-category-nav-link">
+        <NavLink
+          className={buildActiveClass}
+          to="/belts"
+        >
           РЕМЕНІ
-        </CustomNavLink>
+        </NavLink>
       </li>
       <li className={css["nav-item"]}>
-        <CustomNavLink to="/backpacks" type="desktop-category-nav-link">
-          РЕМЕНІ
-        </CustomNavLink>
+        <NavLink
+          className={buildActiveClass}
+          to="/backpacks"
+        >
+          РЮКЗАКИ
+        </NavLink>
       </li>
     </ul>
   );

@@ -1,4 +1,3 @@
-import css from "./ProductDetails.module.css";
 
 const ProductDetailsPage = () => {
   return (

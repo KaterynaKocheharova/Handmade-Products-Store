@@ -4,9 +4,9 @@ type FlexRow = {
   type?: string;
   children: React.ReactNode;
   spacing?: number;
-}
+};
 
-const FlexRow = ({ children, type, spacing } : FlexRow) => {
+const FlexRow = ({ children, type, spacing }: FlexRow) => {
   return (
     <Stack
       direction="row"
@@ -14,9 +14,9 @@ const FlexRow = ({ children, type, spacing } : FlexRow) => {
       alignItems="center"
       spacing={spacing}
       sx={{
-        borderBottom: type === "cart" ? "1px solid var(--second-color)" : "none",
+        borderBottom:
+          type === "cart" ? "1px solid var(--second-color)" : "none",
       }}
-      // flexWrap="wrap"
     >
       {children}
     </Stack>
