@@ -4,8 +4,9 @@ import CustomDrawer from "components/common/Drawer/Drawer";
 import CartTab from "components/Cart/CartTab";
 import { useOpen } from "../../hooks/useOpen";
 import { styled } from "@mui/material";
+import { Suspense } from "react";
 
-const Layout = () => {
+const Layout = ({ children }) => {
   const { isElementOpen, openElement, closeElement } = useOpen();
 
   const Main = styled("main", {
@@ -26,6 +27,9 @@ const Layout = () => {
       <CustomDrawer closeDrawer={closeElement} drawerIsOpen={isElementOpen}>
         <CartTab />
       </CustomDrawer>
+      <Suspense fallback={<p>Loading page. Please, wait.</p>}>
+        {children}
+      </Suspense>
     </>
   );
 };
