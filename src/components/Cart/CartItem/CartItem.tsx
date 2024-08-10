@@ -1,26 +1,23 @@
-import { useMemo } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { selectQuantity } from "../../../redux/cart/cartSelectors";
-import { removeFromCart } from "../../../redux/cart/cartSlice";
+import { useAppDispatch } from "../../../redux/hooks.ts";
+import { removeFromCart } from "../../../redux/cart/cartSlice.ts";
 import { TableCell, TableRow, IconButton } from "@mui/material";
 import FlexRow from "../../common/FlexRow/FlexRow.tsx";
-import QuantityControl from "components/common/QuantityControl/QuantityControl";
+import QuantityControl from "../../common/QuantityControl/QuantityControl.jsx";
 import { AiOutlineDelete } from "react-icons/ai";
 import styled from "@emotion/styled";
 import css from "./CartItem.module.css";
+import { type Product } from "../../../types.ts";
 
-const CartItem = ({ product: { id, new_price, name, image } }) => {
-  const quantity = useSelector(selectQuantity(id));
-  const totalProductGroupPrice = useMemo(
-    () => quantity * new_price,
-    [quantity, new_price]
-  );
+type CartItem = {
+  product: Product;
+};
 
+const CartItem = ({ product: { id, new_price, name, image } }: CartItem) => {
   const StyledTableCell = styled(TableCell)({
     padding: "8px",
   });
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const handleDeleteClick = () => {
     dispatch(removeFromCart(id));
   };
@@ -36,7 +33,6 @@ const CartItem = ({ product: { id, new_price, name, image } }) => {
           <p>{name}</p>
           <p>{new_price} грн</p>
           <QuantityControl itemId={id} />
-          <p>Загальна ціна за партію - {totalProductGroupPrice}</p>
         </FlexRow>
       </StyledTableCell>
     </TableRow>

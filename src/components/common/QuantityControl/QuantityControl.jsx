@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { editQuantity } from "../../../redux/cart/cartSlice";
-import { selectQuantity } from "../../../redux/cart/cartSelectors";
+import { editQuantity } from "../../../redux/cart/cartSlice.ts";
+import { selectQuantity } from "../../../redux/cart/cartSelectors.js";
 
 import FlexRow from "../FlexRow/FlexRow.tsx";
 import { IconButton, Typography } from "@mui/material";
