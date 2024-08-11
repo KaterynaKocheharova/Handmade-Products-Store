@@ -1,13 +1,14 @@
+import clsx from "clsx";
 import Header from "./Header/Header";
 import Container from "components/common/Container/Container";
 import Navigation from "./Navigation/Navigation";
-import UserMenu from "components/UserMenu/UserMenu";
 import MobileNavigation from "./MobileNavigation/MobileMenu";
+import UserMenu from "components/UserMenu/UserMenu";
 import Stack from "@mui/material/Stack";
 import FlexRow from "../common/FlexRow/FlexRow";
 // import logo from "../../assets/My_Assets/logo.jpg";
 import css from "./NavBar.module.css";
-import clsx from "clsx";
+
 
 const NavBar = ({ openDrawer }) => {
   return (

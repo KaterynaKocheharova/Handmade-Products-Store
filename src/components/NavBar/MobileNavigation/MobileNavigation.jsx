@@ -1,11 +1,11 @@
-import { styled } from "@mui/material/styles";
-import MenuItem from "@mui/material/MenuItem";
-import Button from "@mui/material/Button";
-import Menu from "@mui/material/Menu";
 import { useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { useOpen } from "../../../hooks/useOpen";
-import css from "./MobileMenu.module.css";
+import { styled } from "@mui/material/styles";
+import MenuItem from "@mui/material/MenuItem";
+import Menu from "@mui/material/Menu";
+import Button from "@mui/material/Button";
+import css from "./MobileNavigation.module.css";
 
 const CustomMenuItem = styled(MenuItem)({
   "&:hover": {
@@ -14,7 +14,7 @@ const CustomMenuItem = styled(MenuItem)({
   },
 });
 
-const MobileMenu = () => {
+const MobileNavigation = () => {
   const { isElementOpen, openElement, closeElement } = useOpen();
   const buttonRef = useRef(null);
 
@@ -50,9 +50,6 @@ const MobileMenu = () => {
         anchorEl={buttonRef.current}
         open={isElementOpen}
         onClose={handleClose}
-        MenuListProps={{
-          "aria-labelledby": "basic-button",
-        }}
       >
         <CustomMenuItem onClick={handleClose}>
           <NavLink to="/wallets" className={buildActiveClass}>
@@ -79,4 +76,4 @@ const MobileMenu = () => {
   );
 };
 
-export default MobileMenu;
+export default MobileNavigation;
