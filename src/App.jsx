@@ -45,7 +45,7 @@ export default function App() {
                     path="/favoriteProductsPage"
                     element={<FavoriteProductsPage />}
                   />
-                  <Route path="/:slug" element={<ProductDetailsPage />} />
+                  <Route path="/:productId" element={<ProductDetailsPage />} />
                   <Route path="*" element={<Navigate to="/" />} />
                 </Route>
               </Routes>

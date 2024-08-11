@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { selectFavoriteProductsIds } from "../../../redux/products/selectors";
 import {
   addToWishList,
@@ -30,28 +31,30 @@ const ProductItem = ({
 
   return (
     <li className={css["product-item"]}>
-      <div className={css["image-container"]}>
-        <img className={css["item-image"]} src={image} alt={name} />
-      </div>
-      <div className={css["card-group-box"]}>
-        <Typography variant="h5" component="h3">
-          {name}
-        </Typography>
-        <p>{description}</p>
-        <p>{new_price} гривень</p>
-        <FlexRow>
-          <ToggleCartProductButton productId={id} />
-          <IconButton onClick={handleFavButtonClick}>
-            <CiHeart
-              className={clsx(
-                css.icon,
-                css["heart-icon"],
-                css[addFavClass(favoriteProductsIds, id)]
-              )}
-            />
-          </IconButton>
-        </FlexRow>
-      </div>
+      <Link to={`/${id}`} className={css["item-link"]}>
+        <div className={css["image-container"]}>
+          <img className={css["item-image"]} src={image} alt={name} />
+        </div>
+        <div className={css["card-group-box"]}>
+          <Typography variant="h5" component="h3">
+            {name}
+          </Typography>
+          <p>{description}</p>
+          <p>{new_price} гривень</p>
+          <FlexRow>
+            <ToggleCartProductButton productId={id} />
+            <IconButton onClick={handleFavButtonClick}>
+              <CiHeart
+                className={clsx(
+                  css.icon,
+                  css["heart-icon"],
+                  css[addFavClass(favoriteProductsIds, id)]
+                )}
+              />
+            </IconButton>
+          </FlexRow>
+        </div>
+      </Link>
     </li>
   );
 };

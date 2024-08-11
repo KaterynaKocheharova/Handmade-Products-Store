@@ -26,3 +26,5 @@ export const selectFavoriteProducts = createSelector(
   (ids, allProducts) =>
     allProducts.filter((product) => ids.includes(product.id))
 );
+
+

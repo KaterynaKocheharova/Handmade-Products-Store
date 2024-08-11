@@ -33,6 +33,10 @@
   row-gap: 1rem;
 }
 
+.item-link {
+  color: inherit;
+}
+
 .product-item .icon {
   width: 30px;
   height: 30px;
