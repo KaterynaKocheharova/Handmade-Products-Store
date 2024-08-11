@@ -9,9 +9,10 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { Button } from "@mui/material";
 import Paper from "@mui/material/Paper";
+import { type Product } from "../../../types";
 
 export default function CartProductList() {
-  const products = useSelector(selectFinalCartProducts);
+  const products: Product[] = useSelector(selectFinalCartProducts);
 
   return (
     <TableContainer component={Paper}>
@@ -26,7 +27,7 @@ export default function CartProductList() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {products.map((product) => (
+          {products.map((product: Product) => (
             <CartItem key={product.id} product={product} />
           ))}
           <TableRow>

@@ -39,7 +39,7 @@ const ProductItem = ({
           <Typography variant="h5" component="h3">
             {name}
           </Typography>
-          <p>{description}</p>
+          {/* <p>{description}</p> */}
           <p>{new_price} гривень</p>
           <FlexRow>
             <ToggleCartProductButton productId={id} />
