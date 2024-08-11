@@ -1,7 +1,7 @@
 import { Navigation, Autoplay, EffectFade } from "swiper/modules";
 import { useSelector } from "react-redux";
 import { selectAllProducts } from "../../../redux/products/selectors";
-import CustomSwiper from "components/common/CustomSwiper/CustomSwiper";
+import BaseSwiper from "../../common/CustomSwiper/BaseSwiper";
 import SwiperTextBox from "../SwiperTextBox/SwiperTextBox";
 import SwiperCustomNavBtns from "../SwiperCustomNavBtns/SwiperCustomNavBtns";
 import { useState } from "react";
@@ -38,10 +38,10 @@ const HomePageSwiper = () => {
       : { ...HomePageSwiperConfigs, autoplay: false, speed: 300 };
 
   return (
-    <CustomSwiper slides={slides} configs={filetredConfigs}>
+    <BaseSwiper slides={slides} configs={filetredConfigs}>
       <SwiperTextBox />
       <SwiperCustomNavBtns onClick={handleNavButtonClick} />
-    </CustomSwiper>
+    </BaseSwiper>
   );
 };
 
