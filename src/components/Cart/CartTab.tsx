@@ -1,5 +1,5 @@
-import Section from "components/common/Section/Section";
-import Container from "components/common/Container/Container";
+import Section from "../common/Section/Section";
+import Container from "../common/Container/Container";
 import CartTable from "./CartTable/CartTable";
 
 const CartTab = () => {
