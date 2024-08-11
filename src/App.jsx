@@ -19,24 +19,40 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <div id="App">
-        <Suspense fallback={null}>
-          <Layout>
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="*" element={<Navigate to="/" />} />
-              <Route path="/bags" element={<ProductCategoryPage category="bags" />} />
-              <Route path="/wallets" element={<ProductCategoryPage category="wallets" />} />
-              <Route path="/belts" element={<ProductCategoryPage category="belts" />} />
-              <Route path="/backpacks" element={<ProductCategoryPage category="backpacks" />} />
-              <Route path="/favoriteProductsPage" element={<FavoriteProductsPage />} />
-              <Route path="/:slug" element={<ProductDetailsPage />} />
-            </Routes>
-          </Layout>
-        </Suspense>
+        <ThemeProvider theme={theme}>
+          <div id="App">
+            <Suspense fallback={<p>Loading...</p>}>
+              <Routes>
+                <Route path="/" element={<Layout />}>
+                  <Route index element={<HomePage />} />
+                  <Route
+                    path="/bags"
+                    element={<ProductCategoryPage category="bags" />}
+                  />
+                  <Route
+                    path="/wallets"
+                    element={<ProductCategoryPage category="wallets" />}
+                  />
+                  <Route
+                    path="/belts"
+                    element={<ProductCategoryPage category="belts" />}
+                  />
+                  <Route
+                    path="/backpacks"
+                    element={<ProductCategoryPage category="backpacks" />}
+                  />
+                  <Route
+                    path="/favoriteProductsPage"
+                    element={<FavoriteProductsPage />}
+                  />
+                  <Route path="/:slug" element={<ProductDetailsPage />} />
+                  <Route path="*" element={<Navigate to="/" />} />
+                </Route>
+              </Routes>
+            </Suspense>
+          </div>
+        </ThemeProvider>
       </div>
     </ThemeProvider>
   );
 }
-
-
-// maybe try adding suspense to outlet if layout will be rendered at "/"

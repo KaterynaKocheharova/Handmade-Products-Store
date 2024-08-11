@@ -2,7 +2,7 @@ import clsx from "clsx";
 import Header from "./Header/Header";
 import Container from "components/common/Container/Container";
 import Navigation from "./Navigation/Navigation";
-import MobileNavigation from "./MobileNavigation/MobileMenu";
+import MobileNavigation from "./MobileNavigation/MobileNavigation";
 import UserMenu from "components/UserMenu/UserMenu";
 import Stack from "@mui/material/Stack";
 import FlexRow from "../common/FlexRow/FlexRow";

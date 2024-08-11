@@ -6,7 +6,7 @@ import { useOpen } from "../../hooks/useOpen";
 import { styled } from "@mui/material";
 import { Suspense } from "react";
 
-const Layout = ({ children }) => {
+const Layout = () => {
   const { isElementOpen, openElement, closeElement } = useOpen();
 
   const Main = styled("main", {
@@ -22,14 +22,13 @@ const Layout = ({ children }) => {
     <>
       <Main isDrawerOpen={isElementOpen}>
         <NavBar openDrawer={openElement} />
-        <Outlet />
+        <Suspense fallback={<p>Loading page. Please, wait.</p>}>
+          <Outlet />
+        </Suspense>
       </Main>
       <CustomDrawer closeDrawer={closeElement} drawerIsOpen={isElementOpen}>
         <CartTab />
       </CustomDrawer>
-      <Suspense fallback={<p>Loading page. Please, wait.</p>}>
-        {children}
-      </Suspense>
     </>
   );
 };
