@@ -1,6 +1,5 @@
 import { Typography } from "@mui/material";
 import { motion } from "framer-motion";
-import { titleVariants } from "../../../animationConfig";
 
 const HeroTitle = () => {
   return (
@@ -14,7 +13,6 @@ const HeroTitle = () => {
         },
       }}
       component={motion.h1}
-      whileInView={titleVariants.animate}
     >
       Вироби ручної роботи
     </Typography>

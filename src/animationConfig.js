@@ -1,4 +1,4 @@
-// ============================ TITLES
+
 export const titleVariants = {
   initial: { x: 0, opacity: 0 },
   animate: {
@@ -7,11 +7,10 @@ export const titleVariants = {
     transition: {
       duration: 0.6,
       ease: "easeInOut",
-      repeatType: "loop",
+      repeat: "loop", // Changed from repeatType to repeat
     },
   },
 };
-
 // ========================== BUTTONS
 
 export const scaleAnimation = {
