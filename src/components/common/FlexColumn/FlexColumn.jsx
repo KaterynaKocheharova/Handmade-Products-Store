@@ -6,6 +6,7 @@ const FlexColumn = ({ children }) => {
       direction="column"
       justifyContent="center"
       alignItems="center"
+      gap="10"
     >
       {children}
     </Stack>

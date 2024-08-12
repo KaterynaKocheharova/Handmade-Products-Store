@@ -4,13 +4,14 @@ type FlexRow = {
   type?: string;
   children: React.ReactNode;
   spacing?: number;
+  justifyContent?: string;
 };
 
-const FlexRow = ({ children, type, spacing }: FlexRow) => {
+const FlexRow = ({ children, type, spacing, justifyContent }: FlexRow) => {
   return (
     <Stack
       direction="row"
-      justifyContent="space-between"
+      justifyContent={justifyContent ? justifyContent : "space-between"}
       alignItems="center"
       spacing={spacing}
       sx={{
