@@ -1,6 +1,10 @@
 import { Stack } from "@mui/material";
 
-const FlexColumn = ({ children }) => {
+type FlexColumn = {
+  children: React.ReactNode;
+};
+
+const FlexColumn = ({ children }: FlexColumn) => {
   return (
     <Stack
       direction="column"

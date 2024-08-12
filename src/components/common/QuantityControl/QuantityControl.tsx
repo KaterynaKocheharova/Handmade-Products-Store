@@ -2,15 +2,17 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { editQuantity } from "../../../redux/cart/cartSlice.ts";
 import { selectQuantity } from "../../../redux/cart/cartSelectors.js";
-
-import FlexRow from "../FlexRow/FlexRow.tsx";
 import { IconButton, Typography } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
+import FlexRow from "../FlexRow/FlexRow.tsx";
 import css from "./QuantityControl.module.css";
 
+type QuantityControl = {
+  itemId: string;
+};
 
-const QuantityControl = ({ itemId }) => {
+const QuantityControl = ({ itemId }: QuantityControl) => {
   const currentStateQuantity = useSelector(selectQuantity(itemId));
   const [quantity, setQuantity] = useState(currentStateQuantity);
 
@@ -20,11 +22,13 @@ const QuantityControl = ({ itemId }) => {
   }, [quantity, dispatch, itemId]);
 
   const handleIncrease = () => {
-    setQuantity((prevQuantity) => prevQuantity + 1);
+    setQuantity((prevQuantity: number) => prevQuantity + 1);
   };
 
   const handleDecrease = () => {
-    setQuantity((prevQuantity) => (prevQuantity > 1 ? prevQuantity - 1 : 1));
+    setQuantity((prevQuantity: number) =>
+      prevQuantity > 1 ? prevQuantity - 1 : 1
+    );
   };
 
   return (
