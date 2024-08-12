@@ -20,6 +20,8 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
+    // THERE MIGHT NOT BE CASES WHERE I WILL PRESS ADD TO CART BUTTON IF THE PRODUCT IS ALREADY ADDED BECAUSE THE BUTTON CHANGES, SO RE
+    // CONSIDER CONDITIONAL REDUCER LATER
     addToCart(state, action: PayloadAction<CartItem>) {
       const { productId, quantity } = action.payload;
       const indexProductId = state.items.findIndex(

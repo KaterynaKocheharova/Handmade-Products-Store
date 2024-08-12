@@ -5,7 +5,10 @@ import Section from "components/common/Section/Section";
 import Container from "components/common/Container/Container";
 
 const ProductCategoryPage = ({ category }) => {
+  console.log(category);
   const products = useSelector(selectProductsByCategory(category));
+  console.log(products);
+  
   return (
     <Section>
       <Container>

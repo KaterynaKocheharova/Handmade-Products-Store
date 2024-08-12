@@ -13,10 +13,8 @@ import { CiHeart } from "react-icons/ci";
 import { addFavClass } from "./buildClasses";
 import css from "./ProductItem.module.css";
 
-// !!! extract a separate add to fav control comp
-
 const ProductItem = ({
-  product: { id, name, image, description, new_price },
+  product: { id, name, image, new_price },
 }) => {
   const dispatch = useDispatch();
   const favoriteProductsIds = useSelector(selectFavoriteProductsIds);
@@ -35,26 +33,25 @@ const ProductItem = ({
         <div className={css["image-container"]}>
           <img className={css["item-image"]} src={image} alt={name} />
         </div>
-        <div className={css["card-group-box"]}>
-          <Typography variant="h5" component="h3">
-            {name}
-          </Typography>
-          {/* <p>{description}</p> */}
-          <p>{new_price} гривень</p>
-          <FlexRow>
-            <ToggleCartProductButton productId={id} />
-            <IconButton onClick={handleFavButtonClick}>
-              <CiHeart
-                className={clsx(
-                  css.icon,
-                  css["heart-icon"],
-                  css[addFavClass(favoriteProductsIds, id)]
-                )}
-              />
-            </IconButton>
-          </FlexRow>
-        </div>
       </Link>
+      <div className={css["card-group-box"]}>
+        <Typography variant="h5" component="h3">
+          {name}
+        </Typography>
+        <p>{new_price} гривень</p>
+        <FlexRow>
+          <ToggleCartProductButton productId={id} />
+          <IconButton onClick={handleFavButtonClick}>
+            <CiHeart
+              className={clsx(
+                css.icon,
+                css["heart-icon"],
+                css[addFavClass(favoriteProductsIds, id)]
+              )}
+            />
+          </IconButton>
+        </FlexRow>
+      </div>
     </li>
   );
 };

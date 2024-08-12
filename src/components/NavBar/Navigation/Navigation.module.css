@@ -16,7 +16,8 @@
   .nav-link {
     text-decoration: none;
     display: block;
-    padding: 1.5rem;
+    padding: 0.7rem;
+    border-radius: var(--button-border-radius);
     text-decoration: none;
     color: inherit;
     transition: transform 250ms linear;
