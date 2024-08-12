@@ -2,7 +2,13 @@ import Drawer from "@mui/material/Drawer";
 import { IconButton } from "@mui/material";
 import { IoMdClose } from "react-icons/io";
 
-const CustomDrawer = ({ closeDrawer, drawerIsOpen, children }) => (
+type BaseDrawer = {
+  closeDrawer: () => void;
+  drawerIsOpen: boolean;
+  children: React.ReactNode;
+}
+
+const CustomDrawer = ({ closeDrawer, drawerIsOpen, children } : BaseDrawer) => (
   <Drawer
     open={drawerIsOpen}
     onClose={closeDrawer}
