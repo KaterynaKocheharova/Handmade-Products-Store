@@ -21,7 +21,6 @@ const ProductDetailsPage = () => {
   if (!productId || !currentProduct) {
     return <p>Product not found</p>;
   }
-
   const { category, description, image, name, new_price } = currentProduct;
 
   return (

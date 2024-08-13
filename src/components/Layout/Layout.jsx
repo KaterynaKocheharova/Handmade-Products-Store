@@ -7,7 +7,7 @@ import { styled } from "@mui/material";
 import { Suspense } from "react";
 
 const Layout = () => {
-  const { isElementOpen, openElement, closeElement } = useOpen();
+  // const { isElementOpen, openElement, closeElement } = useOpen();
 
   const Main = styled("main", {
     shouldForwardProp: (prop) => prop !== "isDrawerOpen",
@@ -20,15 +20,15 @@ const Layout = () => {
 
   return (
     <>
-      <Main isDrawerOpen={isElementOpen}>
-        <NavBar openDrawer={openElement} />
+      <Main>
+        <NavBar />
         <Suspense fallback={<p>Loading page. Please, wait.</p>}>
           <Outlet />
         </Suspense>
       </Main>
-      <CustomDrawer closeDrawer={closeElement} drawerIsOpen={isElementOpen}>
-        <CartTab />
-      </CustomDrawer>
+      {/* <CustomDrawer closeDrawer={closeElement} drawerIsOpen={isElementOpen}> */}
+      {/* <CartTab /> */}
+      {/* </CustomDrawer> */}
     </>
   );
 };
