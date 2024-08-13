@@ -2,3 +2,7 @@
     width: 15px;
     height: 15px;
 }
+
+.quantity-control-btn {
+    background-color: var(--first-color);
+}

@@ -5,7 +5,11 @@ import { type Product } from "../../types";
 import Section from "../../components/common/Section/Section";
 import Container from "../../components/common/Container/Container";
 import { Typography, Stack } from "@mui/material";
+import QuantityControl from "../../components/common/QuantityControl/QuantityControl";
+import ToggleCartProductButton from "../../components/Cart/ToggleCartProductButton/ToggleCartProductButton";
+import FlexRow from "../../components/common/FlexRow/FlexRow";
 import css from "./ProductDetailsPage.module.css";
+
 
 const ProductDetailsPage = () => {
   const { productId } = useParams();
@@ -14,7 +18,7 @@ const ProductDetailsPage = () => {
     (product: Product) => product.id === productId
   );
 
-  if (!currentProduct) {
+  if (!productId || !currentProduct) {
     return <p>Product not found</p>;
   }
 
@@ -23,7 +27,7 @@ const ProductDetailsPage = () => {
   return (
     <Section>
       <Container>
-        <Stack direction="row" spacing={10} justifyContent="center">
+        <Stack direction="column" spacing={10} justifyContent="center">
           <img src={image} alt={name} className={css.productImage} />
           <Stack direction="column" spacing={5} className={css.productDetails}>
             <p className={css.category}>{category}</p>
@@ -32,6 +36,12 @@ const ProductDetailsPage = () => {
             </Typography>
             <p className={css.description}>{description}</p>
             <p className={css.price}>{new_price}</p>
+            <Stack>
+              <FlexRow>
+                <ToggleCartProductButton productId={productId} />
+                <QuantityControl itemId={productId} />
+              </FlexRow>
+            </Stack>
           </Stack>
         </Stack>
       </Container>
