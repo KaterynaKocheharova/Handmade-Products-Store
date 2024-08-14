@@ -6,3 +6,7 @@
 .quantity-control-btn {
     background-color: var(--first-color);
 }
+
+.quantity-text {
+    font-weight: 500;
+}

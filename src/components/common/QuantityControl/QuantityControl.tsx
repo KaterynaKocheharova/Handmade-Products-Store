@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { IconButton } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
@@ -6,20 +5,16 @@ import FlexRow from "../FlexRow/FlexRow.tsx";
 import css from "./QuantityControl.module.css";
 
 type QuantityControl = {
-  itemId: string;
+  quantity: number;
+  handlePlusQuantity: () => void;
+  handleMinusQuantity: () => void;
 };
 
-const QuantityControl = ({ itemId }: QuantityControl) => {
-  const [quantity, setQuantity] = useState(0);
-
-  const handlePlusQuantity = () => {
-    setQuantity(quantity - 1 < 0 ? 0 : quantity - 1);
-  };
-
-  const handleMinusQuantity = () => {
-    setQuantity(quantity + 1);
-  };
-
+const QuantityControl = ({
+  quantity,
+  handlePlusQuantity,
+  handleMinusQuantity,
+}: QuantityControl) => {
   return (
     <FlexRow spacing={1}>
       <IconButton
@@ -29,7 +24,7 @@ const QuantityControl = ({ itemId }: QuantityControl) => {
       >
         <RemoveIcon className={css["control-icon"]} />
       </IconButton>
-      <p>{quantity}</p>
+      <p className={css["quantity-text"]}>{quantity}</p>
       <IconButton
         disableRipple
         sx={{
