@@ -7,7 +7,6 @@ import {
   removeFromWishlist,
 } from "../../../redux/products/slice";
 import FlexRow from "../../common/FlexRow/FlexRow.tsx";
-import ToggleCartProductButton from "../../Cart/ToggleCartProductButton/ToggleCartProductButton";
 import { Typography, IconButton } from "@mui/material";
 import { CiHeart } from "react-icons/ci";
 import { addFavClass } from "./buildClasses";
@@ -40,7 +39,6 @@ const ProductItem = ({
         </Typography>
         <p>{new_price} гривень</p>
         <FlexRow>
-          <ToggleCartProductButton productId={id} />
           <IconButton onClick={handleFavButtonClick}>
             <CiHeart
               className={clsx(

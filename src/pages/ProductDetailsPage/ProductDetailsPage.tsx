@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import { useAppSelector } from "../../redux/hooks";
 import { selectAllProducts } from "../../redux/products/selectors";
@@ -7,30 +7,35 @@ import Section from "../../components/common/Section/Section";
 import Container from "../../components/common/Container/Container";
 import { Typography, Stack } from "@mui/material";
 import QuantityControl from "../../components/common/QuantityControl/QuantityControl";
+import AddToCartButton from "../../components/AddToCartButton/AddToCartButton";
 import FlexRow from "../../components/common/FlexRow/FlexRow";
 import css from "./ProductDetailsPage.module.css";
 
 const ProductDetailsPage = () => {
   const { productId } = useParams();
+
   const allProducts = useAppSelector(selectAllProducts);
-  const currentProduct = allProducts.find(
-    (product: Product) => product.id === productId
+
+  const currentProduct = useMemo(
+    () => allProducts.find((product: Product) => product.id === productId),
+    [allProducts, productId]
   );
+
+  const { category, description, image, name, new_price } = currentProduct;
+
+  const [quantity, setQuantity] = useState(1);
+
+  const handlePlusQuantity = useCallback(() => {
+    setQuantity((prevQuantity) => prevQuantity + 1);
+  }, []);
+  
+  const handleMinusQuantity = useCallback(() => {
+    setQuantity((prevQuantity) => (prevQuantity - 1 < 0 ? 0 : prevQuantity - 1));
+  }, []);
 
   if (!productId || !currentProduct) {
     return <p>Product not found</p>;
   }
-  const { category, description, image, name, new_price } = currentProduct;
-
-  const [quantity, setQuantity] = useState(0);
-
-  const handlePlusQuantity = () => {
-    setQuantity(quantity - 1 < 0 ? 0 : quantity - 1);
-  };
-
-  const handleMinusQuantity = () => {
-    setQuantity(quantity + 1);
-  };
 
   return (
     <Section>
@@ -46,6 +51,7 @@ const ProductDetailsPage = () => {
             <p className={css.price}>{new_price}</p>
             <Stack>
               <FlexRow>
+                <AddToCartButton productData={{ productId, quantity }} />
                 <QuantityControl
                   quantity={quantity}
                   handleMinusQuantity={handleMinusQuantity}

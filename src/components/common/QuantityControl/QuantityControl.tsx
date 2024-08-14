@@ -20,7 +20,7 @@ const QuantityControl = ({
       <IconButton
         disableRipple
         sx={{ backgroundColor: "var(--first-color)" }}
-        onClick={handlePlusQuantity}
+        onClick={handleMinusQuantity}
       >
         <RemoveIcon className={css["control-icon"]} />
       </IconButton>
@@ -30,7 +30,7 @@ const QuantityControl = ({
         sx={{
           backgroundColor: "var(--first-color)",
         }}
-        onClick={handleMinusQuantity}
+        onClick={handlePlusQuantity}
       >
         <AddIcon className={css["control-icon"]} />
       </IconButton>
