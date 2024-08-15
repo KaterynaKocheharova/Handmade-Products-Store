@@ -28,9 +28,11 @@ const ProductDetailsPage = () => {
   const handlePlusQuantity = useCallback(() => {
     setQuantity((prevQuantity) => prevQuantity + 1);
   }, []);
-  
+
   const handleMinusQuantity = useCallback(() => {
-    setQuantity((prevQuantity) => (prevQuantity - 1 < 0 ? 0 : prevQuantity - 1));
+    setQuantity((prevQuantity) =>
+      prevQuantity - 1 < 0 ? 0 : prevQuantity - 1
+    );
   }, []);
 
   if (!productId || !currentProduct) {
@@ -40,9 +42,15 @@ const ProductDetailsPage = () => {
   return (
     <Section>
       <Container>
-        <Stack direction="column" spacing={10} justifyContent="center">
-          <img src={image} alt={name} className={css.productImage} />
-          <Stack direction="column" spacing={5} className={css.productDetails}>
+        <div className={css["details-container"]}>
+          <div className={css["image-container"]}>
+            <img src={image} alt={name} />
+          </div>
+          <Stack
+            direction="column"
+            spacing={3}
+            className={css["product-details"]}
+          >
             <p className={css.category}>{category}</p>
             <Typography variant="h3" component="h2" className={css.productName}>
               {name}
@@ -50,17 +58,17 @@ const ProductDetailsPage = () => {
             <p className={css.description}>{description}</p>
             <p className={css.price}>{new_price}</p>
             <Stack>
-              <FlexRow>
+              <Stack direction="row" spacing={3} justifyContent="space-between">
                 <AddToCartButton productData={{ productId, quantity }} />
                 <QuantityControl
                   quantity={quantity}
                   handleMinusQuantity={handleMinusQuantity}
                   handlePlusQuantity={handlePlusQuantity}
                 />
-              </FlexRow>
+              </Stack>
             </Stack>
           </Stack>
-        </Stack>
+        </div>
       </Container>
     </Section>
   );

@@ -1,12 +1,13 @@
 .control-icon {
-    width: 15px;
-    height: 15px;
+  width: 15px;
+  height: 15px;
 }
 
 .quantity-control-btn {
-    background-color: var(--first-color);
+  background-color: var(--second-color);
+  box-shadow: var(--third-color-box-shadow);
 }
 
 .quantity-text {
-    font-weight: 500;
+  font-weight: 500;
 }

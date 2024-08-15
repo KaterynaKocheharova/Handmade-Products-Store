@@ -19,7 +19,9 @@ const QuantityControl = ({
     <FlexRow spacing={1}>
       <IconButton
         disableRipple
-        sx={{ backgroundColor: "var(--first-color)" }}
+        sx={{
+          boxShadow: "var(--second-color-shadow)",
+        }}
         onClick={handleMinusQuantity}
       >
         <RemoveIcon className={css["control-icon"]} />
@@ -28,7 +30,7 @@ const QuantityControl = ({
       <IconButton
         disableRipple
         sx={{
-          backgroundColor: "var(--first-color)",
+          boxShadow: "var(--second-color-shadow)",
         }}
         onClick={handlePlusQuantity}
       >

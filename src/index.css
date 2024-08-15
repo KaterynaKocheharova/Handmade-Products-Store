@@ -2,7 +2,12 @@
   --main-bg-color: #f0f0f0; /* Very Light Grey */
   --secondary-bg-color: #e1e2e6; /* Light Grey 1 */
   --main-font-color: #4a4a4a; /* Darker Grey */
-  --main-font-color-transparent: rgba(74, 74, 74, 0.5); /* Darker Grey with transparency */
+  --main-font-color-transparent: rgba(
+    74,
+    74,
+    74,
+    0.5
+  ); /* Darker Grey with transparency */
   --secondary-font-color: #787775; /* Dark Grey */
   --accent-color: #c4b3a9; /* Warm Beige */
   --accent-color-2: red;
@@ -10,16 +15,17 @@
   --contrast-color: #1a2a3a; /* Dark Blue */
 
   /* CURRENT USED PALETTE */
-  --first-color:  #f0f0f0;
-  --second-color:  #4a4a4a;
+  --first-color: #f0f0f0;
+  --second-color: #4a4a4a;
   --third-color: #f5e8d0;
   --accent-color: red;
-/*  */
+  --second-color-shadow: 0px 4px 8px rgba(74, 74, 74, 0.3);
+  --third-color-box-shadow: 0 4px 8px rgba(245, 232, 208, 0.5);
+  /*  */
 
---button-border-radius: 4px;
+  --button-border-radius: 4px;
 
-
-  --second-color-transparent:  rgba(74, 74, 74, 0.5);
+  --second-color-transparent: rgba(74, 74, 74, 0.5);
 
   --card-box-shadow: -5px 5px 18px 0 rgba(64, 50, 52, 0.5);
   --card-smaller-box-shadow: -5px 5px 5px 0 rgba(64, 50, 52, 0.5);
@@ -31,10 +37,9 @@
   --z-index-header: 99999999;
 }
 
-
 /* color palettes to explore https://paperheartdesign.com/blog/color-palette-peaceful-palettes#:~:text=Blue%20is%20calm%20and%20soothing,main%20source%20of%20inspiration%20here */
 
-body {  
+body {
   font-family: "Poppins", sans-serif;
   background-color: var(--main-bg-color);
   color: var(--main-font-color);
