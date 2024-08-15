@@ -10,12 +10,6 @@ export const selectCartProductsIds = createSelector(
   }
 );
 
-export const selectQuantity = (productId) =>
-  createSelector([selectCartProducts], (cartProducts) => {
-    const product = cartProducts.find((item) => item.productId === productId);
-    return product ? product.quantity : 0;
-  });
-
 export const selectFinalCartProducts = createSelector(
   [selectAllProducts, selectCartProducts],
   (allProducts, cartProducts) => {

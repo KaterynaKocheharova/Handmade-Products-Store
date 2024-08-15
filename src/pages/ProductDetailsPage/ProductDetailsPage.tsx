@@ -2,28 +2,35 @@ import { useState, useMemo, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import { useAppSelector } from "../../redux/hooks";
 import { selectAllProducts } from "../../redux/products/selectors";
+import { selectCartProducts } from "../../redux/cart/cartSelectors";
 import { type Product } from "../../types";
+import { type CartItem } from "../../redux/cart/cartSlice";
 import Section from "../../components/common/Section/Section";
 import Container from "../../components/common/Container/Container";
 import { Typography, Stack } from "@mui/material";
 import QuantityControl from "../../components/common/QuantityControl/QuantityControl";
 import AddToCartButton from "../../components/AddToCartButton/AddToCartButton";
-import FlexRow from "../../components/common/FlexRow/FlexRow";
 import css from "./ProductDetailsPage.module.css";
 
 const ProductDetailsPage = () => {
   const { productId } = useParams();
 
   const allProducts = useAppSelector(selectAllProducts);
+  const cartProducts = useAppSelector(selectCartProducts);
 
   const currentProduct = useMemo(
     () => allProducts.find((product: Product) => product.id === productId),
     [allProducts, productId]
   );
 
-  const { category, description, image, name, new_price } = currentProduct;
+  const currentCartProduct = useMemo(
+    () => cartProducts.find((item: CartItem) => item.productId === productId),
+    [cartProducts, productId]
+  );
 
-  const [quantity, setQuantity] = useState(1);
+  const initialQuantity = currentCartProduct ? currentCartProduct.quantity : 1;
+
+  const [quantity, setQuantity] = useState<number>(initialQuantity);
 
   const handlePlusQuantity = useCallback(() => {
     setQuantity((prevQuantity) => prevQuantity + 1);
@@ -38,6 +45,15 @@ const ProductDetailsPage = () => {
   if (!productId || !currentProduct) {
     return <p>Product not found</p>;
   }
+
+  // Destructure currentProduct
+  const {
+    image,
+    category,
+    name,
+    description,
+    new_price
+  } = currentProduct;
 
   return (
     <Section>

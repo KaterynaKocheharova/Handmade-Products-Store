@@ -10,11 +10,10 @@ import FlexRow from "../../common/FlexRow/FlexRow.tsx";
 import { Typography, IconButton } from "@mui/material";
 import { CiHeart } from "react-icons/ci";
 import { addFavClass } from "./buildClasses";
+import AddToCartButton from "../../AddToCartButton/AddToCartButton.tsx";
 import css from "./ProductItem.module.css";
 
-const ProductItem = ({
-  product: { id, name, image, new_price },
-}) => {
+const ProductItem = ({ product: { id, name, image, new_price } }) => {
   const dispatch = useDispatch();
   const favoriteProductsIds = useSelector(selectFavoriteProductsIds);
 
@@ -48,6 +47,7 @@ const ProductItem = ({
               )}
             />
           </IconButton>
+          <AddToCartButton productData={{ productId: id, quantity: 1 }} />
         </FlexRow>
       </div>
     </li>
