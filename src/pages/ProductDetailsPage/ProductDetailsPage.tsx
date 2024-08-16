@@ -70,7 +70,6 @@ const ProductDetailsPage = () => {
               <Stack direction="row" spacing={3} justifyContent="space-between">
                 <AddToCartButton
                   productData={{ productId, quantity }}
-                  handlePlusQuantity={handlePlusQuantity}
                 />
                 <QuantityControl
                   quantity={quantity}

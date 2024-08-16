@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import { useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { selectFavoriteProductsIds } from "../../../redux/products/selectors";
@@ -12,10 +13,19 @@ import { CiHeart } from "react-icons/ci";
 import { addFavClass } from "./buildClasses";
 import AddToCartButton from "../../AddToCartButton/AddToCartButton.tsx";
 import css from "./ProductItem.module.css";
+import { selectCartProducts } from "../../../redux/cart/cartSelectors.js";
 
 const ProductItem = ({ product: { id, name, image, new_price } }) => {
   const dispatch = useDispatch();
   const favoriteProductsIds = useSelector(selectFavoriteProductsIds);
+
+  const cartProducts = useSelector(selectCartProducts);
+  const currentCartProduct = useMemo(
+    () => cartProducts.find((item) => item.productId === id),
+    [cartProducts, id]
+  );
+
+  const quantity = currentCartProduct ? currentCartProduct.quantity + 1 : 1;
 
   const handleFavButtonClick = () => {
     if (favoriteProductsIds.includes(id)) {
@@ -47,7 +57,10 @@ const ProductItem = ({ product: { id, name, image, new_price } }) => {
               )}
             />
           </IconButton>
-          <AddToCartButton productData={{ productId: id, quantity: 1 }} />
+          <AddToCartButton
+            productData={{ productId: id, quantity }}
+            type="card"
+          />
         </FlexRow>
       </div>
     </li>

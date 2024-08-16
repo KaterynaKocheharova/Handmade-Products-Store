@@ -12,34 +12,13 @@ type AddToCartButton = {
     productId: string;
     quantity: number;
   };
-  handlePlusQuantity?: () => void;
 };
 
-const AddToCartButton = ({
-  productData,
-  handlePlusQuantity,
-}: AddToCartButton) => {
+const AddToCartButton = ({ productData }: AddToCartButton) => {
   const dispatch = useAppDispatch();
 
-  // const [firstClicked, setFirstClicked] = useState(true);
-  // const [quantity, setQuantity] = useState(productData.quantity);
-
-  // useEffect(() => {
-  //   if (!firstClicked) {
-  //     dispatch(addToCart({ ...productData, quantity }));
-  //   }
-  // }, [quantity]);
-
   const handleButtonClick = () => {
-    // if (firstClicked) {
     dispatch(addToCart(productData));
-    // setFirstClicked(false);
-    // } else {
-    //   setQuantity(quantity + 1);
-    //   if (handlePlusQuantity) {
-    //     handlePlusQuantity();
-    //   }
-    // }
   };
 
   return (
