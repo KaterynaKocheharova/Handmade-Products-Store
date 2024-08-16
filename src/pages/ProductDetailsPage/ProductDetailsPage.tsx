@@ -46,14 +46,7 @@ const ProductDetailsPage = () => {
     return <p>Product not found</p>;
   }
 
-  // Destructure currentProduct
-  const {
-    image,
-    category,
-    name,
-    description,
-    new_price
-  } = currentProduct;
+  const { image, category, name, description, new_price } = currentProduct;
 
   return (
     <Section>
@@ -75,7 +68,10 @@ const ProductDetailsPage = () => {
             <p className={css.price}>{new_price}</p>
             <Stack>
               <Stack direction="row" spacing={3} justifyContent="space-between">
-                <AddToCartButton productData={{ productId, quantity }} />
+                <AddToCartButton
+                  productData={{ productId, quantity }}
+                  handlePlusQuantity={handlePlusQuantity}
+                />
                 <QuantityControl
                   quantity={quantity}
                   handleMinusQuantity={handleMinusQuantity}

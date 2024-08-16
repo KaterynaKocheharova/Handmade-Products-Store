@@ -5,19 +5,41 @@ import { CiShoppingCart } from "react-icons/ci";
 import FlexRow from "../common/FlexRow/FlexRow.tsx";
 import { GoPlus } from "react-icons/go";
 import css from "./AddToCartButton.module.css";
+// import { useEffect, useState } from "react";
 
 type AddToCartButton = {
   productData: {
     productId: string;
     quantity: number;
   };
+  handlePlusQuantity?: () => void;
 };
 
-const AddToCartButton = ({ productData }: AddToCartButton) => {
+const AddToCartButton = ({
+  productData,
+  handlePlusQuantity,
+}: AddToCartButton) => {
   const dispatch = useAppDispatch();
 
+  // const [firstClicked, setFirstClicked] = useState(true);
+  // const [quantity, setQuantity] = useState(productData.quantity);
+
+  // useEffect(() => {
+  //   if (!firstClicked) {
+  //     dispatch(addToCart({ ...productData, quantity }));
+  //   }
+  // }, [quantity]);
+
   const handleButtonClick = () => {
+    // if (firstClicked) {
     dispatch(addToCart(productData));
+    // setFirstClicked(false);
+    // } else {
+    //   setQuantity(quantity + 1);
+    //   if (handlePlusQuantity) {
+    //     handlePlusQuantity();
+    //   }
+    // }
   };
 
   return (
