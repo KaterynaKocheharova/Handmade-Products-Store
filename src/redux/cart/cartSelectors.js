@@ -22,5 +22,7 @@ export const selectFinalCartProducts = createSelector(
 
 export const selectCartProductsQuantity = createSelector(
   [selectCartProducts],
-  (cartProducts) => cartProducts.length
+  (cartProducts) =>
+    cartProducts.reduce((total, product) => total + product.quantity, 0)
 );
+
