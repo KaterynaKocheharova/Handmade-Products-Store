@@ -1,34 +1,34 @@
 import { Outlet } from "react-router-dom";
 import NavBar from "components/NavBar/NavBar";
-import CustomDrawer from "components/common/Drawer/Drawer";
-import CartTab from "components/Cart/CartTab";
-import { useOpen } from "../../hooks/useOpen";
 import { styled } from "@mui/material";
 import { Suspense } from "react";
+import { useOpen } from "../../hooks/useOpen";
+import BaseDrawer from "../common/BaseDrawer/BaseDrawer";
+import CartTab from "../CartTab/CartTab";
 
 const Layout = () => {
-  // const { isElementOpen, openElement, closeElement } = useOpen();
+  const { isElementOpen, openElement, closeElement } = useOpen();
 
   const Main = styled("main", {
-    shouldForwardProp: (prop) => prop !== "isDrawerOpen",
-  })(({ isDrawerOpen }) => ({
+    shouldForwardProp: (prop) => prop !== "isElementOpen",
+  })(({ isElementOpen }) => ({
     flexGrow: 1,
-    ...(isDrawerOpen && {
-      marginLeft: "665px",
+    ...(isElementOpen && {
+      marginRight: "400px",
     }),
   }));
 
   return (
     <>
-      <Main>
-        <NavBar />
+      <Main isElementOpen={isElementOpen}>
+        <NavBar openDrawer={openElement} />
         <Suspense fallback={<p>Loading page. Please, wait.</p>}>
           <Outlet />
         </Suspense>
       </Main>
-      {/* <CustomDrawer closeDrawer={closeElement} drawerIsOpen={isElementOpen}> */}
-      {/* <CartTab /> */}
-      {/* </CustomDrawer> */}
+      <BaseDrawer closeDrawer={closeElement} drawerIsOpen={isElementOpen}>
+        <CartTab />
+      </BaseDrawer>
     </>
   );
 };
