@@ -14,7 +14,7 @@ const Layout = () => {
   })(({ isElementOpen }) => ({
     flexGrow: 1,
     ...(isElementOpen && {
-      marginRight: "400px",
+      marginRight: "300px",
     }),
   }));
 

@@ -16,7 +16,7 @@ const BaseDrawer = ({ closeDrawer, drawerIsOpen, children }: BaseDrawer) => (
     anchor="right"
     PaperProps={{
       sx: {
-        width: "400px",
+        width: "300px",
         height: "100%",
         boxShadow: "var(--third-color-shadow)",
       },

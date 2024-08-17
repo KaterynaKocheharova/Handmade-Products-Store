@@ -2,8 +2,14 @@ import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { selectCartProducts } from "../../redux/cart/cartSelectors";
 import Section from "../common/Section/Section";
 import Container from "../common/Container/Container";
-import { Grid } from "@mui/material";
-import css from "./CartTab.module.css";
+import { Grid, styled } from "@mui/material";
+
+// Create a styled Grid item
+const StyledGridItem = styled(Grid)(({ theme }) => ({
+  padding: '20px 5px 20px 5px',
+  boxShadow: "var(--third-color-shadow)",
+  textAlign: "left"
+}));
 
 const CartTab = () => {
   const cartProducts = useAppSelector(selectCartProducts);
@@ -13,27 +19,15 @@ const CartTab = () => {
     <Section>
       <Container>
         <Grid container spacing={2} justifyContent="center">
-          <Grid
-            item
-            xs
-            sx={{ textAlign: "left", boxShadow: "var(--third-color-shadow)" }}
-          >
+          <StyledGridItem item xs>
             HELLO
-          </Grid>
-          <Grid
-            item
-            xs={4}
-            sx={{ textAlign: "left", boxShadow: "var(--third-color-shadow)" }}
-          >
+          </StyledGridItem>
+          <StyledGridItem item xs={4}>
             HELLO
-          </Grid>
-          <Grid
-            item
-            xs
-            sx={{ textAlign: "left", boxShadow: "var(--third-color-shadow)" }}
-          >
+          </StyledGridItem>
+          <StyledGridItem item xs>
             HELLO
-          </Grid>
+          </StyledGridItem>
         </Grid>
       </Container>
     </Section>
@@ -41,3 +35,4 @@ const CartTab = () => {
 };
 
 export default CartTab;
+
