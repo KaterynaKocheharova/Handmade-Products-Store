@@ -3,6 +3,9 @@ import { selectAllProducts } from "../products/selectors";
 
 export const selectCartProducts = (state) => state.cart.items;
 
+export const selectCartProductById = (productId) => (state) =>
+  state.cart.items.find((item) => item.productId === productId);
+
 export const selectCartProductsIds = createSelector(
   [selectCartProducts],
   (cartProducts) => {
@@ -25,4 +28,3 @@ export const selectCartProductsQuantity = createSelector(
   (cartProducts) =>
     cartProducts.reduce((total, product) => total + product.quantity, 0)
 );
-

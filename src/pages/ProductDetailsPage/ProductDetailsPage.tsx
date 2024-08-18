@@ -16,31 +16,11 @@ const ProductDetailsPage = () => {
   const { productId } = useParams();
 
   const allProducts = useAppSelector(selectAllProducts);
-  const cartProducts = useAppSelector(selectCartProducts);
 
   const currentProduct = useMemo(
     () => allProducts.find((product: Product) => product.id === productId),
     [allProducts, productId]
   );
-
-  const currentCartProduct = useMemo(
-    () => cartProducts.find((item: CartItem) => item.productId === productId),
-    [cartProducts, productId]
-  );
-
-  const initialQuantity = currentCartProduct ? currentCartProduct.quantity : 1;
-
-  const [quantity, setQuantity] = useState<number>(initialQuantity);
-
-  const handlePlusQuantity = useCallback(() => {
-    setQuantity((prevQuantity) => prevQuantity + 1);
-  }, []);
-
-  const handleMinusQuantity = useCallback(() => {
-    setQuantity((prevQuantity) =>
-      prevQuantity - 1 < 0 ? 0 : prevQuantity - 1
-    );
-  }, []);
 
   if (!productId || !currentProduct) {
     return <p>Product not found</p>;
@@ -68,14 +48,8 @@ const ProductDetailsPage = () => {
             <p className={css.price}>{new_price}</p>
             <Stack>
               <Stack direction="row" spacing={3} justifyContent="space-between">
-                <AddToCartButton
-                  productData={{ productId, quantity }}
-                />
-                <QuantityControl
-                  quantity={quantity}
-                  handleMinusQuantity={handleMinusQuantity}
-                  handlePlusQuantity={handlePlusQuantity}
-                />
+                {/* <AddToCartButton productData={{ productId, quantity }} /> */}
+                <QuantityControl productId={productId} />
               </Stack>
             </Stack>
           </Stack>

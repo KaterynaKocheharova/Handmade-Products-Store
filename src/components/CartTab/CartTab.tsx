@@ -1,9 +1,8 @@
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { useAppSelector } from "../../redux/hooks";
 import { selectCartProducts } from "../../redux/cart/cartSelectors";
 import Section from "../common/Section/Section";
 import Container from "../common/Container/Container";
 import { Typography, Button, Stack } from "@mui/material";
-import FlexRow from "../common/FlexRow/FlexRow";
 import CartItem from "./CartItem/CartItem";
 import { type CartItems } from "../../redux/cart/cartSlice";
 
@@ -32,7 +31,7 @@ const CartTab = () => {
               <CartItem cartItemData={cartItem} key={cartItem.productId} />
             ))}
           </Stack>
-            <Button variant="outlined">ЗАМОВИТИ</Button>
+          <Button variant="outlined">ЗАМОВИТИ</Button>
         </Stack>
       </Container>
     </Section>
