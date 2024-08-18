@@ -1,7 +1,7 @@
 import { IconButton } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
-import FlexRow from "../FlexRow/FlexRow.tsx";
+import { Stack } from "@mui/material";
 import css from "./QuantityControl.module.css";
 
 type QuantityControl = {
@@ -16,7 +16,12 @@ const QuantityControl = ({
   handleMinusQuantity,
 }: QuantityControl) => {
   return (
-    <FlexRow spacing={1}>
+    <Stack
+      direction="row"
+      justifyContent="center"
+      alignItems="center"
+      spacing={1}
+    >
       <IconButton
         disableRipple
         sx={{
@@ -36,7 +41,7 @@ const QuantityControl = ({
       >
         <AddIcon className={css["control-icon"]} />
       </IconButton>
-    </FlexRow>
+    </Stack>
   );
 };
 

@@ -4,6 +4,9 @@ import { selectFilter } from "../filters/selectors";
 
 export const selectAllProducts = (state) => state.products.items;
 
+export const selectProductById = (productId) => (state) =>
+  state.products.items.find((item) => item.id === productId);
+
 export const selectFilteredProducts = createSelector(
   [selectFilter, selectAllProducts],
   (filter, products) => {
@@ -26,5 +29,3 @@ export const selectFavoriteProducts = createSelector(
   (ids, allProducts) =>
     allProducts.filter((product) => ids.includes(product.id))
 );
-
-

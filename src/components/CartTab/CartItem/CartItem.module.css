@@ -1,0 +1,9 @@
+.cart-item {
+  padding: 20px;
+  box-shadow: var(--third-color-shadow);
+  border-radius: var(--card-border-radius);
+}
+
+.image {
+  border-radius: var(--card-border-radius);
+}

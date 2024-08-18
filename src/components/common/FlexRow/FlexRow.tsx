@@ -3,7 +3,7 @@ import { Stack } from "@mui/material";
 type FlexRow = {
   type?: string;
   children: React.ReactNode;
-  spacing?: number;
+  spacing: number;
   justifyContent?: string;
 };
 

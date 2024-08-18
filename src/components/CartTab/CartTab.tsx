@@ -2,37 +2,41 @@ import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { selectCartProducts } from "../../redux/cart/cartSelectors";
 import Section from "../common/Section/Section";
 import Container from "../common/Container/Container";
-import { Grid, styled } from "@mui/material";
-
-// Create a styled Grid item
-const StyledGridItem = styled(Grid)(({ theme }) => ({
-  padding: '20px 5px 20px 5px',
-  boxShadow: "var(--third-color-shadow)",
-  textAlign: "left"
-}));
+import { Typography, Button, Stack } from "@mui/material";
+import FlexRow from "../common/FlexRow/FlexRow";
+import CartItem from "./CartItem/CartItem";
+import { type CartItems } from "../../redux/cart/cartSlice";
 
 const CartTab = () => {
-  const cartProducts = useAppSelector(selectCartProducts);
-  console.log(cartProducts);
+  const cartProducts: CartItems = useAppSelector(selectCartProducts);
 
   return (
     <Section>
       <Container>
-        <Grid container spacing={2} justifyContent="center">
-          <StyledGridItem item xs>
-            HELLO
-          </StyledGridItem>
-          <StyledGridItem item xs={4}>
-            HELLO
-          </StyledGridItem>
-          <StyledGridItem item xs>
-            HELLO
-          </StyledGridItem>
-        </Grid>
+        <Stack
+          direction="column"
+          justifyContent="center"
+          alignItems="center"
+          gap={5}
+        >
+          <Typography component="h2" variant="h6">
+            КОРЗИНА
+          </Typography>
+          <Stack
+            direction="column"
+            justifyContent="center"
+            alignItems="center"
+            component="ul"
+          >
+            {cartProducts.map((cartItem) => (
+              <CartItem cartItemData={cartItem} key={cartItem.productId} />
+            ))}
+          </Stack>
+            <Button variant="outlined">ЗАМОВИТИ</Button>
+        </Stack>
       </Container>
     </Section>
   );
 };
 
 export default CartTab;
-
