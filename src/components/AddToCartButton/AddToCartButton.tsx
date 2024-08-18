@@ -18,7 +18,7 @@ const AddToCartButton = ({ productData }: AddToCartButton) => {
   const dispatch = useAppDispatch();
 
   const handleButtonClick = () => {
-    dispatch(addToCart(productData));
+    dispatch(addToCart(productData.productId));
   };
 
   return (

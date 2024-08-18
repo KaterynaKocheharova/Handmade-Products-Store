@@ -8,10 +8,13 @@ import css from "./CartItem.module.css";
 type CartItemProps = {
   cartItemData: CartItem;
 };
-
 const CartItem = ({ cartItemData: { productId, quantity } }: CartItemProps) => {
-  
   const currentProduct = useAppSelector(selectProductById(productId));
+
+  if (!currentProduct) {
+    return null; // or return a fallback UI
+  }
+
   const { image, name, new_price } = currentProduct;
 
   return (
