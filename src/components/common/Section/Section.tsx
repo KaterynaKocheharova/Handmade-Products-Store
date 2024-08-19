@@ -1,3 +1,5 @@
+import clsx from "clsx";
+import { buildSectionClass } from "./SectionHelpers";
 import css from "./Section.module.css";
 
 type Section = {
@@ -7,7 +9,7 @@ type Section = {
 
 const Section = ({ children, type }: Section) => {
   return (
-    <section className={type !== "hero" ? css.section : undefined}>
+    <section className={clsx(css.section, css[buildSectionClass(type)])}>
       {children}
     </section>
   );

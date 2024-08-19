@@ -1,5 +1,8 @@
 import { useAppSelector } from "../../redux/hooks";
-import { selectCartProducts } from "../../redux/cart/cartSelectors";
+import {
+  selectCartProducts,
+  selectCartProductsQuantity,
+} from "../../redux/cart/cartSelectors";
 import Section from "../common/Section/Section";
 import Container from "../common/Container/Container";
 import { Typography, Button, Stack } from "@mui/material";
@@ -8,9 +11,9 @@ import { type CartItems } from "../../redux/cart/cartSlice";
 
 const CartTab = () => {
   const cartProducts: CartItems = useAppSelector(selectCartProducts);
-
+  const totalCartProducts = useAppSelector(selectCartProductsQuantity);
   return (
-    <Section>
+    <Section type="cart">
       <Container>
         <Stack
           direction="column"
@@ -19,7 +22,9 @@ const CartTab = () => {
           gap={5}
         >
           <Typography component="h2" variant="h6">
-            КОРЗИНА
+            {totalCartProducts
+              ? `У ВАШІЙ КОРЗИНІ НАРАЗІ ${totalCartProducts} ТОВАРІВ `
+              : "У ВАС ПОКИ НЕМАЄ ТОВАРІВ У КОРЗИНІ"}
           </Typography>
           <Stack
             direction="column"
@@ -31,7 +36,9 @@ const CartTab = () => {
               <CartItem cartItemData={cartItem} key={cartItem.productId} />
             ))}
           </Stack>
-          <Button variant="outlined">ЗАМОВИТИ</Button>
+          {totalCartProducts ? (
+            <Button variant="outlined">ЗАМОВИТИ</Button>
+          ) : null}
         </Stack>
       </Container>
     </Section>

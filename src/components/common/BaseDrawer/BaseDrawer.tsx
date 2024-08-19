@@ -16,14 +16,19 @@ const BaseDrawer = ({ closeDrawer, drawerIsOpen, children }: BaseDrawer) => (
     anchor="right"
     PaperProps={{
       sx: {
-        width: "300px",
+        width: "450px",
         height: "100%",
         boxShadow: "var(--third-color-shadow)",
       },
     }}
   >
     <IconButton
-      sx={{ position: "absolute", top: "5px", right: "5px" }}
+      sx={{
+        position: "absolute",
+        top: "5px",
+        right: "5px",
+        border: "1px solid var(--second-color)",
+      }}
       onClick={closeDrawer}
     >
       <IoMdClose />
