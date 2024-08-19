@@ -1,0 +1,10 @@
+.text {
+    text-align: center;
+    background-color: var(--second-color);
+    color: var(--first-color);
+    border-radius: var(--card-border-radius);
+}
+
+.accent {
+    color: var(--accent-color);
+}

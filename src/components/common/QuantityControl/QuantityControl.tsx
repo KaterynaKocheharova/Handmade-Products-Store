@@ -1,6 +1,9 @@
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { selectCartProductById } from "../../../redux/cart/cartSelectors";
-import { increaseQuantity, reduceQuantity } from "../../../redux/cart/cartSlice";
+import {
+  increaseQuantity,
+  reduceQuantity,
+} from "../../../redux/cart/cartSlice";
 import { Stack, IconButton } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
@@ -31,6 +34,7 @@ const QuantityControl = ({ productId }: QuantityControl) => {
       spacing={1}
     >
       <IconButton
+        className={css.button}
         disableRipple
         sx={{
           boxShadow: "var(--second-color-shadow)",
@@ -43,6 +47,7 @@ const QuantityControl = ({ productId }: QuantityControl) => {
         {cartProduct ? cartProduct.quantity : 0}
       </p>
       <IconButton
+        className={css.button}
         disableRipple
         sx={{
           boxShadow: "var(--second-color-shadow)",

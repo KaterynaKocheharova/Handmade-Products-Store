@@ -21,18 +21,15 @@ const CartItem = ({ cartItemData: { productId, quantity } }: CartItemProps) => {
     <Stack
       component="li"
       direction="row"
-      spacing={4}
-      flexWrap="wrap"
-      useFlexGap
-      justifyContent="center"
+      spacing={2}
       alignItems="center"
       className={css["cart-item"]}
     >
       <img src={image} alt={name} width="80" className={css.image} />
-      <Typography component="h3" variant="h6">
+      <h3 className={css.name}>
         {name}
-      </Typography>
-      <p>{new_price * quantity} грн</p>
+      </h3>
+      <p className={css.price}>{new_price * quantity} грн</p>
       <QuantityControl productId={productId} />
     </Stack>
   );

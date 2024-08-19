@@ -22,6 +22,7 @@ const theme = createTheme({
     },
   },
   typography: {
+    fontFamily: "'Poppins', sans-serif",
     body1: {
       color: "#4a4a4a",
     },
@@ -51,3 +52,4 @@ const theme = createTheme({
 });
 
 export default theme;
+

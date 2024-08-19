@@ -32,7 +32,7 @@ const CartItem = ({ product: { id, new_price, name, image } }: CartItem) => {
           <img src={image} alt="cart product image" width="100" />
           <p>{name}</p>
           <p>{new_price} грн</p>
-          <QuantityControl itemId={id} />
+          <QuantityControl productId={id} />
         </FlexRow>
       </StyledTableCell>
     </TableRow>

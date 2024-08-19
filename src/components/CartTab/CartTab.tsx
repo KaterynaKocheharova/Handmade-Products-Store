@@ -8,6 +8,7 @@ import Container from "../common/Container/Container";
 import { Typography, Button, Stack } from "@mui/material";
 import CartItem from "./CartItem/CartItem";
 import { type CartItems } from "../../redux/cart/cartSlice";
+import css from "./CartTab.module.css";
 
 const CartTab = () => {
   const cartProducts: CartItems = useAppSelector(selectCartProducts);
@@ -21,17 +22,17 @@ const CartTab = () => {
           alignItems="center"
           gap={5}
         >
-          <Typography component="h2" variant="h6">
-            {totalCartProducts
-              ? `У ВАШІЙ КОРЗИНІ НАРАЗІ ${totalCartProducts} ТОВАРІВ `
-              : "У ВАС ПОКИ НЕМАЄ ТОВАРІВ У КОРЗИНІ"}
+          <Typography className={css.text} component="h2" variant="h6">
+            {totalCartProducts ? (
+              <>
+                У ВАШІЙ КОРЗИНІ НАРАЗІ{" "}
+                <span className={css.accent}>{totalCartProducts}</span> ТОВАРІВ
+              </>
+            ) : (
+              "У ВАС ПОКИ НЕМАЄ ТОВАРІВ У КОРЗИНІ"
+            )}
           </Typography>
-          <Stack
-            direction="column"
-            justifyContent="center"
-            alignItems="center"
-            component="ul"
-          >
+          <Stack direction="column" component="ul" gap={2}>
             {cartProducts.map((cartItem) => (
               <CartItem cartItemData={cartItem} key={cartItem.productId} />
             ))}
