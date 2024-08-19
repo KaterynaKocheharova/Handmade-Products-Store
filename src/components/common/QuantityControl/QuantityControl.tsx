@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { selectCartProductById } from "../../../redux/cart/cartSelectors";
-import { addToCart, removeFromCart } from "../../../redux/cart/cartSlice";
+import { increaseQuantity, reduceQuantity } from "../../../redux/cart/cartSlice";
 import { Stack, IconButton } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
@@ -16,11 +16,11 @@ const QuantityControl = ({ productId }: QuantityControl) => {
   const dispatch = useAppDispatch();
 
   const handlePlusQuantity = () => {
-    dispatch(addToCart(productId));
+    dispatch(increaseQuantity(productId));
   };
 
   const handleMinusQuantity = () => {
-    dispatch(removeFromCart(productId));
+    dispatch(reduceQuantity(productId));
   };
 
   return (
