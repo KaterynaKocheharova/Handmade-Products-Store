@@ -15,7 +15,7 @@ const UserMenu = ({ setIsSidebarOpen }) => {
   const cartProductsQuantity = useSelector(selectCartProductsQuantity);
 
   return (
-    <Stack direction="row" spacing={2} alignItems="center" flewWrap="wrap" useFlexGap>
+    <Stack direction="row" spacing={2} alignItems="center" flexWrap="wrap" useFlexGap>
       <IconButton>
         <NavLink
           className={({ isActive }) => buildActiveIconLinkClassname(isActive)}

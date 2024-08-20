@@ -21,7 +21,6 @@ const Layout = () => {
       <Box
         component="main"
         sx={{ marginRight: isSidebarOpen && isNonMobile ? drawerWidth : "0" }}
-        isSidebarOpen={isSidebarOpen}
       >
         <NavBar
           setIsSidebarOpen={setIsSidebarOpen}
