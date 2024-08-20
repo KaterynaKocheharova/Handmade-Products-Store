@@ -9,18 +9,20 @@ type CartSidebarProps = {
   isSidebarOpen: boolean;
   setIsSidebarOpen: (arg: boolean) => void;
   drawerWidth: string;
+  drawerVariant: "permanent" | "persistent" | "temporary" | undefined;
 };
 
 const CartSidebar = ({
   isSidebarOpen,
   setIsSidebarOpen,
   drawerWidth,
+  drawerVariant,
 }: CartSidebarProps) => {
   return (
     <Drawer
       open={isSidebarOpen}
       onClose={() => setIsSidebarOpen(false)}
-      variant="persistent"
+      variant={drawerVariant}
       anchor="right"
       PaperProps={{
         sx: {

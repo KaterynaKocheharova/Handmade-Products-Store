@@ -9,7 +9,6 @@ import FlexRow from "../common/FlexRow/FlexRow";
 // import logo from "../../assets/My_Assets/logo.jpg";
 import css from "./NavBar.module.css";
 
-
 const NavBar = ({ setIsSidebarOpen }) => {
   return (
     <>

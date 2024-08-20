@@ -1,7 +1,6 @@
 import { Stack, IconButton } from "@mui/material";
 import { Badge } from "@mui/base/Badge";
 import { NavLink } from "react-router-dom";
-import { CiLogout } from "react-icons/ci";
 import { CiShoppingCart } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
 import { buildActiveIconLinkClassname } from "./buildClasses";
@@ -16,7 +15,7 @@ const UserMenu = ({ setIsSidebarOpen }) => {
   const cartProductsQuantity = useSelector(selectCartProductsQuantity);
 
   return (
-    <Stack direction="row" spacing={2} alignItems="center">
+    <Stack direction="row" spacing={2} alignItems="center" flewWrap="wrap" useFlexGap>
       <IconButton>
         <NavLink
           className={({ isActive }) => buildActiveIconLinkClassname(isActive)}
@@ -40,9 +39,6 @@ const UserMenu = ({ setIsSidebarOpen }) => {
           <CiShoppingCart className={css.icon} />
         </Badge>
       </IconButton>
-      <NavLink>
-        <CiLogout className={css.icon} />
-      </NavLink>
     </Stack>
   );
 };
