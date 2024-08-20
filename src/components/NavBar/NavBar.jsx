@@ -10,7 +10,7 @@ import FlexRow from "../common/FlexRow/FlexRow";
 import css from "./NavBar.module.css";
 
 
-const NavBar = ({ openDrawer }) => {
+const NavBar = ({ setIsSidebarOpen }) => {
   return (
     <>
       <Header>
@@ -28,7 +28,7 @@ const NavBar = ({ openDrawer }) => {
           <FlexRow>
             <MobileNavigation />
             <Navigation />
-            <UserMenu openDrawer={openDrawer} />
+            <UserMenu setIsSidebarOpen={setIsSidebarOpen} />
           </FlexRow>
         </Container>
         <Stack

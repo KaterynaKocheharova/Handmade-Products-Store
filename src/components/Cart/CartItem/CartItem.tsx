@@ -1,41 +1,40 @@
-import { useAppDispatch } from "../../../redux/hooks.ts";
-import { removeFromCart } from "../../../redux/cart/cartSlice.ts";
-import { TableCell, TableRow, IconButton } from "@mui/material";
-import FlexRow from "../../common/FlexRow/FlexRow.tsx";
-import QuantityControl from "../../common/QuantityControl/QuantityControl.jsx";
-import { AiOutlineDelete } from "react-icons/ai";
-import styled from "@emotion/styled";
+import { useAppSelector } from "../../../redux/hooks";
+import { selectProductById } from "../../../redux/products/selectors";
+import { type CartItem } from "../../../redux/cart/cartSlice";
+import { Typography, Stack } from "@mui/material";
+import QuantityControl from "../../common/QuantityControl/QuantityControl";
 import css from "./CartItem.module.css";
-import { type Product } from "../../../types.ts";
 
-type CartItem = {
-  product: Product;
+type CartItemProps = {
+  cartItemData: CartItem;
 };
+const CartItem = ({ cartItemData: { productId, quantity } }: CartItemProps) => {
+  const currentProduct = useAppSelector(selectProductById(productId));
 
-const CartItem = ({ product: { id, new_price, name, image } }: CartItem) => {
-  const StyledTableCell = styled(TableCell)({
-    padding: "8px",
-  });
+  if (!currentProduct) {
+    return null; // or return a fallback UI
+  }
 
-  const dispatch = useAppDispatch();
-  const handleDeleteClick = () => {
-    dispatch(removeFromCart(id));
-  };
+  const { image, name, new_price } = currentProduct;
 
   return (
-    <TableRow key={id}>
-      <StyledTableCell>
-        <FlexRow spacing={3}>
-          <IconButton onClick={handleDeleteClick}>
-            <AiOutlineDelete className={css["delete-icon"]} />
-          </IconButton>
-          <img src={image} alt="cart product image" width="100" />
-          <p>{name}</p>
-          <p>{new_price} грн</p>
-          <QuantityControl productId={id} />
-        </FlexRow>
-      </StyledTableCell>
-    </TableRow>
+    <Stack
+      component="li"
+      direction="row"
+      spacing={2}
+      alignItems="center"
+      className={css["cart-item"]}
+      useFlexGap
+      flexWrap="wrap"
+      justifyContent="center"
+    >
+      <img src={image} alt={name} width="80" className={css.image} />
+      <h3 className={css.name}>
+        {name}
+      </h3>
+      <p className={css.price}>{new_price * quantity} грн</p>
+      <QuantityControl productId={productId} />
+    </Stack>
   );
 };
 

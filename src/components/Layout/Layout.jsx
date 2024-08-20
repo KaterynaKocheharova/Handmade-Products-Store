@@ -1,35 +1,35 @@
 import { Outlet } from "react-router-dom";
+import { Suspense, useState } from "react";
+import { Box } from "@mui/material";
 import NavBar from "components/NavBar/NavBar";
-import { styled } from "@mui/material";
-import { Suspense } from "react";
-import { useOpen } from "../../hooks/useOpen";
-import BaseDrawer from "../common/BaseDrawer/BaseDrawer";
-import CartTab from "../CartTab/CartTab";
+import CartSidebar from "../Cart/CartSidebar/CartSideBar";
 
 const Layout = () => {
-  const { isElementOpen, openElement, closeElement } = useOpen();
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  const Main = styled("main", {
-    shouldForwardProp: (prop) => prop !== "isElementOpen",
-  })(({ isElementOpen }) => ({
-    flexGrow: 1,
-    ...(isElementOpen && {
-      marginRight: "450px",
-    }),
-  }));
+  const drawerWidth = "300px";
 
   return (
-    <>
-      <Main isElementOpen={isElementOpen}>
-        <NavBar openDrawer={openElement} />
+    <Box>
+      <CartSidebar
+        isSidebarOpen={isSidebarOpen}
+        setIsSidebarOpen={setIsSidebarOpen}
+        drawerWidth={drawerWidth}
+      />
+      <Box
+        component="main"
+        sx={{ marginRight: isSidebarOpen ? drawerWidth : "0" }}
+        isSidebarOpen={isSidebarOpen}
+      >
+        <NavBar
+          setIsSidebarOpen={setIsSidebarOpen}
+          isSidebarOpen={isSidebarOpen}
+        />
         <Suspense fallback={<p>Loading page. Please, wait.</p>}>
           <Outlet />
         </Suspense>
-      </Main>
-      <BaseDrawer closeDrawer={closeElement} drawerIsOpen={isElementOpen}>
-        <CartTab />
-      </BaseDrawer>
-    </>
+      </Box>
+    </Box>
   );
 };
 

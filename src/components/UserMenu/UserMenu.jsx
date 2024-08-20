@@ -11,7 +11,7 @@ import { selectCartProductsQuantity } from "../../redux/cart/cartSelectors";
 
 import css from "./UserMenu.module.css";
 
-const UserMenu = ({ openDrawer }) => {
+const UserMenu = ({ setIsSidebarOpen }) => {
   const favProducts = useSelector(selectFavoriteProducts);
   const cartProductsQuantity = useSelector(selectCartProductsQuantity);
 
@@ -31,7 +31,7 @@ const UserMenu = ({ openDrawer }) => {
           </Badge>
         </NavLink>
       </IconButton>
-      <IconButton onClick={openDrawer}>
+      <IconButton onClick={() => setIsSidebarOpen(true)}>
         <Badge
           badgeContent={cartProductsQuantity}
           slotProps={{ badge: { className: css.badge } }}

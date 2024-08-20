@@ -1,4 +1,13 @@
-.delete-icon {
-    width: 20px;
-    height: 20px;
+.cart-item {
+  padding: 20px 10px 20px 10px;
+  box-shadow: var(--second-color-shadow);
+  border-radius: var(--card-border-radius);
+}
+
+.image {
+  border-radius: var(--card-border-radius);
+}
+
+.name, .price {
+  font-size: 14px;
 }
