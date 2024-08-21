@@ -1,5 +1,5 @@
 .product-item {
-  width: 350px;
+  width: 300px;
   box-shadow: var(--card-smaller-box-shadow);
   border-radius: var(--card-border-radius);
   transition: box-shadow 250ms linear, transform 250ms linear;
