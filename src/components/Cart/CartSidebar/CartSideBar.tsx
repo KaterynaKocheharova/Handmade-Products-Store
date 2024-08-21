@@ -4,12 +4,14 @@ import { IoMdClose } from "react-icons/io";
 import Section from "../../common/Section/Section";
 import Container from "../../common/Container/Container";
 import CartItems from "../CartItems/CartItems";
+import { useState } from "react";
 
 type CartSidebarProps = {
   isSidebarOpen: boolean;
   setIsSidebarOpen: (arg: boolean) => void;
   drawerWidth: string;
   drawerVariant: "permanent" | "persistent" | "temporary" | undefined;
+  setIsModalOpen: () => void;
 };
 
 const CartSidebar = ({
@@ -17,6 +19,7 @@ const CartSidebar = ({
   setIsSidebarOpen,
   drawerWidth,
   drawerVariant,
+  setIsModalOpen
 }: CartSidebarProps) => {
   return (
     <Drawer
@@ -45,7 +48,7 @@ const CartSidebar = ({
       </IconButton>
       <Section type="cart">
         <Container>
-          <CartItems />
+          <CartItems setIsModalOpen={setIsModalOpen} />
         </Container>
       </Section>
     </Drawer>

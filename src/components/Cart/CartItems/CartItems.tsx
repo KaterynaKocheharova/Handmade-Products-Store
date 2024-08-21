@@ -8,7 +8,11 @@ import CartItem from "../CartItem/CartItem";
 import { type CartItems } from "../../../redux/cart/cartSlice";
 import css from "./CartItems.module.css";
 
-const CartItems = () => {
+type CartItemsProps = {
+  setIsModalOpen: (arg: boolean) => void;
+}
+
+const CartItems = ({setIsModalOpen} : CartItemsProps) => {
   const cartProducts: CartItems = useAppSelector(selectCartProducts);
   const totalCartProducts = useAppSelector(selectCartProductsQuantity);
 
@@ -34,7 +38,7 @@ const CartItems = () => {
           <CartItem cartItemData={cartItem} key={cartItem.productId} />
         ))}
       </Stack>
-      {totalCartProducts ? <Button variant="outlined">ЗАМОВИТИ</Button> : null}
+      {totalCartProducts ? <Button variant="outlined" onClick={() => setIsModalOpen(true)}>ЗАМОВИТИ</Button> : null}
     </Stack>
   );
 };
