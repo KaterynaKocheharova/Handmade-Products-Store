@@ -1,6 +1,5 @@
 import Stack from "@mui/material/Stack";
 import HeroTitle from "../HeroTitle/HeroTitle";
-import HeroButton from "../HeroButton/HeroButton";
 import css from "./SwiperTextBox.module.css";
 
 const SwiperTextBox = () => {
@@ -12,7 +11,6 @@ const SwiperTextBox = () => {
         spacing={1}
       >
         <HeroTitle />
-        <HeroButton />
       </Stack>
     </div>
   );

@@ -1,8 +1,11 @@
 .section {
   padding-top: 7rem;
-  padding-bottom: 3rem;
 }
 
 .cart-section {
   padding-top: 5rem;
+}
+
+.hero-section {
+  padding-top: 0;
 }
