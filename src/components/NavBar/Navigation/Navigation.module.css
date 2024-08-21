@@ -18,15 +18,11 @@
 .nav-link {
   text-decoration: none;
   display: block;
-  padding: 0.7rem;
+  padding: 0.5rem;
   border-radius: var(--button-border-radius);
   text-decoration: none;
   color: inherit;
   transition: transform 250ms linear;
-}
-
-.nav-link:hover {
-  transform: scale(1.2);
 }
 
 .active-link {
