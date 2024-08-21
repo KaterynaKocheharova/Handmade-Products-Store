@@ -7,7 +7,7 @@ const HeroTitle = () => {
     <Typography
       className={css["title"]}
       sx={{
-        fontSize: "40px",
+        fontSize: "20px",
         color: "var(--main-bg-color)",
         "@media screen and (min-width: 760px)": {
           textAlign: "right",
