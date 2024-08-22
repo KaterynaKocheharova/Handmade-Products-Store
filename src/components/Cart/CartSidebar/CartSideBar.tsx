@@ -16,6 +16,8 @@ type CartSidebarProps = {
   setIsSidebarOpen: (arg: boolean) => void;
   drawerWidth: string;
   drawerVariant: "permanent" | "persistent" | "temporary" | undefined;
+  setIsDialogueOpen: (arg: boolean) => void;
+  setDialogueType: (arg: "successful-order" | "fill-in-number") => void;
 };
 
 const CartSidebar = ({
@@ -23,8 +25,16 @@ const CartSidebar = ({
   setIsSidebarOpen,
   drawerWidth,
   drawerVariant,
+  setIsDialogueOpen,
+  setDialogueType,
 }: CartSidebarProps) => {
   const totalCartProducts = useAppSelector(selectCartProducts).length;
+
+  const handleCartButtonClick = () => {
+    setDialogueType("fill-in-number");
+    setIsDialogueOpen(true);
+  };
+
   return (
     <Drawer
       open={isSidebarOpen}
@@ -66,7 +76,7 @@ const CartSidebar = ({
             </Typography>
             <CartItems />
             {totalCartProducts ? (
-              <Button variant="outlined">ЗАМОВИТИ</Button>
+              <Button variant="outlined" onClick={handleCartButtonClick}>ЗАМОВИТИ</Button>
             ) : null}
           </FlexColumn>
         </Container>
