@@ -6,15 +6,18 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import StyledDialog from "./StyledDialogue";
 
 type FormDialogueProps = {
   isDialogueOpen: boolean;
-  setIsDialogueOpen: (arg: boolean) => void;
   setDialogueType: (arg: "successful-order") => void;
 };
 
-const FormDialogue = ({ isDialogueOpen, setIsDialogueOpen, setDialogueType }: FormDialogueProps) => (
-  <Dialog
+const FormDialogue = ({
+  isDialogueOpen,
+  setDialogueType,
+}: FormDialogueProps) => (
+  <StyledDialog
     open={isDialogueOpen}
     onClose={() => setDialogueType("successful-order")}
     PaperProps={{
@@ -27,12 +30,15 @@ const FormDialogue = ({ isDialogueOpen, setIsDialogueOpen, setDialogueType }: Fo
         console.log(tel);
         setDialogueType("successful-order");
       },
+      sx: {
+        bgcolor: "var(--third-color)", 
+      },
     }}
   >
     <DialogTitle>Дякуємо за замовлення!</DialogTitle>
     <DialogContent>
       <DialogContentText>
-        Введіть свій номер і ми вам зателефонуємо для підтвердження дзвінка
+        Введіть свій номер і ми вам зателефонуємо для підтвердження
       </DialogContentText>
       <TextField
         autoFocus
@@ -40,7 +46,7 @@ const FormDialogue = ({ isDialogueOpen, setIsDialogueOpen, setDialogueType }: Fo
         margin="dense"
         id="tel"
         name="tel"
-        label="telephone number"
+        label="Ваш номер"
         type="tel"
         fullWidth
         variant="standard"
@@ -48,13 +54,16 @@ const FormDialogue = ({ isDialogueOpen, setIsDialogueOpen, setDialogueType }: Fo
     </DialogContent>
     <DialogActions>
       <Button
+        variant="outlined"
         onClick={() => setDialogueType("successful-order")}
       >
         Назад
       </Button>
-      <Button type="submit">Підтвердити номер</Button>
+      <Button variant="outlined" type="submit">
+        Відправити
+      </Button>
     </DialogActions>
-  </Dialog>
+  </StyledDialog>
 );
 
 export default FormDialogue;

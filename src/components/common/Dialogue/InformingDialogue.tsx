@@ -1,5 +1,5 @@
-import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
+import StyledDialog from "./StyledDialogue";
 
 type InformingDialogueProps = {
   isDialogueOpen: boolean;
@@ -7,9 +7,9 @@ type InformingDialogueProps = {
 };
 
 const InformingDialogue = ({ isDialogueOpen, setIsDialogueOpen }: InformingDialogueProps) => (
-  <Dialog onClose={() => setIsDialogueOpen(false)} open={isDialogueOpen}>
+  <StyledDialog onClose={() => setIsDialogueOpen(false)} open={isDialogueOpen}>
     <DialogTitle>Ми вам скоро передзвонемо!</DialogTitle>
-  </Dialog>
+  </StyledDialog>
 );
 
 export default InformingDialogue;
