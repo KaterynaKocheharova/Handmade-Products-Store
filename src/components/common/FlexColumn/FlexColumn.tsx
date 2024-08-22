@@ -2,15 +2,16 @@ import { Stack } from "@mui/material";
 
 type FlexColumn = {
   children: React.ReactNode;
+  spacing?: number;
 };
 
-const FlexColumn = ({ children }: FlexColumn) => {
+const FlexColumn = ({ children, spacing = 5 }: FlexColumn) => {
   return (
     <Stack
       direction="column"
       justifyContent="center"
       alignItems="center"
-      gap="10"
+      spacing={spacing}
     >
       {children}
     </Stack>
