@@ -39,7 +39,7 @@ const ProductItem = ({ product: { id, name, image, new_price } }) => {
     <li className={css["product-item"]}>
       <Link to={`/${id}`} className={css["item-link"]}>
         <div className={css["image-container"]}>
-          <img className={css["item-image"]} src={image} alt={name} />
+          <img className={css["item-image"]} src={image} alt={name} width="250" />
         </div>
       </Link>
       <div className={css["card-group-box"]}>

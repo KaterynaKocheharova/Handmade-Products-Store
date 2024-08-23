@@ -21,10 +21,6 @@
   overflow: hidden;
 }
 
-.item-image {
-  object-fit: contain;
-}
-
 .card-group-box {
   padding: 1rem;
   display: flex;
