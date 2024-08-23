@@ -4,6 +4,10 @@ import css from "./CartItem.module.css";
 import { useAppSelector } from "../../../redux/hooks";
 import { selectProductById } from "../../../redux/products/selectors";
 import { type CartItem } from "../../../redux/cart/cartSlice";
+import { MdDeleteOutline } from "react-icons/md";
+import { IconButton, Box } from "@mui/material";
+import FlexRow from "../../common/FlexRow/FlexRow";
+import FlexColumn from "../../common/FlexColumn/FlexColumn";
 
 type CartItemProps = {
   cartItemData: CartItem;
@@ -14,6 +18,7 @@ const StyledGridItem = styled(Grid)(({ theme }) => ({
   justifyContent: "center",
   alignItems: "center",
   padding: 0,
+  width: "100%",
 }));
 
 const CartItem = ({ cartItemData: { productId, quantity } }: CartItemProps) => {
@@ -26,27 +31,23 @@ const CartItem = ({ cartItemData: { productId, quantity } }: CartItemProps) => {
   const { image, name, new_price } = currentProduct;
 
   return (
-    <Grid
-      container
-      rowSpacing={1}
-      columnSpacing={1}
-      justifyContent="center"
-      alignItems="center"
-      className={css["cart-item"]}
-    >
-      <StyledGridItem item xs={6}>
-        <img src={image} alt={name} width="80" className={css.image} />
-      </StyledGridItem>
-      <StyledGridItem item xs={6}>
-        <h3 className={css.name}>{name}</h3>
-      </StyledGridItem>
-      <StyledGridItem item xs={6}>
-        <p className={css.price}>{new_price * quantity} грн</p>
-      </StyledGridItem>
-      <StyledGridItem item xs={6}>
-        <QuantityControl productId={productId} />
-      </StyledGridItem>
-    </Grid>
+    <Box component="li" className={css["cart-item"]}>
+      <FlexRow spacing={3}>
+        <FlexColumn>
+          <IconButton>
+            <MdDeleteOutline className={css["delete-icon"]} />
+          </IconButton>
+        </FlexColumn>
+        <FlexColumn spacing={3} justifyContent="flex-between">
+          <img src={image} alt={name} width="80" className={css.image} />
+          <h3 className={css.name}>{name}</h3>
+        </FlexColumn>
+        <FlexColumn spacing={3}>
+          <p className={css.price}>{new_price * quantity} грн</p>
+          <QuantityControl productId={productId} />
+        </FlexColumn>
+      </FlexRow>
+    </Box>
   );
 };
 

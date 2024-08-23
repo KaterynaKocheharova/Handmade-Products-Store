@@ -1,5 +1,5 @@
 .product-item {
-  width: 300px;
+  width: 250px;
   box-shadow: var(--card-smaller-box-shadow);
   border-radius: var(--card-border-radius);
   transition: box-shadow 250ms linear, transform 250ms linear;
@@ -9,7 +9,6 @@
 .product-item:focus {
   border: 1px solid var(--primary-border-color);
   box-shadow: var(--card-box-shadow);
-  /* transform: scale(1.05); */
   cursor: pointer;
 }
 

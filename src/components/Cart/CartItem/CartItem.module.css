@@ -11,3 +11,8 @@
 .name, .price {
   font-size: 14px;
 }
+
+.delete-icon {
+  width: 20px;
+  height: 20px;
+}
