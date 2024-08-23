@@ -8,7 +8,7 @@ import Dialogue from "../common/Dialogue/Dialogue";
 const Layout = () => {
   const isNonMobile = useMediaQuery("(min-width: 600px");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [dialogueType, setDialogueType] = useState(null); // successful-order, fill-in-number
+  const [dialogueType, setDialogueType] = useState(null); 
   const [isDialogueOpen, setIsDialogueOpen] = useState(false);
 
   const drawerWidth = "300px";
