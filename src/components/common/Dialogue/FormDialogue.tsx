@@ -1,7 +1,6 @@
 import React from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
@@ -11,15 +10,17 @@ import StyledDialog from "./StyledDialogue";
 type FormDialogueProps = {
   isDialogueOpen: boolean;
   setDialogueType: (arg: "successful-order") => void;
+  setIsDialogueOpen: (arg: boolean) => void;
 };
 
 const FormDialogue = ({
   isDialogueOpen,
+  setIsDialogueOpen,
   setDialogueType,
 }: FormDialogueProps) => (
   <StyledDialog
     open={isDialogueOpen}
-    onClose={() => setDialogueType("successful-order")}
+    onClose={() => setIsDialogueOpen(false)}
     PaperProps={{
       component: "form",
       onSubmit: (event: React.FormEvent<HTMLFormElement>) => {
@@ -31,7 +32,7 @@ const FormDialogue = ({
         setDialogueType("successful-order");
       },
       sx: {
-        bgcolor: "var(--third-color)", 
+        bgcolor: "var(--third-color)",
       },
     }}
   >
@@ -53,10 +54,7 @@ const FormDialogue = ({
       />
     </DialogContent>
     <DialogActions>
-      <Button
-        variant="outlined"
-        onClick={() => setDialogueType("successful-order")}
-      >
+      <Button variant="outlined" onClick={() => setIsDialogueOpen(false)}>
         Назад
       </Button>
       <Button variant="outlined" type="submit">

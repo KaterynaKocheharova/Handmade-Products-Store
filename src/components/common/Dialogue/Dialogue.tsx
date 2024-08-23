@@ -19,6 +19,7 @@ const Dialogue = ({
       <FormDialogue
         isDialogueOpen={isDialogueOpen}
         setDialogueType={setDialogueType}
+        setIsDialogueOpen={setIsDialogueOpen}
       />
     );
   }
