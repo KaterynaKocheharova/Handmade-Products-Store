@@ -22,46 +22,32 @@ const cartSlice = createSlice({
   reducers: {
     addToCart(state, action: PayloadAction<string>) {
       const productId = action.payload;
-      const indexProductId = state.items.findIndex(
-        (item) => item.productId === productId
-      );
-      if (indexProductId >= 0) {
-        state.items[indexProductId].quantity += 1;
+      const item = state.items.find((item) => item.productId === productId);
+      if (item) {
+        item.quantity += 1;
       } else {
         state.items.push({ productId, quantity: 1 });
       }
     },
     reduceQuantity(state, action: PayloadAction<string>) {
       const productId = action.payload;
-      const indexProductId = state.items.findIndex(
-        (item) => item.productId === productId
-      );
-      if (indexProductId >= 0) {
-        const newQuantity = --state.items[indexProductId].quantity;
-        if (newQuantity === 0) {
-          state.items.splice(indexProductId, 1);
-        }
+      const item = state.items.find((item) => item.productId === productId);
+      if (item) {
+        item.quantity = Math.max(item.quantity - 1, 1);
       }
     },
     increaseQuantity(state, action: PayloadAction<string>) {
       const productId = action.payload;
-      const indexProductId = state.items.findIndex(
-        (item) => item.productId === productId
-      );
-      if (indexProductId >= 0) {
-        state.items[indexProductId].quantity += 1;
+      const item = state.items.find((item) => item.productId === productId);
+      if (item) {
+        item.quantity += 1;
       } else {
         state.items.push({ productId, quantity: 1 });
       }
     },
     removeFromCart(state, action: PayloadAction<string>) {
       const productId = action.payload;
-      const indexProductId = state.items.findIndex(
-        (item) => item.productId === productId
-      );
-      if (indexProductId >= 0) {
-        state.items.splice(indexProductId, 1);
-      }
+      state.items = state.items.filter((item) => item.productId !== productId);
     },
   },
 });
