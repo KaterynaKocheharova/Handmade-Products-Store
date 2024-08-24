@@ -13,6 +13,7 @@ import storage from "redux-persist/lib/storage";
 import { authReducer } from "./auth/slice";
 import { productsReducer } from "./products/slice";
 import { filtersReducer } from "./filters/filtersSlice";
+import diaogueReducer from "./dialogue/slice";
 import cartReducer from "./cart/cartSlice";
 
 const authPersistConfiguration = {
@@ -30,7 +31,7 @@ const productsPersistConfiguration = {
 const cartPersistConfiguration = {
   key: "cart",
   storage,
-}
+};
 
 export const store = configureStore({
   reducer: {
@@ -38,6 +39,7 @@ export const store = configureStore({
     products: persistReducer(productsPersistConfiguration, productsReducer),
     cart: persistReducer(cartPersistConfiguration, cartReducer),
     filters: filtersReducer,
+    dialogue: diaogueReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -50,8 +52,7 @@ export const store = configureStore({
 
 export const persistor = persistStore(store);
 
-
 // Infer the `RootState` and `AppDispatch` types from the store itself
-export type RootState = ReturnType<typeof store.getState>
+export type RootState = ReturnType<typeof store.getState>;
 // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
-export type AppDispatch = typeof store.dispatch
+export type AppDispatch = typeof store.dispatch;
