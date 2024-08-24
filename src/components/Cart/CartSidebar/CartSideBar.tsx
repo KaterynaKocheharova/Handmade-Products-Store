@@ -1,5 +1,6 @@
-import { useAppSelector } from "../../../redux/hooks";
+import { useAppSelector, useAppDispatch } from "../../../redux/hooks";
 import { selectCartProducts } from "../../../redux/cart/cartSelectors";
+import { openDialogue } from "../../../redux/dialogue/slice";
 import Drawer from "@mui/material/Drawer";
 import { IconButton } from "@mui/material";
 import { IoMdClose } from "react-icons/io";
@@ -25,14 +26,17 @@ const CartSidebar = ({
   setIsSidebarOpen,
   drawerWidth,
   drawerVariant,
-  setIsDialogueOpen,
-  setDialogueType,
 }: CartSidebarProps) => {
   const totalCartProducts = useAppSelector(selectCartProducts).length;
 
+  const dispatch = useAppDispatch();
   const handleCartButtonClick = () => {
-    setDialogueType("fill-in-number");
-    setIsDialogueOpen(true);
+    dispatch(
+      openDialogue({
+        type: "form",
+        text: "Введіть свій номер і ми вам зателефонуємо для підтвердження",
+      })
+    );
   };
 
   return (
@@ -76,7 +80,9 @@ const CartSidebar = ({
             </Typography>
             <CartItems />
             {totalCartProducts ? (
-              <Button variant="outlined" onClick={handleCartButtonClick}>ЗАМОВИТИ</Button>
+              <Button variant="outlined" onClick={handleCartButtonClick}>
+                ЗАМОВИТИ
+              </Button>
             ) : null}
           </FlexColumn>
         </Container>

@@ -1,12 +1,19 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-type dialogueState = {
+type DialogueType = "informing" | "confirming" | "form" | null;
+
+type DialogueState = {
   isOpen: boolean;
-  type: "informing" | "confirming" | "form" | null;
+  type: DialogueType;
   text: string | null;
 };
 
-const initialState: dialogueState = {
+type DialoguePayload = {
+  type: DialogueType,
+  text: string | null
+};
+
+const initialState: DialogueState = {
   isOpen: false,
   type: null,
   text: null,
@@ -16,20 +23,10 @@ const dialogueSlice = createSlice({
   name: "dialogue",
   initialState,
   reducers: {
-    openInformingDialogue(state, action: PayloadAction<string>) {
+    openDialogue(state, action: PayloadAction<DialoguePayload>) {
       state.isOpen = true;
-      state.type = "informing";
-      state.text = action.payload;
-    },
-    openConfirmingDialogue(state, action: PayloadAction<string>) {
-      state.isOpen = true;
-      state.type = "confirming";
-      state.text = action.payload;
-    },
-    openFormDilaogue(state, action: PayloadAction<string>) {
-      state.isOpen = true;
-      state.type = "form";
-      state.text = action.payload;
+      state.type = action.payload.type;
+      state.text = action.payload.text;
     },
     closeDialogue(state) {
       state.isOpen = false;
@@ -39,6 +36,5 @@ const dialogueSlice = createSlice({
   },
 });
 
-
 export default dialogueSlice.reducer;
-export const {openInformingDialogue, openConfirmingDialogue, openFormDilaogue} = dialogueSlice.actions;
+export const { openDialogue, closeDialogue } = dialogueSlice.actions;

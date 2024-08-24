@@ -1,39 +1,36 @@
+import { useAppSelector } from "../../../redux/hooks";
+import {
+  selectIsDialogueOpen,
+  selectDialogueType,
+  selectDialogueText,
+} from "../../../redux/dialogue/selectors";
 import FormDialogue from "./FormDialogue";
 import InformingDialogue from "./InformingDialogue";
 
-type DialogueProps = {
-  isDialogueOpen: boolean;
-  setIsDialogueOpen: (arg: boolean) => void;
-  dialogueType: "successful-order" | "fill-in-number";
-  setDialogueType: (arg: "successful-order" | "fill-in-number") => void;
-};
+const Dialogue = () => {
+  const isDialogueOpen = useAppSelector(selectIsDialogueOpen);
+  const dialogueType = useAppSelector(selectDialogueType);
+  const dialogueText = useAppSelector(selectDialogueText);
 
-const Dialogue = ({
-  isDialogueOpen,
-  setIsDialogueOpen,
-  dialogueType,
-  setDialogueType,
-}: DialogueProps) => {
-  if (dialogueType === "fill-in-number") {
+  if (!isDialogueOpen) return null;
+
+  if (dialogueType === "form") {
     return (
       <FormDialogue
         isDialogueOpen={isDialogueOpen}
-        setDialogueType={setDialogueType}
-        setIsDialogueOpen={setIsDialogueOpen}
+        dialogueText={dialogueText}
       />
     );
   }
 
-  if (dialogueType === "successful-order") {
+  if (dialogueType === "informing") {
     return (
       <InformingDialogue
         isDialogueOpen={isDialogueOpen}
-        setIsDialogueOpen={setIsDialogueOpen}
+        dialogueText={dialogueText}
       />
     );
   }
-
-  return null;
 };
 
 export default Dialogue;
