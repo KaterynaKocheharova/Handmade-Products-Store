@@ -1,3 +1,5 @@
+import { useAppDispatch } from "../../../redux/hooks";
+import { openDialogue } from "../../../redux/dialogue/slice";
 import { Grid, styled } from "@mui/material";
 import QuantityControl from "../../common/QuantityControl/QuantityControl";
 import css from "./CartItem.module.css";
@@ -30,11 +32,23 @@ const CartItem = ({ cartItemData: { productId, quantity } }: CartItemProps) => {
 
   const { image, name, new_price } = currentProduct;
 
+  const dispatch = useAppDispatch();
+
+  const handleDeleteClick = () => {
+    dispatch(
+      openDialogue({
+        type: "confirming",
+        text: "Видалити продукт з корзини?",
+        productId
+      })
+    );
+  };
+
   return (
     <Box component="li" className={css["cart-item"]}>
       <FlexRow spacing={3}>
         <FlexColumn>
-          <IconButton>
+          <IconButton onClick={handleDeleteClick}>
             <MdDeleteOutline className={css["delete-icon"]} />
           </IconButton>
         </FlexColumn>

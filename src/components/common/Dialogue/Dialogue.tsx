@@ -6,6 +6,7 @@ import {
 } from "../../../redux/dialogue/selectors";
 import FormDialogue from "./FormDialogue";
 import InformingDialogue from "./InformingDialogue";
+import ConfirmingDialogue from "./ConfirmingDialogue";
 
 const Dialogue = () => {
   const isDialogueOpen = useAppSelector(selectIsDialogueOpen);
@@ -26,6 +27,15 @@ const Dialogue = () => {
   if (dialogueType === "informing") {
     return (
       <InformingDialogue
+        isDialogueOpen={isDialogueOpen}
+        dialogueText={dialogueText}
+      />
+    );
+  }
+
+  if (dialogueType === "confirming") {
+    return (
+      <ConfirmingDialogue
         isDialogueOpen={isDialogueOpen}
         dialogueText={dialogueText}
       />

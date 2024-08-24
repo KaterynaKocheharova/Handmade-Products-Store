@@ -6,17 +6,20 @@ type DialogueState = {
   isOpen: boolean;
   type: DialogueType;
   text: string | null;
+  productId?: string | null;
 };
 
 type DialoguePayload = {
-  type: DialogueType,
-  text: string | null
+  type: DialogueType;
+  text: string | null;
+  productId?: string | null;
 };
 
 const initialState: DialogueState = {
   isOpen: false,
   type: null,
   text: null,
+  productId: null,
 };
 
 const dialogueSlice = createSlice({
@@ -27,6 +30,9 @@ const dialogueSlice = createSlice({
       state.isOpen = true;
       state.type = action.payload.type;
       state.text = action.payload.text;
+      if (action.payload.productId) {
+        state.productId = action.payload.productId;
+      }
     },
     closeDialogue(state) {
       state.isOpen = false;
