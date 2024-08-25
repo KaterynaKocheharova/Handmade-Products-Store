@@ -9,55 +9,56 @@ import FlexRow from "../common/FlexRow/FlexRow";
 // import logo from "../../assets/My_Assets/logo.jpg";
 import css from "./NavBar.module.css";
 
-const NavBar = ({ setIsSidebarOpen }) => {
+const NavBar = ({ setIsSidebarOpen, isSidebarOpen }) => {
   return (
-    <>
-      <Header>
-        <Stack
-          justifyContent="center"
-          alignItems="center"
-          sx={{
-            padding: "10px",
-            backgroundColor: "var(--second-color)}",
-          }}
+    <Header>
+      <Stack
+        justifyContent="center"
+        alignItems="center"
+        sx={{
+          padding: "10px",
+          backgroundColor: "var(--second-color)}",
+        }}
+      >
+        <p className={css.text}>Вітаємо у нашому магазині!</p>
+      </Stack>
+      <Container>
+        <FlexRow>
+          <MobileNavigation />
+          <Navigation />
+          <UserMenu
+            setIsSidebarOpen={setIsSidebarOpen}
+            isSidebarOpen={isSidebarOpen}
+          />
+        </FlexRow>
+      </Container>
+      <Stack
+        direction="row"
+        justifyContent="space-around"
+        alignItems="center"
+        spacing={2}
+        sx={{
+          padding: "10px",
+          backgroundColor: "var(--main-font-color)}",
+        }}
+      >
+        <a
+          className={clsx(css["contact-link"], css["tel-link"])}
+          href="tel:+380123456789"
         >
-          <p className={css.text}>Вітаємо у нашому магазині!</p>
-        </Stack>
-        <Container>
-          <FlexRow>
-            <MobileNavigation />
-            <Navigation />
-            <UserMenu setIsSidebarOpen={setIsSidebarOpen} />
-          </FlexRow>
-        </Container>
-        <Stack
-          direction="row"
-          justifyContent="space-around"
-          alignItems="center"
-          spacing={2}
-          sx={{
-            padding: "10px",
-            backgroundColor: "var(--main-font-color)}",
-          }}
+          +380123456789
+        </a>
+        <a className={css["contact-link"]} href="mailto:example@gmail.com">
+          example@gmail.com
+        </a>
+        <a
+          className={css["contact-link"]}
+          href="https://www.instagram.com/yourprofile"
         >
-          <a
-            className={clsx(css["contact-link"], css["tel-link"])}
-            href="tel:+380123456789"
-          >
-            +380123456789
-          </a>
-          <a className={css["contact-link"]} href="mailto:example@gmail.com">
-            example@gmail.com
-          </a>
-          <a
-            className={css["contact-link"]}
-            href="https://www.instagram.com/yourprofile"
-          >
-            Instagram
-          </a>
-        </Stack>
-      </Header>
-    </>
+          Instagram
+        </a>
+      </Stack>
+    </Header>
   );
 };
 

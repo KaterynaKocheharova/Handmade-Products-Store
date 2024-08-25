@@ -6,8 +6,12 @@
   cursor: pointer;
 }
 
+.active {
+  color: var(--accent-color);
+}
+
 .active .icon {
-  color: var(--accent-color-2);
+  color: var(--accent-color);
 }
 
 .badge {

@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { Stack, IconButton } from "@mui/material";
 import { Badge } from "@mui/base/Badge";
 import { NavLink } from "react-router-dom";
@@ -10,7 +11,7 @@ import { selectCartProductsQuantity } from "../../redux/cart/cartSelectors";
 
 import css from "./UserMenu.module.css";
 
-const UserMenu = ({ setIsSidebarOpen }) => {
+const UserMenu = ({ setIsSidebarOpen, isSidebarOpen }) => {
   const favProducts = useSelector(selectFavoriteProducts);
   const cartProductsQuantity = useSelector(selectCartProductsQuantity);
 
@@ -36,7 +37,7 @@ const UserMenu = ({ setIsSidebarOpen }) => {
           slotProps={{ badge: { className: css.badge } }}
           showZero
         >
-          <CiShoppingCart className={css.icon} />
+          <CiShoppingCart className={clsx(css.icon, isSidebarOpen && css.active)} />
         </Badge>
       </IconButton>
     </Stack>
