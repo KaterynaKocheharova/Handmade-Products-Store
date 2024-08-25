@@ -14,6 +14,7 @@ import { authReducer } from "./auth/slice";
 import { productsReducer } from "./products/slice";
 import { filtersReducer } from "./filters/filtersSlice";
 import diaogueReducer from "./dialogue/slice";
+import snackbarReducer from "./snackbar/slice";
 import cartReducer from "./cart/cartSlice";
 
 const authPersistConfiguration = {
@@ -40,6 +41,7 @@ export const store = configureStore({
     cart: persistReducer(cartPersistConfiguration, cartReducer),
     filters: filtersReducer,
     dialogue: diaogueReducer,
+    snackbar: snackbarReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
