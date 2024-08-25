@@ -4,6 +4,7 @@
 }
 
 .control-icon {
+  color: var(--first-color);
   width: 12px;
   height: 12px;
 }

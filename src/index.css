@@ -19,6 +19,7 @@
   --second-color: #4a4a4a;
   --third-color: #f5e8d0;
   --accent-color: red;
+  --first-color-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
   --second-color-shadow: 0px 4px 4px rgba(74, 74, 74, 0.3);
   --third-color-shadow: 2px 2px 2px rgba(240, 189, 95, 0.5);
   --second-color-inset-shadow: inset 0 0 10px 10px rgba(74, 74, 74, 0.5);
@@ -67,7 +68,7 @@ ol {
 
 img {
   display: block;
-  max-width: 100%;
+  /* max-width: 100%; */
 }
 
 a {

@@ -1,15 +1,13 @@
-import { useState, useMemo, useCallback } from "react";
+import { useMemo } from "react";
 import { useParams } from "react-router-dom";
 import { useAppSelector } from "../../redux/hooks";
 import { selectAllProducts } from "../../redux/products/selectors";
-import { selectCartProducts } from "../../redux/cart/cartSelectors";
 import { type Product } from "../../types";
-import { type CartItem } from "../../redux/cart/cartSlice";
 import Section from "../../components/common/Section/Section";
 import Container from "../../components/common/Container/Container";
 import { Typography, Stack } from "@mui/material";
 import QuantityControl from "../../components/common/QuantityControl/QuantityControl";
-import AddToCartButton from "../../components/AddToCartButton/AddToCartButton";
+
 import css from "./ProductDetailsPage.module.css";
 
 const ProductDetailsPage = () => {
@@ -49,7 +47,7 @@ const ProductDetailsPage = () => {
             <Stack>
               <Stack direction="row" spacing={3} justifyContent="space-between">
                 {/* <AddToCartButton productData={{ productId, quantity }} /> */}
-                <QuantityControl productId={productId} />
+                  <QuantityControl productId={productId} />
               </Stack>
             </Stack>
           </Stack>

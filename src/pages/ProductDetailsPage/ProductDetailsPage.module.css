@@ -8,14 +8,33 @@
 }
 
 .image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
   border-radius: var(--card-border-radius);
+}
+
+.image-container img {
+  max-width: 100%;
+}
+
+@media screen and (min-width: 500px) {
+  .image-container {
+    min-width: 400px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .image-container img {
+    max-width: unset;
+  }
 }
 
 .product-details {
   padding: 20px;
   border-radius: var(--card-border-radius);
-  box-shadow: var(--third-color-box-shadow); 
+  box-shadow: var(--second-color-inset-shadow);
 }
 
 @media screen and (min-width: 700px) {
