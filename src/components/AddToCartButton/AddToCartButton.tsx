@@ -17,7 +17,8 @@ type AddToCartButton = {
 const AddToCartButton = ({ productData }: AddToCartButton) => {
   const dispatch = useAppDispatch();
 
-  const handleButtonClick = () => {
+  const handleButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
     dispatch(addToCart(productData.productId));
   };
 
