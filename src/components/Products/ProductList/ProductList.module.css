@@ -1,6 +1,12 @@
 .product-list {
   display: flex;
-  flex-wrap: wrap; 
-  gap: 40px; 
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
 }
 
+@media screen and (min-width: 900px) {
+  .product-list {
+    justify-content: flex-start;
+  }
+}
