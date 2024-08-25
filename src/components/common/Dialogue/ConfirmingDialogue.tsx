@@ -25,7 +25,7 @@ const ConfirmingDialogue = ({
     dispatch(closeDialogue());
   };
 
-  const onConfirmation = async() => {
+  const onConfirmation = async () => {
     await dispatch(removeFromCart(productId as string));
     dispatch(closeDialogue());
   };
@@ -42,8 +42,10 @@ const ConfirmingDialogue = ({
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={onConfirmation}>Так</Button>
-        <Button onClick={onCancellation} autoFocus>
+        <Button onClick={onConfirmation} variant="outlined">
+          Так
+        </Button>
+        <Button onClick={onCancellation} variant="outlined" autoFocus>
           Ні
         </Button>
       </DialogActions>
