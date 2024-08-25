@@ -69,11 +69,10 @@ const CartSidebar = ({
           <FlexColumn>
             <Typography className={css.text} component="h2" variant="h6">
               {totalCartProducts ? (
-                <>
-                  У ВАШІЙ КОРЗИНІ НАРАЗІ{" "}
-                  <span className={css.accent}>{totalCartProducts}</span>{" "}
-                  ТОВАРІВ
-                </>
+                <p>
+                  Кількість товарів у корзині: 
+                  <span className={css.accent}> {totalCartProducts}</span>{" "}
+                </p>
               ) : (
                 "У ВАС ПОКИ НЕМАЄ ТОВАРІВ У КОРЗИНІ"
               )}
