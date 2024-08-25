@@ -23,7 +23,7 @@ const AddToCartButton = ({ productData }: AddToCartButton) => {
 
   return (
     <Button
-      variant="contained"
+      variant="outlined"
       size="medium"
       onClick={handleButtonClick}
       sx={{ paddingRight: "5px", paddingLeft: "5px" }}
