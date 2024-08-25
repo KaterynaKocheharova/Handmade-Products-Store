@@ -42,6 +42,7 @@ const MobileNavigation = () => {
         aria-haspopup="true"
         aria-expanded={isElementOpen ? "true" : undefined}
         onClick={handleMenuButtonClick}
+        sx={{fontSize: "20px"}}
       >
         Категорії
       </Button>
