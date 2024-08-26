@@ -28,16 +28,16 @@ const ConfirmingDialogue = ({
 
   const onConfirmation = async () => {
     try {
-      await dispatch(removeFromCart(productId as string));
-      await dispatch(closeDialogue());
+      dispatch(removeFromCart(productId as string));
+      dispatch(closeDialogue());
       dispatch(
         openSnackbar({ type: "success", text: "Продукт видалено з корзини" })
       );
     } catch (error) {
       if (error instanceof Error) {
-        openSnackbar({ type: "error", text: error.message });
+        dispatch(openSnackbar({ type: "error", text: error.message }));
       } else {
-        openSnackbar({ type: "error", text: "An error occured" });
+        dispatch(openSnackbar({ type: "error", text: "An error occurred" }));
       }
     }
   };

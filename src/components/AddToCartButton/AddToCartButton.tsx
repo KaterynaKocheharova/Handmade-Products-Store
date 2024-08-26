@@ -1,4 +1,5 @@
 import { useAppDispatch } from "../../redux/hooks.ts";
+import { openSnackbar } from "../../redux/snackbar/slice.ts";
 import { addToCart } from "../../redux/cart/cartSlice.ts";
 import { Button } from "@mui/material";
 import { CiShoppingCart } from "react-icons/ci";
@@ -19,7 +20,16 @@ const AddToCartButton = ({ productData }: AddToCartButton) => {
 
   const handleButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    dispatch(addToCart(productData.productId));
+    try {
+      dispatch(addToCart(productData.productId));
+      dispatch(openSnackbar({ type: "success", text: "Продукт у корзині" }));
+    } catch (error) {
+      if (error instanceof Error) {
+        dispatch(openSnackbar({ type: "error", text: error.message }));
+      } else {
+        dispatch(openSnackbar({ type: "error", text: "An error occurred" }));
+      }
+    }
   };
 
   return (
