@@ -1,9 +1,10 @@
 import { RootState } from "../store";
 
 type SelectIsOpen = (state: RootState) => boolean;
-type SelectText = (state: RootState) => string;
+type SelectText = (state: RootState) => string | null;
 
-
-export const selectIsSuccessSnackbarOpen: SelectIsOpen = (state) => state.snackbar.isSuccessSnackbarOpen;
-export const selectIsErrorSnackbarOpen: SelectIsOpen = (state) => state.snackbar.isErrorSnackbarOpen;
+export const selectIsSuccessSnackbarOpen: SelectIsOpen = (state) =>
+  state.snackbar.isSuccessSnackbarOpen;
+export const selectIsErrorSnackbarOpen: SelectIsOpen = (state) =>
+  state.snackbar.isErrorSnackbarOpen;
 export const selectSnackbarText: SelectText = (state) => state.snackbar.text;

@@ -1,12 +1,15 @@
-import { useState } from "react";
-import Button from "@mui/material/Button";
+import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
+import {
+  selectIsErrorSnackbarOpen,
+  selectSnackbarText,
+} from "../../../redux/snackbar/selectors";
+import { closeSnackbar } from "../../../redux/snackbar/slice";
 import Snackbar, { SnackbarCloseReason } from "@mui/material/Snackbar";
 
 const ErrorSnackbar = () => {
-    // redux state {isSuccessSnackbarOpen, isErrorSnackbarOpen, text: null}
-    // closeSuccessSnackbar
-    // get this state from redux - if state
-  const [open, setOpen] = useState(false);
+  const dispatch = useAppDispatch();
+  const isErrorSnackbarOpen = useAppSelector(selectIsErrorSnackbarOpen);
+  const text = useAppSelector(selectSnackbarText);
 
   const handleClose = (
     event: React.SyntheticEvent | Event,
@@ -16,19 +19,16 @@ const ErrorSnackbar = () => {
       return;
     }
 
-    // dispatch closeSnackbar
-    setOpen(false);
+    dispatch(closeSnackbar({ type: "error" }));
   };
 
   return (
-      <Snackbar
-    //   get it from the redux
-        open={open}
-        autoHideDuration={5000}
-        onClose={handleClose}
-        // get message from the redux
-        message="This Snackbar will be dismissed in 5 seconds."
-      />
+    <Snackbar
+      open={isErrorSnackbarOpen}
+      autoHideDuration={5000}
+      onClose={handleClose}
+      message={text}
+    />
   );
 };
 

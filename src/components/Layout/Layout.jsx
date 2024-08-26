@@ -4,11 +4,13 @@ import { Box, useMediaQuery } from "@mui/material";
 import NavBar from "components/NavBar/NavBar";
 import CartSidebar from "../Cart/CartSidebar/CartSideBar";
 import Dialogue from "../common/Dialogue/Dialogue";
+import SuccessSnackbar from "../common/Snackbar/SuccessSnackbar";
+import ErrorSnackbar from "../common/Snackbar/ErrorSnackbar";
 
 const Layout = () => {
   const isNonMobile = useMediaQuery("(min-width: 600px");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [dialogueType, setDialogueType] = useState(null); 
+  const [dialogueType, setDialogueType] = useState(null);
   const [isDialogueOpen, setIsDialogueOpen] = useState(false);
 
   const drawerWidth = "300px";
@@ -41,6 +43,8 @@ const Layout = () => {
         setIsDialogueOpen={setIsDialogueOpen}
         dialogueType={dialogueType}
       />
+      <SuccessSnackbar />
+      <ErrorSnackbar />
     </Box>
   );
 };

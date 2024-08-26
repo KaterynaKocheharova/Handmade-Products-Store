@@ -1,5 +1,6 @@
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { closeDialogue } from "../../../redux/dialogue/slice";
+import { openSnackbar } from "../../../redux/snackbar/slice";
 import { removeFromCart } from "../../../redux/cart/cartSlice";
 import { selectProductId } from "../../../redux/dialogue/selectors";
 import Button from "@mui/material/Button";
@@ -26,8 +27,19 @@ const ConfirmingDialogue = ({
   };
 
   const onConfirmation = async () => {
-    await dispatch(removeFromCart(productId as string));
-    dispatch(closeDialogue());
+    try {
+      await dispatch(removeFromCart(productId as string));
+      await dispatch(closeDialogue());
+      dispatch(
+        openSnackbar({ type: "success", text: "Продукт видалено з корзини" })
+      );
+    } catch (error) {
+      if (error instanceof Error) {
+        openSnackbar({ type: "error", text: error.message });
+      } else {
+        openSnackbar({ type: "error", text: "An error occured" });
+      }
+    }
   };
 
   const onCancellation = () => {
