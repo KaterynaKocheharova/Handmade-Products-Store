@@ -7,8 +7,8 @@ const theme = createTheme({
       paper: "#f0f0f0",
     },
     text: {
-      primary: "#4a4a4a",
-      secondary: "#4a4a4a",
+      primary: "rgb(47, 47, 47)",
+      secondary: "rgb(47, 47, 47)",
     },
     primary: {
       main: "#4a4a4a",
@@ -24,10 +24,10 @@ const theme = createTheme({
   typography: {
     fontFamily: "'Poppins', sans-serif",
     body1: {
-      color: "#4a4a4a",
+      color: "rgb(47, 47, 47)",
     },
     body2: {
-      color: "#4a4a4a",
+      color: "rgb(47, 47, 47)",
     },
   },
   components: {
@@ -38,7 +38,6 @@ const theme = createTheme({
     //       color: "#f0f0f0",
     //       backgroundColor: "#4a4a4a",
     //       boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
-
     //       "&:hover": {
     //         backgroundColor: "#4a4a4a",
     //         color: "#f0f0f0",
@@ -48,9 +47,7 @@ const theme = createTheme({
     //     },
     //   },
     // },
-
   },
 });
 
 export default theme;
-

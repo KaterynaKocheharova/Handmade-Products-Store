@@ -39,7 +39,7 @@ const NavBar = ({ setIsSidebarOpen, isSidebarOpen }) => {
         spacing={2}
         sx={{
           padding: "10px",
-          backgroundColor: "var(--main-font-color)}",
+          backgroundColor: "var(--second-color)}",
         }}
       >
         <a

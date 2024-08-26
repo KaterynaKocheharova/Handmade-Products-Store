@@ -10,7 +10,7 @@
 .button {
   padding: 5px;
   cursor: pointer;
-  background-color: var(--main-font-color-transparent);
+  background-color: var(--second-color-transparent);
   border: 1px solid var(--main-bg-color);
   border: none;
 }

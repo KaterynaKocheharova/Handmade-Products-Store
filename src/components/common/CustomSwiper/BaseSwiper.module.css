@@ -16,7 +16,7 @@
     padding: 30px;
     position: absolute;
     right: 70px;
-    background-color: var(--main-font-color-transparent);
+    background-color: var(--second-color-transparent);
     font-size: 12px;
     line-height: 1.5;
     border-radius: var(--card-border-radius);

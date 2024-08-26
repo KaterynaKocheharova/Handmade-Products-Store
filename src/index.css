@@ -1,8 +1,7 @@
 :root {
   --main-bg-color: #f0f0f0; /* Very Light Grey */
   --secondary-bg-color: #e1e2e6; /* Light Grey 1 */
-  --main-font-color: #4a4a4a; /* Darker Grey */
-  --main-font-color-transparent: rgba(
+  --second-color-transparent: rgba(
     74,
     74,
     74,
@@ -16,7 +15,7 @@
 
   /* CURRENT USED PALETTE */
   --first-color: #f0f0f0;
-  --second-color: #4a4a4a;
+  --second-color: rgb(47, 47, 47);
   --third-color: #f5e8d0;
   --accent-color: red;
   --first-color-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
@@ -45,7 +44,7 @@
 body {
   font-family: "Poppins", sans-serif;
   background-color: var(--main-bg-color);
-  color: var(--main-font-color);
+  color: var(--second-color);
   letter-spacing: 0.1em;
 }
 
