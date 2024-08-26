@@ -24,8 +24,9 @@ const SuccessSnackbar = () => {
 
   return (
     <Snackbar
+      key={text}
       open={isSuccessSnackbarOpen}
-      autoHideDuration={null}
+      autoHideDuration={2000}
       onClose={handleClose}
       message={text}
     />
