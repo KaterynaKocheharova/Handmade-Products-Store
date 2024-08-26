@@ -1,5 +1,6 @@
 import { useAppDispatch } from "../../../redux/hooks";
 import { openDialogue, closeDialogue } from "../../../redux/dialogue/slice";
+import { openSnackbar } from "../../../redux/snackbar/slice";
 import React from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
@@ -18,12 +19,27 @@ const FormDialogue = ({ isDialogueOpen, dialogueText }: FormDialogue) => {
   const dispatch = useAppDispatch();
 
   const handleSubmit = () => {
-    dispatch(
-      openDialogue({
-        type: "informing",
-        text: "Ми вам скоро передзвонемо!",
-      })
-    );
+    try {
+      dispatch(
+        openDialogue({
+          type: "informing",
+          text: "Ми вам скоро передзвонемо!",
+        })
+      );
+
+      dispatch(
+        openSnackbar({
+          type: "success",
+          text: "До зв'язку!",
+        })
+      );
+    } catch (error) {
+      if (error instanceof Error) {
+        dispatch(openSnackbar({ type: "error", text: error.message }));
+      } else {
+        dispatch(openSnackbar({ type: "error", text: "An error occurred" }));
+      }
+    }
   };
 
   const handleClose = () => {
