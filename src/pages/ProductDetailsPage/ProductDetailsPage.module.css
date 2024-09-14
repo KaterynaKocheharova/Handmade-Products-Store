@@ -32,9 +32,13 @@
 }
 
 .product-details {
+  display: flex;
+  justify-content: center;
+  min-height: 400px;
   padding: 20px;
   border-radius: var(--card-border-radius);
-  box-shadow: var(--second-color-inset-shadow);
+  border: var(--thick-border);
+  /* box-shadow: var(--second-color-inset-shadow); */
 }
 
 @media screen and (min-width: 700px) {

@@ -1,5 +1,6 @@
 .product-item {
   width: 250px;
+  border: var(--thick-border);
   box-shadow: var(--card-smaller-box-shadow);
   border-radius: var(--card-border-radius);
   transition: box-shadow 250ms linear, transform 250ms linear;
@@ -7,7 +8,6 @@
 
 .product-item:hover,
 .product-item:focus {
-  border: 1px solid var(--primary-border-color);
   box-shadow: var(--card-box-shadow);
   cursor: pointer;
 }

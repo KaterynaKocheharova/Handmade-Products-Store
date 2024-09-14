@@ -5,7 +5,7 @@ const StyledDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiPaper-root": {
     padding: "20px",
     backgroundColor: "var(--first-color)",
-    boxShadow: "var(--second-color-inset-shadow)",
+    border: "var(--thick-border)",
   },
 }));
 
