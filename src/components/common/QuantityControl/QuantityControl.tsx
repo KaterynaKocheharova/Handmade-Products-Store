@@ -33,9 +33,12 @@ const QuantityControl = ({ productId }: QuantityControl) => {
       alignItems="center"
       spacing={1}
       sx={{
+        position: "relative",
+        display: "flex",
+        width: "100px",
+        padding: "10px",
         bgcolor: "var(--second-color)",
         color: "var(--first-color)",
-        p: "5px",
         borderRadius: "var(--button-border-radius)",
       }}
     >
@@ -43,8 +46,11 @@ const QuantityControl = ({ productId }: QuantityControl) => {
         className={css.button}
         disableRipple
         sx={{
+          position: "absolute",
+          left: "2px",
           border: "1px solid var(--first-color)",
           boxShadow: "var(--first-color-shadow)",
+          marginLeft: "unset",
         }}
         onClick={handleMinusQuantity}
       >
@@ -57,6 +63,8 @@ const QuantityControl = ({ productId }: QuantityControl) => {
         className={css.button}
         disableRipple
         sx={{
+          position: "absolute",
+          right: "2px",
           border: "1px solid var(--first-color)",
           boxShadow: "var(--first-color-shadow)",
         }}
