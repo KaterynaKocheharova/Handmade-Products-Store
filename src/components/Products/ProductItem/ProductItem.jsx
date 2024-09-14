@@ -2,24 +2,20 @@ import clsx from "clsx";
 import { useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { selectFavoriteProductsIds } from "../../../redux/products/selectors";
-import {
-  addToWishList,
-  removeFromWishlist,
-} from "../../../redux/products/slice";
+import { toggleWishlist } from "../../../redux/wishlist/wishlistSlice.ts";
 import FlexRow from "../../common/FlexRow/FlexRow.tsx";
 import { Typography, IconButton } from "@mui/material";
 import { CiHeart } from "react-icons/ci";
-import { addFavClass } from "./buildClasses";
 import AddToCartButton from "../../AddToCartButton/AddToCartButton.tsx";
 import css from "./ProductItem.module.css";
 import { selectCartProducts } from "../../../redux/cart/cartSelectors.js";
+import { selectWishlistIds } from "../../../redux/wishlist/wishlistSelectors.js";
 
 const ProductItem = ({ product: { id, name, image, new_price } }) => {
+  
   const dispatch = useDispatch();
-  const favoriteProductsIds = useSelector(selectFavoriteProductsIds);
-
   const cartProducts = useSelector(selectCartProducts);
+  const wishlitsIds = useSelector(selectWishlistIds);
   const currentCartProduct = useMemo(
     () => cartProducts.find((item) => item.productId === id),
     [cartProducts, id]
@@ -29,11 +25,7 @@ const ProductItem = ({ product: { id, name, image, new_price } }) => {
 
   const handleFavButtonClick = (event) => {
     event.preventDefault();
-    if (favoriteProductsIds.includes(id)) {
-      dispatch(removeFromWishlist(id));
-    } else {
-      dispatch(addToWishList(id));
-    }
+    dispatch(toggleWishlist(id));
   };
 
   return (
@@ -59,7 +51,7 @@ const ProductItem = ({ product: { id, name, image, new_price } }) => {
                 className={clsx(
                   css.icon,
                   css["heart-icon"],
-                  css[addFavClass(favoriteProductsIds, id)]
+                  wishlitsIds.includes(id) && css.favorite
                 )}
               />
             </IconButton>

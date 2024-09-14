@@ -6,13 +6,13 @@ import { CiShoppingCart } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
 import { buildActiveIconLinkClassname } from "./buildClasses";
 import { useSelector } from "react-redux";
-import { selectFavoriteProducts } from "../../redux/products/selectors";
+import { selectWishlistProducts } from "../../redux/wishlist/wishlistSelectors";
 import { selectCartProductsQuantity } from "../../redux/cart/cartSelectors";
 
 import css from "./UserMenu.module.css";
 
 const UserMenu = ({ setIsSidebarOpen, isSidebarOpen }) => {
-  const favProducts = useSelector(selectFavoriteProducts);
+  const favProducts = useSelector(selectWishlistProducts);
   const cartProductsQuantity = useSelector(selectCartProductsQuantity);
 
   return (

@@ -22,10 +22,3 @@ export const selectProductsByCategory = (category) =>
     products.filter((product) => product.category === category)
   );
 
-export const selectFavoriteProductsIds = (state) => state.products.wishlist;
-
-export const selectFavoriteProducts = createSelector(
-  [selectFavoriteProductsIds, selectAllProducts],
-  (ids, allProducts) =>
-    allProducts.filter((product) => ids.includes(product.id))
-);

@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { selectFavoriteProducts } from "../../redux/products/selectors";
+import { selectWishlistProducts } from "../../redux/wishlist/wishlistSelectors";
 import Section from "components/common/Section/Section";
 import Container from "components/common/Container/Container";
 import ProductList from "components/Products/ProductList/ProductList";
@@ -7,7 +7,7 @@ import { Typography } from "@mui/material";
 import { buildFavPageText } from "./buildText";
 
 const FavoriteProductsPage = () => {
-  const favoriteProducts = useSelector(selectFavoriteProducts);
+  const wishlist = useSelector(selectWishlistProducts);
 
   return (
     <Section>
@@ -17,10 +17,10 @@ const FavoriteProductsPage = () => {
           component="h2"
           sx={{ textAlign: "center", marginBottom: "5rem" }}
         >
-          {buildFavPageText(favoriteProducts.length)}
+          {buildFavPageText(wishlist.length)}
         </Typography>
-        {favoriteProducts.length > 0 && (
-          <ProductList products={favoriteProducts} />
+        {wishlist.length > 0 && (
+          <ProductList products={wishlist}  />
         )}
       </Container>
     </Section>

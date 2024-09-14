@@ -11,9 +11,7 @@ const ProductCategoryPage = lazy(() =>
 const ProductDetailsPage = lazy(() =>
   import("./pages/ProductDetailsPage/ProductDetailsPage")
 );
-const FavoriteProductsPage = lazy(() =>
-  import("./pages/FavoriteProductsPage/FavoriteProductsPage")
-);
+const WishlistPage = lazy(() => import("./pages/WishlistPage/WishlistPage"));
 
 export default function App() {
   return (
@@ -43,7 +41,7 @@ export default function App() {
                   />
                   <Route
                     path="/favoriteProductsPage"
-                    element={<FavoriteProductsPage />}
+                    element={<WishlistPage />}
                   />
                   <Route path="/:productId" element={<ProductDetailsPage />} />
                   <Route path="*" element={<Navigate to="/" />} />

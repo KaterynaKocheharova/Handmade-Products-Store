@@ -13,6 +13,7 @@ import storage from "redux-persist/lib/storage";
 import { authReducer } from "./auth/slice";
 import { productsReducer } from "./products/slice";
 import { filtersReducer } from "./filters/filtersSlice";
+import wishlistReducer from "./wishlist/wishlistSlice";
 import diaogueReducer from "./dialogue/slice";
 import snackbarReducer from "./snackbar/slice";
 import cartReducer from "./cart/cartSlice";
@@ -34,11 +35,17 @@ const cartPersistConfiguration = {
   storage,
 };
 
+const wishlistPersistConfiguration = {
+  key: "wishlist",
+  storage,
+};
+
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfiguration, authReducer),
     products: persistReducer(productsPersistConfiguration, productsReducer),
     cart: persistReducer(cartPersistConfiguration, cartReducer),
+    wishlist: persistReducer(wishlistPersistConfiguration, wishlistReducer),
     filters: filtersReducer,
     dialogue: diaogueReducer,
     snackbar: snackbarReducer,
