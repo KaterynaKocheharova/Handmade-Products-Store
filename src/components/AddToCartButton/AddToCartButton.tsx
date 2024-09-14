@@ -38,6 +38,7 @@ const AddToCartButton = ({ productData }: AddToCartButton) => {
       size="medium"
       onClick={handleButtonClick}
       sx={{
+        backgroundColor: "var(--second-color)",
         paddingRight: "5px",
         paddingLeft: "5px",
         borderRadius: "var(--button-border-radius)",
