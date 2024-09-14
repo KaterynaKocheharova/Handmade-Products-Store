@@ -21,6 +21,8 @@ const ConfirmingDialogue = ({
   dialogueText,
   dialogueSubtype,
 }: ConfirmingDialogueProps) => {
+
+  console.log(dialogueSubtype);
   const dispatch = useAppDispatch();
 
   const productId = useAppSelector(selectProductId);
@@ -62,7 +64,7 @@ const ConfirmingDialogue = ({
       <DialogActions>
         <Button
           onClick={
-            dialogueSubtype === "confirming-delete-from-cart"
+            dialogueSubtype === "confirming-remove-from-cart"
               ? onCartRemovalConfirmation
               : onWishlistRemovalConfirmation
           }
