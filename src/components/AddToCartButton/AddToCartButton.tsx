@@ -37,7 +37,11 @@ const AddToCartButton = ({ productData }: AddToCartButton) => {
       variant="contained"
       size="medium"
       onClick={handleButtonClick}
-      sx={{ paddingRight: "5px", paddingLeft: "5px" }}
+      sx={{
+        paddingRight: "5px",
+        paddingLeft: "5px",
+        borderRadius: "var(--button-border-radius)",
+      }}
     >
       <FlexRow spacing={2}>
         <GoPlus className={css.icon} size="30px" />
