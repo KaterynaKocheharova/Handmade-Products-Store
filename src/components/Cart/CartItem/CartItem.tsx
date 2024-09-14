@@ -39,7 +39,8 @@ const CartItem = ({ cartItemData: { productId, quantity } }: CartItemProps) => {
       openDialogue({
         type: "confirming",
         text: "Видалити продукт з корзини?",
-        productId
+        subtype: "confirming-remove-from-cart",
+        productId,
       })
     );
   };

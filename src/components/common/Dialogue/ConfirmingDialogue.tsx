@@ -2,6 +2,7 @@ import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { closeDialogue } from "../../../redux/dialogue/slice";
 import { openSnackbar } from "../../../redux/snackbar/slice";
 import { removeFromCart } from "../../../redux/cart/cartSlice";
+import { toggleWishlist } from "../../../redux/wishlist/wishlistSlice";
 import { selectProductId } from "../../../redux/dialogue/selectors";
 import Button from "@mui/material/Button";
 import DialogActions from "@mui/material/DialogActions";
@@ -12,11 +13,13 @@ import StyledDialog from "./StyledDialogue";
 type ConfirmingDialogueProps = {
   isDialogueOpen: boolean;
   dialogueText: string;
+  dialogueSubtype?: string;
 };
 
 const ConfirmingDialogue = ({
   isDialogueOpen,
   dialogueText,
+  dialogueSubtype,
 }: ConfirmingDialogueProps) => {
   const dispatch = useAppDispatch();
 
@@ -26,20 +29,23 @@ const ConfirmingDialogue = ({
     dispatch(closeDialogue());
   };
 
-  const onConfirmation = async () => {
-    try {
-      dispatch(removeFromCart(productId as string));
-      dispatch(closeDialogue());
-      dispatch(
-        openSnackbar({ type: "success", text: "Продукт видалено з корзини" })
-      );
-    } catch (error) {
-      if (error instanceof Error) {
-        dispatch(openSnackbar({ type: "error", text: error.message }));
-      } else {
-        dispatch(openSnackbar({ type: "error", text: "An error occurred" }));
-      }
-    }
+  const onWishlistRemovalConfirmation = () => {
+    dispatch(toggleWishlist(productId));
+    handleClose();
+    dispatch(
+      openSnackbar({
+        type: "success",
+        text: "Продукт видалено зі списку улюблених товарів",
+      })
+    );
+  };
+
+  const onCartRemovalConfirmation = () => {
+    dispatch(removeFromCart(productId as string));
+    dispatch(
+      openSnackbar({ type: "success", text: "Продукт видалено з корзини" })
+    );
+    handleClose();
   };
 
   const onCancellation = () => {
@@ -54,7 +60,14 @@ const ConfirmingDialogue = ({
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={onConfirmation} variant="outlined">
+        <Button
+          onClick={
+            dialogueSubtype === "confirming-delete-from-cart"
+              ? onCartRemovalConfirmation
+              : onWishlistRemovalConfirmation
+          }
+          variant="outlined"
+        >
           Так
         </Button>
         <Button onClick={onCancellation} variant="outlined" autoFocus>

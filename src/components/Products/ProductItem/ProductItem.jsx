@@ -2,6 +2,7 @@ import clsx from "clsx";
 import { useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { openDialogue } from "../../../redux/dialogue/slice.ts";
 import { toggleWishlist } from "../../../redux/wishlist/wishlistSlice.ts";
 import FlexRow from "../../common/FlexRow/FlexRow.tsx";
 import { Typography, IconButton } from "@mui/material";
@@ -12,10 +13,9 @@ import { selectCartProducts } from "../../../redux/cart/cartSelectors.js";
 import { selectWishlistIds } from "../../../redux/wishlist/wishlistSelectors.js";
 
 const ProductItem = ({ product: { id, name, image, new_price } }) => {
-  
   const dispatch = useDispatch();
   const cartProducts = useSelector(selectCartProducts);
-  const wishlitsIds = useSelector(selectWishlistIds);
+  const wishlistIds = useSelector(selectWishlistIds);
   const currentCartProduct = useMemo(
     () => cartProducts.find((item) => item.productId === id),
     [cartProducts, id]
@@ -25,7 +25,18 @@ const ProductItem = ({ product: { id, name, image, new_price } }) => {
 
   const handleFavButtonClick = (event) => {
     event.preventDefault();
-    dispatch(toggleWishlist(id));
+    if (wishlistIds.includes(id)) {
+      dispatch(
+        openDialogue({
+          type: "confirming",
+          subtype: "confirming-remove-from-wishlist",
+          text: "Видалити зі списку улюблених товарів?",
+          productId: id,
+        })
+      );
+    } else {
+      dispatch(toggleWishlist(id));
+    }
   };
 
   return (
@@ -51,7 +62,7 @@ const ProductItem = ({ product: { id, name, image, new_price } }) => {
                 className={clsx(
                   css.icon,
                   css["heart-icon"],
-                  wishlitsIds.includes(id) && css.favorite
+                  wishlistIds.includes(id) && css.favorite
                 )}
               />
             </IconButton>

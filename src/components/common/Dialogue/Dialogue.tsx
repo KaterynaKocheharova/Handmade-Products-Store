@@ -2,6 +2,7 @@ import { useAppSelector } from "../../../redux/hooks";
 import {
   selectIsDialogueOpen,
   selectDialogueType,
+  selectDialogueSubtype,
   selectDialogueText,
 } from "../../../redux/dialogue/selectors";
 import FormDialogue from "./FormDialogue";
@@ -11,6 +12,7 @@ import ConfirmingDialogue from "./ConfirmingDialogue";
 const Dialogue = () => {
   const isDialogueOpen = useAppSelector(selectIsDialogueOpen);
   const dialogueType = useAppSelector(selectDialogueType);
+  const dialogueSubtype = useAppSelector(selectDialogueSubtype);
   const dialogueText = useAppSelector(selectDialogueText);
 
   if (!isDialogueOpen) return null;
@@ -38,6 +40,7 @@ const Dialogue = () => {
       <ConfirmingDialogue
         isDialogueOpen={isDialogueOpen}
         dialogueText={dialogueText}
+        dialogueSubtype={dialogueSubtype}
       />
     );
   }
