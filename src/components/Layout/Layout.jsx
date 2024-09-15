@@ -10,8 +10,8 @@ import ErrorSnackbar from "../common/Snackbar/ErrorSnackbar";
 const Layout = () => {
   const isNonMobile = useMediaQuery("(min-width: 600px");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [dialogueType, setDialogueType] = useState(null);
-  const [isDialogueOpen, setIsDialogueOpen] = useState(false);
+  // const [dialogueType, setDialogueType] = useState(null);
+  // const [isDialogueOpen, setIsDialogueOpen] = useState(false);
 
   const drawerWidth = "300px";
 
@@ -22,8 +22,8 @@ const Layout = () => {
         setIsSidebarOpen={setIsSidebarOpen}
         drawerWidth={drawerWidth}
         drawerVariant={isNonMobile ? "persistent" : "temporary"}
-        setDialogueType={setDialogueType}
-        setIsDialogueOpen={setIsDialogueOpen}
+        // setDialogueType={setDialogueType}
+        // setIsDialogueOpen={setIsDialogueOpen}
       />
       <Box
         component="main"
@@ -38,10 +38,10 @@ const Layout = () => {
         </Suspense>
       </Box>
       <Dialogue
-        setDialogueType={setDialogueType}
-        isDialogueOpen={isDialogueOpen}
-        setIsDialogueOpen={setIsDialogueOpen}
-        dialogueType={dialogueType}
+      // setDialogueType={setDialogueType}
+      // isDialogueOpen={isDialogueOpen}
+      // setIsDialogueOpen={setIsDialogueOpen}
+      // dialogueType={dialogueType}
       />
       <SuccessSnackbar />
       <ErrorSnackbar />
