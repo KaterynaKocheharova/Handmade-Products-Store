@@ -1,14 +1,12 @@
 import { Typography } from "@mui/material";
 import { motion } from "framer-motion";
-import css from "./HeroTitle.module.css";
 
 const HeroTitle = () => {
   return (
     <Typography
-      className={css["title"]}
       sx={{
         fontSize: "20px",
-        color: "var(--main-bg-color)",
+        color: "var(--first-color)",
         "@media screen and (min-width: 760px)": {
           textAlign: "right",
           fontSize: "50px",
