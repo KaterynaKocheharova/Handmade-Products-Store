@@ -17,6 +17,7 @@ import wishlistReducer from "./wishlist/wishlistSlice";
 import diaogueReducer from "./dialogue/slice";
 import snackbarReducer from "./snackbar/slice";
 import cartReducer from "./cart/cartSlice";
+import sidebarReducer from "./sidebar/sidebarSlice";
 
 const authPersistConfiguration = {
   key: "auth",
@@ -49,6 +50,7 @@ export const store = configureStore({
     filters: filtersReducer,
     dialogue: diaogueReducer,
     snackbar: snackbarReducer,
+    sidebar: sidebarReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
