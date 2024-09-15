@@ -49,7 +49,7 @@ const CartSidebar = ({
         sx: {
           width: drawerWidth,
           height: "100%",
-          boxShadow: "var(--third-color-shadow)",
+          borderLeft: "var(--thick-border)",
         },
       }}
     >
@@ -70,7 +70,7 @@ const CartSidebar = ({
             <Typography className={css.text} component="h2" variant="h6">
               {totalCartProducts ? (
                 <p>
-                  Кількість товарів у корзині: 
+                  Кількість товарів у корзині:
                   <span className={css.accent}> {totalCartProducts}</span>{" "}
                 </p>
               ) : (

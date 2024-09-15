@@ -31,22 +31,16 @@ const theme = createTheme({
     },
   },
   components: {
-    // MuiButton: {
-    //   styleOverrides: {
-    //     root: {
-    //       padding: "10px 20px",
-    //       color: "#f0f0f0",
-    //       backgroundColor: "#4a4a4a",
-    //       boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
-    //       "&:hover": {
-    //         backgroundColor: "#4a4a4a",
-    //         color: "#f0f0f0",
-    //         borderColor: "none",
-    //         boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)",
-    //       },
-    //     },
-    //   },
-    // },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          border: "var(--thick-border)",
+          "&:hover": {
+            border: "var(--thick-border)",
+          },
+        },
+      },
+    },
   },
 });
 
