@@ -7,7 +7,6 @@ import Section from "../../components/common/Section/Section";
 import Container from "../../components/common/Container/Container";
 import { Typography, Stack } from "@mui/material";
 import QuantityControl from "../../components/common/QuantityControl/QuantityControl";
-
 import css from "./ProductDetailsPage.module.css";
 
 const ProductDetailsPage = () => {
@@ -24,7 +23,8 @@ const ProductDetailsPage = () => {
     return <p>Product not found</p>;
   }
 
-  const { image, category, name, description, new_price } = currentProduct;
+  const { image, category, name, description, new_price, colors } =
+    currentProduct;
 
   return (
     <Section>
@@ -47,8 +47,13 @@ const ProductDetailsPage = () => {
             <Stack>
               <Stack direction="row" spacing={3} justifyContent="space-between">
                 {/* <AddToCartButton productData={{ productId, quantity }} /> */}
-                  <QuantityControl productId={productId} />
+                <QuantityControl productId={productId} />
               </Stack>
+            </Stack>
+            <Stack direction="row" component="ul" spacing={2}>
+              {colors.map((color: string) => (
+                <li>{color}</li>
+              ))}
             </Stack>
           </Stack>
         </div>

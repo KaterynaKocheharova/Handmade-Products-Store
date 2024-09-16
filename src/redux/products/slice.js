@@ -29,6 +29,7 @@ const productsInitialState = {
       new_price: 50.0,
       old_price: 80.5,
       description: "Stylish wallet for everyday use.",
+      colors: ["black", "brown", "blue"],
     },
     {
       id: "2",
@@ -38,6 +39,7 @@ const productsInitialState = {
       new_price: 85.0,
       old_price: 120.5,
       description: "Durable and fashionable bag.",
+      colors: ["red", "black", "green"],
     },
     {
       id: "5",
@@ -47,6 +49,7 @@ const productsInitialState = {
       new_price: 85.0,
       old_price: 120.5,
       description: "Elegant wallet",
+      colors: ["brown", "tan", "blue"],
     },
     {
       id: "6",
@@ -56,6 +59,7 @@ const productsInitialState = {
       new_price: 85.0,
       old_price: 120.5,
       description: "Premium bag with additional compartments.",
+      colors: ["gray", "black", "white"],
     },
     {
       id: "7",
@@ -65,6 +69,7 @@ const productsInitialState = {
       new_price: 85.0,
       old_price: 120.5,
       description: "Fashionable wallet with ample space.",
+      colors: ["black", "red", "brown"],
     },
     {
       id: "8",
@@ -74,6 +79,7 @@ const productsInitialState = {
       new_price: 85.0,
       old_price: 120.5,
       description: "Classic wallet with elegant design.",
+      colors: ["black", "brown", "gray"],
     },
     {
       id: "9",
@@ -83,6 +89,7 @@ const productsInitialState = {
       new_price: 85.0,
       old_price: 120.5,
       description: "Stylish belt for any occasion.",
+      colors: ["black", "blue", "tan"],
     },
     {
       id: "10",
@@ -92,6 +99,7 @@ const productsInitialState = {
       new_price: 85.0,
       old_price: 120.5,
       description: "Wallet with modern design.",
+      colors: ["brown", "green", "gray"],
     },
     {
       id: "11",
@@ -101,6 +109,7 @@ const productsInitialState = {
       new_price: 85.0,
       old_price: 120.5,
       description: "Compact wallet with minimalist look.",
+      colors: ["black", "tan", "gray"],
     },
     {
       id: "12",
@@ -110,6 +119,7 @@ const productsInitialState = {
       new_price: 85.0,
       old_price: 120.5,
       description: "Spacious wallet with multiple slots.",
+      colors: ["brown", "blue", "black"],
     },
     {
       id: "13",
@@ -119,6 +129,7 @@ const productsInitialState = {
       new_price: 85.0,
       old_price: 120.5,
       description: "Functional backpack with ergonomic straps.",
+      colors: ["black", "green", "blue"],
     },
     {
       id: "14",
@@ -128,6 +139,7 @@ const productsInitialState = {
       new_price: 85.0,
       old_price: 120.5,
       description: "Luxurious wallet made from high-quality material.",
+      colors: ["black", "red", "brown"],
     },
     {
       id: "15",
@@ -137,6 +149,7 @@ const productsInitialState = {
       new_price: 85.0,
       old_price: 120.5,
       description: "Trendy men's clothing with a modern style.",
+      colors: ["blue", "gray", "white"],
     },
     {
       id: "17",
@@ -146,6 +159,7 @@ const productsInitialState = {
       new_price: 85.0,
       old_price: 120.5,
       description: "Elegant wallet with a sophisticated look.",
+      colors: ["brown", "black", "green"],
     },
     {
       id: "18",
@@ -155,6 +169,7 @@ const productsInitialState = {
       new_price: 85.0,
       old_price: 120.5,
       description: "Chic bag with adjustable straps.",
+      colors: ["black", "red", "blue"],
     },
     {
       id: "19",
@@ -164,6 +179,7 @@ const productsInitialState = {
       new_price: 85.0,
       old_price: 120.5,
       description: "Versatile bag suitable for various occasions.",
+      colors: ["green", "black", "gray"],
     },
     {
       id: "20",
@@ -173,6 +189,7 @@ const productsInitialState = {
       new_price: 85.0,
       old_price: 120.5,
       description: "Classic belt with adjustable buckle.",
+      colors: ["black", "brown", "tan"],
     },
     {
       id: "21",
@@ -182,9 +199,9 @@ const productsInitialState = {
       new_price: 85.0,
       old_price: 120.5,
       description: "Stylish wallet with elegant coating.",
+      colors: ["black", "brown", "blue"],
     },
   ],
-
   wishlist: [], // ids
   cartlist: [], // ids
   loading: false,

@@ -2,6 +2,7 @@ import { useAppSelector, useAppDispatch } from "../../redux/hooks";
 import { selectIsFiltrationSidebarOpen } from "../../redux/sidebar/sidebarSelectors";
 import { toggleSidebar } from "../../redux/sidebar/sidebarSlice";
 import { useMediaQuery } from "@mui/material";
+import FiltersForm from "./FiltersForm";
 import Drawer from "@mui/material/Drawer";
 
 type FiltersSidebarProps = {
@@ -28,7 +29,7 @@ const FiltersSidebar = ({ sidebarWidth }: FiltersSidebarProps) => {
           },
         }}
       >
-        FILTRATION WILL BE HERE
+        <FiltersForm />
       </Drawer>
     </>
   );
