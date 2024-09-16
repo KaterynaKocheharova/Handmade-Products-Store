@@ -6,18 +6,21 @@ import Section from "components/common/Section/Section";
 import Container from "components/common/Container/Container";
 import ProductList from "components/Products/ProductList/ProductList";
 import FiltersSidebar from "../../components/FiltersSidebar/FiltersSidebar";
-import { Button, Box } from "@mui/material";
+import { Button, Box, useMediaQuery } from "@mui/material";
 
 const ProductCategoryPage = ({ category }) => {
   const products = useSelector(selectProductsByCategory(category));
   const isSidebarOpen = useSelector(selectIsFiltrationSidebarOpen);
   const dispatch = useDispatch();
   const sidebarWidth = "300px";
+  const isNonMobile = useMediaQuery("(min-width: 600px)");
   return (
     <Section>
       <Container>
         <FiltersSidebar sidebarWidth={sidebarWidth} />
-        <Box sx={{ marginLeft: isSidebarOpen ? sidebarWidth : "0" }}>
+        <Box
+          sx={{ marginLeft: isSidebarOpen && isNonMobile ? sidebarWidth : "0" }}
+        >
           <Box
             sx={{ marginBottom: "2rem", width: "300px", marginLeft: "auto" }}
           >

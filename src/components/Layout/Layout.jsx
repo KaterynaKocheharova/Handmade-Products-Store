@@ -1,5 +1,8 @@
+import { useSelector, useDispatch } from "react-redux";
+import { selectIsCartSidebarOpen } from "../../redux/sidebar/sidebarSelectors";
+import { toggleSidebar } from "../../redux/sidebar/sidebarSlice";
 import { Outlet } from "react-router-dom";
-import { Suspense, useState } from "react";
+import { Suspense } from "react";
 import { Box, useMediaQuery } from "@mui/material";
 import NavBar from "components/NavBar/NavBar";
 import CartSidebar from "../Cart/CartSidebar/CartSideBar";
@@ -8,41 +11,26 @@ import SuccessSnackbar from "../common/Snackbar/SuccessSnackbar";
 import ErrorSnackbar from "../common/Snackbar/ErrorSnackbar";
 
 const Layout = () => {
-  const isNonMobile = useMediaQuery("(min-width: 600px");
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  // const [dialogueType, setDialogueType] = useState(null);
-  // const [isDialogueOpen, setIsDialogueOpen] = useState(false);
-
+  const isSidebarOpen = useSelector(selectIsCartSidebarOpen);
+  const isNonMobile = useMediaQuery("(min-width: 600px)");
   const drawerWidth = "300px";
-
+  const dispatch = useDispatch();
   return (
     <Box>
-      <CartSidebar
-        isSidebarOpen={isSidebarOpen}
-        setIsSidebarOpen={setIsSidebarOpen}
-        drawerWidth={drawerWidth}
-        drawerVariant={isNonMobile ? "persistent" : "temporary"}
-        // setDialogueType={setDialogueType}
-        // setIsDialogueOpen={setIsDialogueOpen}
-      />
+      <CartSidebar drawerWidth={drawerWidth} />
       <Box
         component="main"
         sx={{ marginRight: isSidebarOpen && isNonMobile ? drawerWidth : "0" }}
       >
         <NavBar
-          setIsSidebarOpen={setIsSidebarOpen}
+          setIsSidebarOpen={() => dispatch(toggleSidebar)}
           isSidebarOpen={isSidebarOpen}
         />
         <Suspense fallback={<p>Loading page. Please, wait.</p>}>
           <Outlet />
         </Suspense>
       </Box>
-      <Dialogue
-      // setDialogueType={setDialogueType}
-      // isDialogueOpen={isDialogueOpen}
-      // setIsDialogueOpen={setIsDialogueOpen}
-      // dialogueType={dialogueType}
-      />
+      <Dialogue />
       <SuccessSnackbar />
       <ErrorSnackbar />
     </Box>

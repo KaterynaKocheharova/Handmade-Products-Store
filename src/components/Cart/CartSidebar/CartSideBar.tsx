@@ -1,8 +1,10 @@
 import { useAppSelector, useAppDispatch } from "../../../redux/hooks";
+import { selectIsCartSidebarOpen } from "../../../redux/sidebar/sidebarSelectors";
+import { toggleSidebar } from "../../../redux/sidebar/sidebarSlice";
 import { selectCartProducts } from "../../../redux/cart/cartSelectors";
 import { openDialogue } from "../../../redux/dialogue/slice";
 import Drawer from "@mui/material/Drawer";
-import { IconButton } from "@mui/material";
+import { IconButton, useMediaQuery } from "@mui/material";
 import { IoMdClose } from "react-icons/io";
 import Section from "../../common/Section/Section";
 import Container from "../../common/Container/Container";
@@ -13,22 +15,12 @@ import FlexColumn from "../../common/FlexColumn/FlexColumn";
 import css from "./CartSidebar.module.css";
 
 type CartSidebarProps = {
-  isSidebarOpen: boolean;
-  setIsSidebarOpen: (arg: boolean) => void;
   drawerWidth: string;
-  drawerVariant: "permanent" | "persistent" | "temporary" | undefined;
-  setIsDialogueOpen: (arg: boolean) => void;
-  setDialogueType: (arg: "successful-order" | "fill-in-number") => void;
 };
 
-const CartSidebar = ({
-  isSidebarOpen,
-  setIsSidebarOpen,
-  drawerWidth,
-  drawerVariant,
-}: CartSidebarProps) => {
+const CartSidebar = ({ drawerWidth }: CartSidebarProps) => {
   const totalCartProducts = useAppSelector(selectCartProducts).length;
-
+  const isSidebarOpen = useAppSelector(selectIsCartSidebarOpen);
   const dispatch = useAppDispatch();
   const handleCartButtonClick = () => {
     dispatch(
@@ -38,12 +30,13 @@ const CartSidebar = ({
       })
     );
   };
+  const isNonMobile = useMediaQuery("(min-width: 600px)");
 
   return (
     <Drawer
       open={isSidebarOpen}
-      onClose={() => setIsSidebarOpen(false)}
-      variant={drawerVariant}
+      onClose={() => dispatch(toggleSidebar({ type: "cart" }))}
+      variant={isNonMobile ? "persistent" : "temporary"}
       anchor="right"
       PaperProps={{
         sx: {
@@ -60,7 +53,7 @@ const CartSidebar = ({
           right: "5px",
           border: "1px solid var(--second-color)",
         }}
-        onClick={() => setIsSidebarOpen(false)}
+        onClick={() => dispatch(toggleSidebar({ type: "cart" }))}
       >
         <IoMdClose />
       </IconButton>
