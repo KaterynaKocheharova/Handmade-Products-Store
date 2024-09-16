@@ -1,30 +1,26 @@
-import { useState } from "react";
+import { useAppSelector, useAppDispatch } from "../../redux/hooks";
+import { selectIsFiltrationSidebarOpen } from "../../redux/sidebar/sidebarSelectors";
+import { toggleSidebar } from "../../redux/sidebar/sidebarSlice";
 import Drawer from "@mui/material/Drawer";
 
-const FiltersSidebar = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+type FiltersSidebarProps = {
+  sidebarWidth: string;
+};
 
-  const toggleDrawer = (event: React.KeyboardEvent | React.MouseEvent) => {
-    if (
-      event.type === "keydown" &&
-      ((event as React.KeyboardEvent).key === "Tab" ||
-        (event as React.KeyboardEvent).key === "Shift")
-    ) {
-      return;
-    }
-
-    setIsSidebarOpen(!isSidebarOpen);
-  };
-
+const FiltersSidebar = ({ sidebarWidth }: FiltersSidebarProps) => {
+  const isSidebarOpen = useAppSelector(selectIsFiltrationSidebarOpen);
+  const dispatch = useAppDispatch();
   return (
     <>
       <Drawer
         anchor="left"
         open={isSidebarOpen}
-        onClose={toggleDrawer}
+        onClose={() => dispatch(toggleSidebar({ type: "filtration" }))}
         variant="persistent"
         PaperProps={{
           sx: {
+            padding: "30px",
+            width: sidebarWidth,
             top: "131px",
             borderRight: "var(--thick-border)",
           },
