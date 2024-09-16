@@ -18,15 +18,14 @@
 .contact-link {
   font-weight: 600;
   color: var(--secondary-bg-color);
-  display: none;
 }
 
 .tel-link {
-  display: block;
+  display: none;
 }
 
 @media screen and (min-width: 530px) {
-  .contact-link {
+  .tel-link {
     display: block;
   }
 }

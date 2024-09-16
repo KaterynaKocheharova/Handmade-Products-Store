@@ -45,14 +45,17 @@ const NavBar = () => {
         >
           +380123456789
         </a>
-        <a className={css["contact-link"]} href="mailto:example@gmail.com">
-          example@gmail.com
-        </a>
         <a
           className={css["contact-link"]}
           href="https://www.instagram.com/yourprofile"
         >
           Instagram
+        </a>
+        <a
+          className={clsx(css["contact-link"], css["tel-link"])}
+          href="tel:+380123456789"
+        >
+          +380123456789
         </a>
       </Stack>
     </Header>
