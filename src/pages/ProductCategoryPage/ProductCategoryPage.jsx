@@ -8,7 +8,7 @@ import ProductList from "components/Products/ProductList/ProductList";
 import FiltersSidebar from "../../components/FiltersSidebar/FiltersSidebar";
 import { Button, Box, useMediaQuery } from "@mui/material";
 
-const ProductCategoryPage = ({category}) => {
+const ProductCategoryPage = ({ category }) => {
   const products = useSelector(selectProductsByCategory(category));
   const isSidebarOpen = useSelector(selectIsFiltrationSidebarOpen);
   const dispatch = useDispatch();
@@ -21,16 +21,14 @@ const ProductCategoryPage = ({category}) => {
         <Box
           sx={{ marginLeft: isSidebarOpen && isNonMobile ? sidebarWidth : "0" }}
         >
-          <Box
-            sx={{ marginBottom: "2rem", width: "300px", marginLeft: "auto" }}
+          <Button
+            size="large"
+            sx={{ marginBottom: "4rem" }}
+            variant="outlined"
+            onClick={() => dispatch(toggleSidebar({ type: "filtration" }))}
           >
-            <Button
-              variant="outlined"
-              onClick={() => dispatch(toggleSidebar({ type: "filtration" }))}
-            >
-              {isSidebarOpen ? "Приховати фільтрацію" : "Фільтрація"}
-            </Button>
-          </Box>
+            {isSidebarOpen ? "Приховати фільтрацію" : "Фільтрація"}
+          </Button>
           <ProductList products={products} />
         </Box>
       </Container>

@@ -1,12 +1,12 @@
 .product-list {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   flex-wrap: wrap;
   gap: 40px;
 }
 
-@media screen and (min-width: 900px) {
+/* @media screen and (min-width: 900px) {
   .product-list {
     justify-content: space-between;
   }
-}
+} */
