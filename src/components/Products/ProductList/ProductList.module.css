@@ -7,6 +7,6 @@
 
 @media screen and (min-width: 900px) {
   .product-list {
-    justify-content: flex-start;
+    justify-content: space-between;
   }
 }

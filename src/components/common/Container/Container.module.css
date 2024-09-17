@@ -5,3 +5,9 @@
   margin-right: auto;
   margin-left: auto;
 }
+
+.products-container {
+  max-width: 80%;
+  padding-right: 20px;
+  padding-left: 20px;
+}

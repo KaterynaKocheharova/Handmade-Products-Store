@@ -16,7 +16,7 @@ const ProductCategoryPage = ({category}) => {
   const isNonMobile = useMediaQuery("(min-width: 600px)");
   return (
     <Section>
-      <Container>
+      <Container type="products">
         <FiltersSidebar sidebarWidth={sidebarWidth} />
         <Box
           sx={{ marginLeft: isSidebarOpen && isNonMobile ? sidebarWidth : "0" }}
