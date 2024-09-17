@@ -23,20 +23,20 @@ const ColorGroup = () => {
         <FormLegend text="КОЛІР" />
         <FormGroup>
           {[
-            "black",
-            "brown",
-            "blue",
-            "red",
-            "green",
-            "gray",
-            "white",
-            "tan",
+            ["black", "чорний"],
+            ["brown", "коричневий"],
+            ["blue", "синій"],
+            ["red", "червоний"],
+            ["green", "зелений"],
+            ["gray", "сірий"],
+            ["white", "білий"],
+            ["tan", "бежевий"],
           ].map((color) => (
             <FormControlLabel
-              checked={selectedColors.includes(color)}
-              key={color}
-              control={<Checkbox onChange={handleChange} value={color} />}
-              label={color.charAt(0).toUpperCase() + color.slice(1)}
+              checked={selectedColors.includes(color[0])}
+              key={color[0]}
+              control={<Checkbox onChange={handleChange} value={color[0]} />}
+              label={color[1]}
             />
           ))}
         </FormGroup>

@@ -11,7 +11,7 @@ const FavoriteProductsPage = () => {
 
   return (
     <Section>
-      <Container>
+      <Container type="products">
         <Typography
           variant="h4"
           component="h2"
