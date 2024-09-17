@@ -52,7 +52,7 @@ const ProductDetailsPage = () => {
             </Stack>
             <Stack direction="row" component="ul" spacing={2}>
               {colors.map((color: string) => (
-                <li>{color}</li>
+                <li key="color">{color}</li>
               ))}
             </Stack>
           </Stack>
