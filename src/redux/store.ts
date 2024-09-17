@@ -18,6 +18,7 @@ import diaogueReducer from "./dialogue/slice";
 import snackbarReducer from "./snackbar/slice";
 import cartReducer from "./cart/cartSlice";
 import sidebarReducer from "./sidebar/sidebarSlice";
+import productFiltersReducer from "./productFilters/productFiltersSlice";
 
 const authPersistConfiguration = {
   key: "auth",
@@ -41,6 +42,11 @@ const wishlistPersistConfiguration = {
   storage,
 };
 
+const productFiltersPersistConfiguration = {
+  key: "productFilters",
+  storage,
+};
+
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfiguration, authReducer),
@@ -51,6 +57,10 @@ export const store = configureStore({
     dialogue: diaogueReducer,
     snackbar: snackbarReducer,
     sidebar: sidebarReducer,
+    productFilters: persistReducer(
+      productFiltersPersistConfiguration,
+      productFiltersReducer
+    ),
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

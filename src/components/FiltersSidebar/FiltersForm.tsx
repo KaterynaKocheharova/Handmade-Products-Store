@@ -1,86 +1,42 @@
-import { useId } from "react";
-import { Stack } from "@mui/material";
+import FormLabel from "@mui/material/FormLabel";
+import FormControl from "@mui/material/FormControl";
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { selectColorFilters } from "../../redux/productFilters/productFiltersSelectors";
+import { toggleColorFilter } from "../../redux/productFilters/productFiltersSlice";
 
-const FiltersForm = () => {
-  const colorCheckboxId = useId();
+const ColorGroup = () => {
+  const dispatch = useAppDispatch();
+  const selectedColors = useAppSelector(selectColorFilters);
+  console.log(selectedColors);
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(toggleColorFilter(event.target.value));
+  };
+
   return (
-    <form>
-      <Stack direction="column" spacing={2}>
-        <label htmlFor={`${colorCheckboxId}black`}>
-          Чорний
-          <input
-            id={`${colorCheckboxId}black`}
-            type="checkbox"
-            name="color"
-            value="black"
-          />
-        </label>
-        <label htmlFor={`${colorCheckboxId}brown`}>
-          Коричневий
-          <input
-            id={`${colorCheckboxId}brown`}
-            type="checkbox"
-            name="color"
-            value="brown"
-          />
-        </label>
-        <label htmlFor={`${colorCheckboxId}blue`}>
-          Блакитний
-          <input
-            id={`${colorCheckboxId}blue`}
-            type="checkbox"
-            name="color"
-            value="blue"
-          />
-        </label>
-        <label htmlFor={`${colorCheckboxId}red`}>
-          Червоний
-          <input
-            id={`${colorCheckboxId}red`}
-            type="checkbox"
-            name="color"
-            value="red"
-          />
-        </label>
-        <label htmlFor={`${colorCheckboxId}green`}>
-          Зелений
-          <input
-            id={`${colorCheckboxId}green`}
-            type="checkbox"
-            name="color"
-            value="green"
-          />
-        </label>
-        <label htmlFor={`${colorCheckboxId}gray`}>
-          Сірий
-          <input
-            id={`${colorCheckboxId}gray`}
-            type="checkbox"
-            name="color"
-            value="gray"
-          />
-        </label>
-        <label htmlFor={`${colorCheckboxId}white`}>
-          Білий
-          <input
-            id={`${colorCheckboxId}white`}
-            type="checkbox"
-            name="color"
-            value="white"
-          />
-        </label>
-        <label htmlFor={`${colorCheckboxId}white`}>
-          Tan
-          <input
-            id={`${colorCheckboxId}white`}
-            type="checkbox"
-            name="color"
-            value="tan"
-          />
-        </label>
-      </Stack>
-    </form>
+    <FormControl sx={{ m: 3 }} component="fieldset" variant="standard">
+      <FormLabel
+        component="legend"
+        sx={{ fontWeight: "bold", fontSize: "20px", marginBottom: "1rem" }}
+      >
+        КОЛІР
+      </FormLabel>
+      <FormGroup>
+        {["black", "brown", "blue", "red", "green", "gray", "white", "tan"].map(
+          (color) => (
+            <FormControlLabel
+              checked={selectedColors.includes(color)}
+              key={color}
+              control={<Checkbox onChange={handleChange} value={color} />}
+              label={color.charAt(0).toUpperCase() + color.slice(1)}
+            />
+          )
+        )}
+      </FormGroup>
+    </FormControl>
   );
 };
 
-export default FiltersForm;
+export default ColorGroup;
