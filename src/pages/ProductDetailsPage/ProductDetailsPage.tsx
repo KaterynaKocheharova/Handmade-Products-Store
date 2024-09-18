@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { useAppSelector } from "../../redux/hooks";
 import { selectAllProducts } from "../../redux/products/selectors";
 import { type Product } from "../../types";
@@ -7,9 +7,12 @@ import Section from "../../components/common/Section/Section";
 import Container from "../../components/common/Container/Container";
 import { Typography, Stack } from "@mui/material";
 import QuantityControl from "../../components/common/QuantityControl/QuantityControl";
+import BackLink from "../../components/BackLink/BackLink";
 import css from "./ProductDetailsPage.module.css";
 
 const ProductDetailsPage = () => {
+  const location = useLocation();
+  const backLinkHref = location.state ?? "/";
   const { productId } = useParams();
 
   const allProducts = useAppSelector(selectAllProducts);
@@ -29,6 +32,7 @@ const ProductDetailsPage = () => {
   return (
     <Section>
       <Container>
+        <BackLink to={backLinkHref} />
         <div className={css["details-container"]}>
           <div className={css["image-container"]}>
             <img src={image} alt={name} />
