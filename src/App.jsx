@@ -23,10 +23,22 @@ export default function App() {
               <Routes>
                 <Route path="/" element={<Layout />}>
                   <Route index element={<HomePage />} />
-                  <Route path="/wallets" element={<ProductCategoryPage category="wallets" />} />
-                  <Route path="/belts" element={<ProductCategoryPage category="belts" />} />
-                  <Route path="/backpacks" element={<ProductCategoryPage category="bakcpacks" />} />
-                  <Route path="/bags" element={<ProductCategoryPage category="bags" />} />
+                  <Route
+                    path="/wallets"
+                    element={<ProductCategoryPage category="wallets" />}
+                  />
+                  <Route
+                    path="/belts"
+                    element={<ProductCategoryPage category="belts" />}
+                  />
+                  <Route
+                    path="/backpacks"
+                    element={<ProductCategoryPage category="backpacks" />}
+                  />
+                  <Route
+                    path="/bags"
+                    element={<ProductCategoryPage category="bags" />}
+                  />
                   <Route
                     path="/favoriteProductsPage"
                     element={<WishlistPage />}
