@@ -44,17 +44,19 @@ const MobileNavigation = () => {
   return (
     <div className={css["menu-container"]}>
       <Button
+        sizw="small"
         ref={buttonRef}
         id="basic-button"
         aria-controls={isElementOpen ? "basic-menu" : undefined}
         aria-haspopup="true"
         aria-expanded={isElementOpen ? "true" : undefined}
         onClick={handleMenuButtonClick}
-        sx={{ fontSize: "20px", padding: "4px" }}
+        sx={{ fontSize: "14px", padding: "4px" }}
       >
         Категорії
       </Button>
       <Menu
+        sx={{ width: "200px" }}
         id="basic-menu"
         anchorEl={buttonRef.current}
         open={isElementOpen}
