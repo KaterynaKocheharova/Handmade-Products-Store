@@ -2,11 +2,15 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 type ProductFiltersState = {
   selectedColors: string[];
+  priceRange: [number, number];
 };
 
 const initialState: ProductFiltersState = {
   selectedColors: [],
+  priceRange: [700, 5000],
 };
+
+type PriceFilterPayloadAcction = [number, number];
 
 const productFiltersSlice = createSlice({
   name: "productFilters",
@@ -21,8 +25,12 @@ const productFiltersSlice = createSlice({
         state.selectedColors.push(action.payload);
       }
     },
+    changePriceFilter(state, action: PayloadAction<PriceFilterPayloadAcction>) {
+      state.priceRange = action.payload;
+    },
   },
 });
 
 export default productFiltersSlice.reducer;
-export const { toggleColorFilter } = productFiltersSlice.actions;
+export const { toggleColorFilter, changePriceFilter } =
+  productFiltersSlice.actions;
