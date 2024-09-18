@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
 import { selectProductsByCategory } from "../../redux/products/selectors";
 import { selectIsFiltrationSidebarOpen } from "../../redux/sidebar/sidebarSelectors";
 import { toggleSidebar } from "../../redux/sidebar/sidebarSlice";
@@ -8,7 +9,8 @@ import ProductList from "components/Products/ProductList/ProductList";
 import FiltersSidebar from "../../components/FiltersSidebar/FiltersSidebar";
 import { Button, Box, useMediaQuery } from "@mui/material";
 
-const ProductCategoryPage = ({ category }) => {
+const ProductCategoryPage = () => {
+  const { category } = useParams();
   const products = useSelector(selectProductsByCategory(category));
   const isSidebarOpen = useSelector(selectIsFiltrationSidebarOpen);
   const dispatch = useDispatch();
