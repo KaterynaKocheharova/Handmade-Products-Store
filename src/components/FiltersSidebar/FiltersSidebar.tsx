@@ -22,9 +22,13 @@ const FiltersSidebar = ({ sidebarWidth }: FiltersSidebarProps) => {
         variant={isNonMobile ? "persistent" : "temporary"}
         PaperProps={{
           sx: {
-            padding: "30px",
+            position: "absolute",
+            top: "0",
+            left: "0",
+            bottom: "0",
+            height: "100%",
+            padding: "1rem",
             width: sidebarWidth,
-            top: "131px",
             borderRight: "var(--thick-border)",
           },
         }}

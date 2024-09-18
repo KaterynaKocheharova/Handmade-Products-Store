@@ -4,6 +4,8 @@ export const buildSectionClass = (type = "") => {
       return "hero-section";
     case "cart":
       return "cart-section";
+    case "products":
+      return "products-section";
     default:
       return "";
   }
