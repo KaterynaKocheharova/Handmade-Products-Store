@@ -16,6 +16,7 @@
   /* CURRENT USED PALETTE */
   --first-color: #f0f0f0;
   --second-color: rgb(47, 47, 47);
+  --second-color-transparent:  rgb(47, 47, 47, 0.5);
   --third-color: #f5e8d0;
   --accent-color: red;
   --first-color-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);

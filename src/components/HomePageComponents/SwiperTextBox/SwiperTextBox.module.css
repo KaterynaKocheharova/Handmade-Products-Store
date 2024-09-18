@@ -2,9 +2,9 @@
     width: 40%;
     position: absolute;
     right: 0;
-    bottom: 0;
+    bottom: 5%;
     z-index: 1000;
     padding: 20px;
-    background-color: var(--second-color);
+    background-color: var(--second-color-transparent);
     border-radius: var(--card-border-radius);
   }

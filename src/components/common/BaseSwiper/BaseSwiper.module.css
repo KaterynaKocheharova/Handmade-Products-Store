@@ -1,0 +1,29 @@
+.product-swiper .product-swiper-slide {
+  width: 100%;
+  gap: 30px;
+  overflow: hidden;
+  color: var(--main-bg-color);
+}
+
+.product-swiper-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.product-swiper-image-container img {
+  width: 100%;
+}
+
+.text-container {
+  width: 400px;
+  padding: 30px;
+  position: absolute;
+  right: 70px;
+  background-color: var(--second-color-transparent);
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: var(--card-border-radius);
+}

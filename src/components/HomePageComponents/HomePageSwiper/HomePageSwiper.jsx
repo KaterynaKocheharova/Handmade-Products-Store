@@ -1,7 +1,7 @@
 import { Navigation, Autoplay, EffectFade } from "swiper/modules";
 import { useSelector } from "react-redux";
 import { selectAllProducts } from "../../../redux/products/selectors";
-import BaseSwiper from "../../common/CustomSwiper/BaseSwiper";
+import BaseSwiper from "../../common/BaseSwiper/BaseSwiper";
 import SwiperTextBox from "../SwiperTextBox/SwiperTextBox";
 import SwiperCustomNavBtns from "../SwiperCustomNavBtns/SwiperCustomNavBtns";
 import { useState } from "react";
