@@ -23,13 +23,16 @@ export default function App() {
               <Routes>
                 <Route path="/" element={<Layout />}>
                   <Route index element={<HomePage />} />
-                  <Route path="/:category" element={<ProductCategoryPage />} />
                   <Route
-                    path="/favoriteProductsPage"
+                    path="products/:category"
+                    element={<ProductCategoryPage />}
+                  />
+                  <Route
+                    path="favoriteProductsPage"
                     element={<WishlistPage />}
                   />
                   <Route
-                    path="/:category/:productId"
+                    path=":category/:productId"
                     element={<ProductDetailsPage />}
                   />
                   <Route path="*" element={<Navigate to="/" />} />
