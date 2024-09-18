@@ -4,6 +4,7 @@ import FormLegend from "./FormLegend";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
+import PricesSlider from "./PricesSlider";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { selectColorFilters } from "../../redux/productFilters/productFiltersSelectors";
 import { toggleColorFilter } from "../../redux/productFilters/productFiltersSlice";
@@ -20,6 +21,8 @@ const ColorGroup = () => {
   return (
     <>
       <AppFormControl>
+        <FormLegend text="ЦІНА" />
+        <PricesSlider />
         <FormLegend text="КОЛІР" />
         <FormGroup>
           {[
