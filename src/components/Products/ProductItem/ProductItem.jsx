@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { openDialogue } from "../../../redux/dialogue/slice.ts";
 import { toggleWishlist } from "../../../redux/wishlist/wishlistSlice.ts";
 import FlexRow from "../../common/FlexRow/FlexRow.tsx";
@@ -13,7 +13,6 @@ import { selectCartProducts } from "../../../redux/cart/cartSelectors.js";
 import { selectWishlistIds } from "../../../redux/wishlist/wishlistSelectors.js";
 
 const ProductItem = ({ product: { id, name, image, new_price } }) => {
-  const { category } = useParams();
   const location = useLocation();
   const dispatch = useDispatch();
   const cartProducts = useSelector(selectCartProducts);
@@ -44,7 +43,7 @@ const ProductItem = ({ product: { id, name, image, new_price } }) => {
   return (
     <li className={css["product-item"]}>
       <Link
-        to={`/${category}/${id}`}
+        to={id}
         className={css["item-link"]}
         state={location}
       >

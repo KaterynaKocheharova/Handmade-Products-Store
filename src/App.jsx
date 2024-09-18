@@ -28,12 +28,12 @@ export default function App() {
                     element={<ProductCategoryPage />}
                   />
                   <Route
-                    path="favoriteProductsPage"
-                    element={<WishlistPage />}
+                    path="products/:category/:productId"
+                    element={<ProductDetailsPage />}
                   />
                   <Route
-                    path=":category/:productId"
-                    element={<ProductDetailsPage />}
+                    path="favoriteProductsPage"
+                    element={<WishlistPage />}
                   />
                   <Route path="*" element={<Navigate to="/" />} />
                 </Route>

@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useRef } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import { useAppSelector } from "../../redux/hooks";
 import { selectAllProducts } from "../../redux/products/selectors";
@@ -12,7 +12,6 @@ import css from "./ProductDetailsPage.module.css";
 
 const ProductDetailsPage = () => {
   const location = useLocation();
-  const backLinkHref = location.state ?? "/";
   const { productId } = useParams();
 
   const allProducts = useAppSelector(selectAllProducts);
@@ -29,10 +28,12 @@ const ProductDetailsPage = () => {
   const { image, category, name, description, new_price, colors } =
     currentProduct;
 
+  const backLinkHref = useRef(location.state ?? `/products/${category}`);
+
   return (
     <Section>
       <Container>
-        <BackLink to={backLinkHref} />
+        <BackLink to={backLinkHref.current} />
         <div className={css["details-container"]}>
           <div className={css["image-container"]}>
             <img src={image} alt={name} />
