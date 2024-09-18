@@ -14,6 +14,14 @@ const CustomMenuItem = styled(MenuItem)({
   },
 });
 
+const categories = [
+  { category: "wallets", label: "ГАМАНЦІ" },
+  { category: "bags", label: "СУМКИ" },
+  { category: "belts", label: "РЕМЕНІ" },
+  { category: "backpacks", label: "РЮКЗАКИ" },
+  { category: "home", label: "ГОЛОВНА" },
+];
+
 const MobileNavigation = () => {
   const { isElementOpen, openElement, closeElement } = useOpen();
   const buttonRef = useRef(null);
@@ -42,7 +50,7 @@ const MobileNavigation = () => {
         aria-haspopup="true"
         aria-expanded={isElementOpen ? "true" : undefined}
         onClick={handleMenuButtonClick}
-        sx={{fontSize: "20px", padding: "4px"}}
+        sx={{ fontSize: "20px", padding: "4px" }}
       >
         Категорії
       </Button>
@@ -52,26 +60,16 @@ const MobileNavigation = () => {
         open={isElementOpen}
         onClose={handleClose}
       >
-        <CustomMenuItem onClick={handleClose}>
-          <NavLink to="/wallets" className={buildActiveClass}>
-            Гаманці
-          </NavLink>
-        </CustomMenuItem>
-        <CustomMenuItem onClick={handleClose}>
-          <NavLink to="/bags" className={buildActiveClass}>
-            Сумки
-          </NavLink>
-        </CustomMenuItem>
-        <CustomMenuItem onClick={handleClose}>
-          <NavLink to="/belts" className={buildActiveClass}>
-            Ремені
-          </NavLink>
-        </CustomMenuItem>
-        <CustomMenuItem onClick={handleClose}>
-          <NavLink to="/backpacks" className={buildActiveClass}>
-            Рюкзаки
-          </NavLink>
-        </CustomMenuItem>
+        {categories.map(({ category, label }) => (
+          <CustomMenuItem key={category} onClick={handleClose}>
+            <NavLink
+              to={label === "ГОЛОВНА" ? "/" : `/products/${category}`}
+              className={buildActiveClass}
+            >
+              {label}
+            </NavLink>
+          </CustomMenuItem>
+        ))}
       </Menu>
     </div>
   );

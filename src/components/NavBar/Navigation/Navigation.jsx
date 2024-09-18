@@ -7,6 +7,7 @@ const categories = [
   { category: "bags", label: "СУМКИ" },
   { category: "belts", label: "РЕМЕНІ" },
   { category: "backpacks", label: "РЮКЗАКИ" },
+  { category: "home", label: "ГОЛОВНА" },
 ];
 
 const buildActiveClass = ({ isActive }) =>
@@ -17,7 +18,10 @@ const Navigation = () => {
     <ul className={css["nav-list"]}>
       {categories.map(({ category, label }) => (
         <li key={category} className={css["nav-item"]}>
-          <NavLink className={buildActiveClass} to={`/products/${category}`}>
+          <NavLink
+            className={buildActiveClass}
+            to={label === "ГОЛОВНА" ? "/" : `/products/${category}`}
+          >
             {label}
           </NavLink>
         </li>
