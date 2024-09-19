@@ -22,7 +22,7 @@ export default function App() {
             <Suspense fallback={<p>Loading...</p>}>
               <Routes>
                 <Route path="/" element={<Layout />}>
-                  <Route path="/home" element={<HomePage />} />
+                  <Route index element={<HomePage />} />
                   <Route
                     path="products/:category"
                     element={<ProductCategoryPage />}

@@ -20,7 +20,7 @@ const Navigation = () => {
         <li key={category} className={css["nav-item"]}>
           <NavLink
             className={buildActiveClass}
-            to={label === "ГОЛОВНА" ? "/home" : `/products/${category}`}
+            to={label === "ГОЛОВНА" ? "/" : `/products/${category}`}
           >
             {label}
           </NavLink>
