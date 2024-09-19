@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useAppSelector, useAppDispatch } from "../../redux/hooks";
 import { selectPriceFilter } from "../../redux/productFilters/productFiltersSelectors";
@@ -42,6 +41,8 @@ const PricesControl = () => {
     // })),
   ];
 
+  const getAriaLabel = () => "prices slider";
+
   return (
     <Box
       sx={{
@@ -57,7 +58,7 @@ const PricesControl = () => {
         onChange={handleChange}
         valueLabelDisplay="auto"
         getAriaValueText={valuetext}
-        aria-label="prices slider"
+        getAriaLabel={getAriaLabel}
         step={500}
         marks={marks}
         min={700}
