@@ -7,13 +7,13 @@ type SidebarState = {
   isFiltrationSidebarOpen: boolean;
 };
 
-type SidebarPayload = {
-  type: SidebarType;
-};
-
 const initialState: SidebarState = {
   isCartSidebarOpen: false,
   isFiltrationSidebarOpen: false,
+};
+type SidebarPayload = {
+  type: SidebarType;
+  forceClose?: boolean;  // Optional flag to explicitly close the sidebar
 };
 
 const sidebarSlice = createSlice({
@@ -21,13 +21,13 @@ const sidebarSlice = createSlice({
   initialState,
   reducers: {
     toggleSidebar(state, action: PayloadAction<SidebarPayload>) {
-      const { type } = action.payload;
+      const { type, forceClose } = action.payload;
       switch (type) {
         case "cart":
-          state.isCartSidebarOpen = !state.isCartSidebarOpen;
+          state.isCartSidebarOpen = forceClose ? false : !state.isCartSidebarOpen;
           break;
         case "filtration":
-          state.isFiltrationSidebarOpen = !state.isFiltrationSidebarOpen;
+          state.isFiltrationSidebarOpen = forceClose ? false : !state.isFiltrationSidebarOpen;
           break;
       }
     },
