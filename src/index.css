@@ -44,6 +44,16 @@ body {
   letter-spacing: 0.1em;
 }
 
+/* For WebKit browsers (e.g., Chrome, Safari) */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* For Firefox */
+html {
+  scrollbar-width: none; /* Hides scrollbar in Firefox */
+}
+
 h1,
 h2,
 h3,
