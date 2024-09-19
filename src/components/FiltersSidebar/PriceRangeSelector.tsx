@@ -1,32 +1,37 @@
-import { ChangeEvent } from "react";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { selectPriceFilter } from "../../redux/productFilters/productFiltersSelectors";
+import { changePriceFilter } from "../../redux/productFilters/productFiltersSlice";
 import { Input, Box, Typography } from "@mui/material";
 
-type PriceRangeSelectorProps = {
-  values: number[];
-  handleMaxChange: (event: ChangeEvent<HTMLInputElement>) => void;
-  handleMinChange: (event: ChangeEvent<HTMLInputElement>) => void;
-};
+const PriceRangeSelector = () => {
+  const dispatch = useAppDispatch();
+  const priceFilter = useAppSelector(selectPriceFilter);
 
-const PriceRangeSelector = ({
-  values,
-  handleMaxChange,
-  handleMinChange,
-}: PriceRangeSelectorProps) => {
+  const handlePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.name === "minPrice") {
+      dispatch(changePriceFilter([Number(e.target.value), priceFilter[1]]));
+    } else {
+      e;
+      dispatch(changePriceFilter([priceFilter[0], Number(e.target.value)]));
+    }
+  };
   return (
     <Box display="flex" alignItems="center" gap={2}>
       <Input
+        name="minPrice"
         type="number"
         size="small"
-        value={!values[0] ? "" : values[0]}
-        onChange={handleMinChange}
+        value={!priceFilter[0] ? "" : priceFilter[0]}
+        onChange={handlePriceChange}
         inputProps={{ min: 700, max: 5000, step: 500 }}
       />
       <Typography>To:</Typography>
       <Input
+        name="maxPrice"
         type="number"
         size="small"
-        value={!values[1] ? "" : values[1]}
-        onChange={handleMaxChange}
+        value={!priceFilter[1] ? "" : priceFilter[1]}
+        onChange={handlePriceChange}
         inputProps={{ min: 700, max: 5000, step: 500 }}
       />
     </Box>
