@@ -1,3 +1,7 @@
+.product-swiper {
+  box-shadow: var(--thick-shadow);
+}
+
 .product-swiper .product-swiper-slide {
   width: 100%;
   gap: 30px;
