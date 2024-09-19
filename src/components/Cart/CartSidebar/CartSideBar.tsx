@@ -42,7 +42,6 @@ const CartSidebar = ({ drawerWidth }: CartSidebarProps) => {
         sx: {
           width: drawerWidth,
           height: "100%",
-          borderLeft: "var(--thick-border)",
         },
       }}
     >

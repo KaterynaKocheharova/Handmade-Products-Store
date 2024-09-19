@@ -1,3 +1,4 @@
+import { useParams } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "../../redux/hooks";
 import { selectIsFiltrationSidebarOpen } from "../../redux/sidebar/sidebarSelectors";
 import { toggleSidebar } from "../../redux/sidebar/sidebarSlice";
@@ -10,6 +11,8 @@ type FiltersSidebarProps = {
 };
 
 const FiltersSidebar = ({ sidebarWidth }: FiltersSidebarProps) => {
+  const params = useParams();
+  console.log(params)
   const isSidebarOpen = useAppSelector(selectIsFiltrationSidebarOpen);
   const dispatch = useAppDispatch();
   const isNonMobile = useMediaQuery("(min-width: 600px)");
@@ -29,7 +32,6 @@ const FiltersSidebar = ({ sidebarWidth }: FiltersSidebarProps) => {
             height: "100%",
             padding: "1rem",
             width: sidebarWidth,
-            borderRight: "var(--thick-border)",
           },
         }}
       >
