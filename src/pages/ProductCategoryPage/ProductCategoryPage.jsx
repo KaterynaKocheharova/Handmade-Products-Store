@@ -7,7 +7,8 @@ import Section from "components/common/Section/Section";
 import Container from "components/common/Container/Container";
 import ProductList from "components/Products/ProductList/ProductList";
 import FiltersSidebar from "../../components/FiltersSidebar/FiltersSidebar";
-import { Button, Box, useMediaQuery } from "@mui/material";
+import SortingSelect from "../../components/SortingSelect";
+import { Button, Box, useMediaQuery, Stack } from "@mui/material";
 
 const ProductCategoryPage = () => {
   const { category } = useParams();
@@ -23,14 +24,24 @@ const ProductCategoryPage = () => {
         <Box
           sx={{ marginLeft: isSidebarOpen && isNonMobile ? sidebarWidth : "0" }}
         >
-          <Button
-            size="large"
-            sx={{ marginBottom: "4rem" }}
-            variant="outlined"
-            onClick={() => dispatch(toggleSidebar({ type: "filtration" }))}
+          <Stack
+            direction="row"
+            sx={{
+              justifyContent: "space-between",
+              alignItems: "center",
+              marginBottom: "2rem",
+            }}
           >
-            {isSidebarOpen ? "Приховати фільтрацію" : "Фільтрація"}
-          </Button>
+            <Button
+              size="large"
+              variant="outlined"
+              onClick={() => dispatch(toggleSidebar({ type: "filtration" }))}
+            >
+              {isSidebarOpen ? "Приховати фільтрацію" : "Фільтрація"}
+            </Button>
+            <SortingSelect />
+          </Stack>
+
           <ProductList products={products} />
         </Box>
       </Container>
