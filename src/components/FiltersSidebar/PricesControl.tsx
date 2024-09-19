@@ -1,5 +1,7 @@
-import { useState } from "react";
-import { ChangeEvent } from "react";
+import { useState, ChangeEvent } from "react";
+import { useAppSelector, useAppDispatch } from "../../redux/hooks";
+import { selectPriceFilter } from "../../redux/productFilters/productFiltersSelectors";
+import { changePriceFilter } from "../../redux/productFilters/productFiltersSlice";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
 import PriceRangeSelector from "./PriceRangeSelector";
@@ -20,18 +22,14 @@ const marks = [
 ];
 
 const PricesControl = () => {
-  const [value, setValue] = useState<number[]>([700, 700]);
+  const pricesFilter = useAppSelector(selectPriceFilter);
+  const dispatch = useAppDispatch();
 
   const handleChange = (event: Event, newValue: number | number[]) => {
-    setValue(newValue as number[]);
-  };
-
-  const handleMinChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setValue((prevValue) => [Number(event.target.value), prevValue[1]]);
-  };
-
-  const handleMaxChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setValue((prevValue) => [prevValue[0], Number(event.target.value)]);
+    console.log(newValue);
+    if (Array.isArray(newValue)) {
+      dispatch(changePriceFilter([newValue[0], newValue[1]]));
+    }
   };
 
   return (
@@ -43,13 +41,13 @@ const PricesControl = () => {
         gap: "1rem",
       }}
     >
-      <PriceRangeSelector
+      {/* <PriceRangeSelector
         values={value}
         handleMinChange={handleMinChange}
         handleMaxChange={handleMaxChange}
-      />
+      /> */}
       <Slider
-        value={value}
+        value={pricesFilter}
         onChange={handleChange}
         valueLabelDisplay="auto"
         getAriaValueText={valuetext}
