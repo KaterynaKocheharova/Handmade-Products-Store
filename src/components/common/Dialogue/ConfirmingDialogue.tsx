@@ -22,7 +22,6 @@ const ConfirmingDialogue = ({
   dialogueSubtype,
 }: ConfirmingDialogueProps) => {
 
-  console.log(dialogueSubtype);
   const dispatch = useAppDispatch();
 
   const productId = useAppSelector(selectProductId);

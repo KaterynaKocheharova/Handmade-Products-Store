@@ -12,7 +12,6 @@ import { toggleColorFilter } from "../../redux/productFilters/productFiltersSlic
 const ColorGroup = () => {
   const dispatch = useAppDispatch();
   const { category } = useParams<{ category: string }>();
-  console.log(category);
   const selectedColors = useAppSelector(selectColorFilters);
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(toggleColorFilter(event.target.value));

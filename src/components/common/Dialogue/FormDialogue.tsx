@@ -57,7 +57,6 @@ const FormDialogue = ({ isDialogueOpen, dialogueText }: FormDialogue) => {
           const formData = new FormData(event.currentTarget);
           const formJson = Object.fromEntries(formData.entries());
           const tel = formJson.tel;
-          console.log(tel);
           handleSubmit();
         },
         sx: {
