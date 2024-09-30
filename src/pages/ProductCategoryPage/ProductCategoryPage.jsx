@@ -17,25 +17,26 @@ const ProductCategoryPage = () => {
   return (
     <Section type="products">
       <Container type="products">
-          <Stack
-            direction="row"
-            sx={{
-              justifyContent: "space-between",
-              alignItems: "center",
-              marginBottom: "2rem",
-            }}
+        <Stack
+          direction={{ xs: "column", sm: "row" }}
+          sx={{
+            justifyContent: "space-between",
+            alignItems: "center",
+            gap: "2rem",
+            marginBottom: "2rem",
+          }}
+        >
+          <Button
+            size="large"
+            variant="outlined"
+            onClick={() => dispatch(toggleSidebar({ type: "filtration" }))}
           >
-            <Button
-              size="large"
-              variant="outlined"
-              onClick={() => dispatch(toggleSidebar({ type: "filtration" }))}
-            >
-              {isSidebarOpen ? "Приховати фільтрацію" : "Фільтрація"}
-            </Button>
-            <SortingSelect />
-          </Stack>
+            {isSidebarOpen ? "Приховати фільтрацію" : "Фільтрація"}
+          </Button>
+          <SortingSelect />
+        </Stack>
 
-          <ProductList products={products} />
+        <ProductList products={products} />
       </Container>
     </Section>
   );
