@@ -1,4 +1,5 @@
-import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "../../redux/hooks";
 import { selectIsFiltrationSidebarOpen } from "../../redux/sidebar/sidebarSelectors";
 import { toggleSidebar } from "../../redux/sidebar/sidebarSlice";
@@ -11,10 +12,21 @@ type FiltersSidebarProps = {
 };
 
 const FiltersSidebar = ({ sidebarWidth }: FiltersSidebarProps) => {
-  const params = useParams();
-  console.log(params)
-  const isSidebarOpen = useAppSelector(selectIsFiltrationSidebarOpen);
+  const location = useLocation();
   const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    if (!location.pathname.includes("products")) {
+      dispatch(
+        toggleSidebar({
+          type: "filtration",
+          forceClose: true,
+        })
+      );
+    }
+  }, [location]);
+
+  const isSidebarOpen = useAppSelector(selectIsFiltrationSidebarOpen);
   const isNonMobile = useMediaQuery("(min-width: 600px)");
   return (
     <>

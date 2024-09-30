@@ -11,6 +11,7 @@ const initialState: SidebarState = {
   isCartSidebarOpen: false,
   isFiltrationSidebarOpen: false,
 };
+
 type SidebarPayload = {
   type: SidebarType;
   forceClose?: boolean;  // Optional flag to explicitly close the sidebar
