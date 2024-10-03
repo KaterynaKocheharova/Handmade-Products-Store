@@ -1,2 +1,2 @@
-This is a simple e-commerce pet project that I am using to occasionally practice my skills in MUI, TypeScript, and React.
+This is a simple e-commerce pet project where I occasionally practice my skills in MUI, TypeScript, and React.
 
