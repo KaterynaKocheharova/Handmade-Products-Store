@@ -1,2 +1,2 @@
-This is a simple e-commerce pet project where I occasionally practice my skills in MUI, TypeScript, and React.
+This is a simple e-commerce pet project where I practice my Material-UI (MUI), TypeScript, and React skills. While this project is not yet part of my portfolio, I use it for skill development and experimentation. As a result, some features may not work perfectly on the live page. I know the existing bugs and have a clear plan for future improvements, which I intend to address once my main project workload decreases.
 
